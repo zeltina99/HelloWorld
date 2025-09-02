@@ -170,16 +170,75 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 		int Number1 = 0;
 		int Number2 = 0;
 		int Number3 = 0;
-		float Number4 = 0;
 		printf("첫번째 수: ");
 		std::cin >> Number1;
 		printf("두번째 수: ");
 		std::cin >> Number2;
-		Number3 = Number1 / Number2;
-		Number4 = Number1 / Number2;
-		Number4 -= Number3;
-		printf("두 수를 나눈 나머지는: %f", Number4);
+		Number3 = Number1 - (Number1 / Number2) * Number2;
 
+		printf("두 수를 나눈 나머지는: %d\n\n", Number3);
+
+
+
+	}
+	{
+		printf("⑥ 시간 계산기\n");
+		int sec = 0;	//초
+		int min = 0;	//분
+		int hour = 0;	//시
+		printf("초를 입력하세요: ");
+		std::cin >> sec;
+		min = sec / 60;
+		hour = min / 60;
+		sec %= 60;
+		min %= 60;
+		printf("%d시 %d분 %d초\n\n", hour, min, sec);
+
+
+	}
+	{
+		printf("⑦ 동전 개수 계산하기\n");
+		int money = 0;
+		int A = 500;	//500원
+		int B = 100;	//100원
+		int C = 50;		//50원
+		int D = 10;		//10원
+		printf("금액을 입력하시오: ");
+		std::cin >> money;
+		A = money / A;
+		money = money % 500;
+		B = money / B;
+		money = money % 100;
+		C = money / C;
+		money = money % 50;
+		D = money / D;
+		money = money % 10;
+		printf("500원:%d개 100원:%d개 50원:%d개 10원:%d개 \n\n", A, B, C, D);
+
+
+
+
+	}
+	{
+		printf("⑧ 자리수 분리하기(입력은 항상 세자리라고 가정)\n");
+
+		int a = 0;	//세자리수
+		int b = 0;	//100의 자리
+		int c = 0;	//10의 자리
+		int d = 0;	//1의 자리
+
+		printf("세자리수를 입력하시오: ");
+		std::cin >> a;
+		b = a / 100; //b의 갯수가 나옴
+		c = a % 100; //a를 100으로 나눈 나머지가 c에 들어감
+		c = c / 10;	 //a의 나머지가 들어간 c를 다시 10으로 나누어서 c의 갯수가 나오게 함
+		d = a % 10;	 //a를 10으로 나눈 나머지가 d의 들어감 곧 1의 자리수를 나타내는 d의 갯수가 나옴
+
+		printf("100의 자리수:%d 10의 자리수:%d 1의 자리수:%d \n", b, c, d);
+		b = b * 100;	//b를 100을 곱해서 다시 100의 자리수에 올림
+		c = c * 10;		//c도 10을 곱해서 다시 10의 자리수에 올림
+		a = b + c + d;	// 그렇게 b c d 를 다 더해서 다시 a로 만듬
+		printf("각 자리수를 합한 값:%d \n", a);
 
 
 	}

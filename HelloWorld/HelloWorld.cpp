@@ -174,7 +174,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 		std::cin >> Number1;
 		printf("두번째 수: ");
 		std::cin >> Number2;
-		Number3 = Number1 - (Number1 / Number2) * Number2;
+		Number3 = Number1 - (Number1 / Number2) * Number2;	// 나머지 = 큰수 - (큰수/작은수 = 몫) * 작은수
 
 		printf("두 수를 나눈 나머지는: %d\n\n", Number3);
 
@@ -190,8 +190,8 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 		std::cin >> sec;
 		min = sec / 60;
 		hour = min / 60;
-		sec %= 60;
-		min %= 60;
+		sec %= 60; // 60초가 넘어가면 안되니까
+		min %= 60; // 60분이 넘어가면 안되니까
 		printf("%d시 %d분 %d초\n\n", hour, min, sec);
 
 
@@ -205,14 +205,13 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 		int D = 10;		//10원
 		printf("금액을 입력하시오: ");
 		std::cin >> money;
-		A = money / A;
-		money = money % 500;
-		B = money / B;
-		money = money % 100;
-		C = money / C;
-		money = money % 50;
-		D = money / D;
-		money = money % 10;
+		A = money / A;			//금액을 500원으로 나누고 A에 저장.
+		money = money % 500;	//금액을 500원으로 나머지 계산하고 그 나머지를 money에 저장
+		B = money / B;			//위에 계산된 money를 100원으로 나누어서 B에 저장.
+		money = money % 100;	//500으로 나머지 계산된 money를 다시 100으로 나머지 계산하고 money에 저장
+		C = money / C;			//위에 계산된 money를 50원으로 나누어서 C에 저장.
+		money = money % 50;		//100까지 나머지로 계산된 money를 50으로 나머지 계산하고 money에 저장
+		D = money / D;			//위에 계산된 money를 10원으로 나누어서 D에 저장.
 		printf("500원:%d개 100원:%d개 50원:%d개 10원:%d개 \n\n", A, B, C, D);
 
 

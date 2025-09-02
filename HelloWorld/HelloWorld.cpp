@@ -119,18 +119,70 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//std::cin >> num;
 	//printf("%d살", num);
 
-	int number1 = 0;
-	int number2 = 0; // 변수 선언과 동시에 0으로 넣어주자.
-	printf("숫자 1을 입력하시오 : ");
-	std::cin >> number1;
-	printf("숫자 2를 입력하시오 : ");
-	std::cin >> number2;
-	int number3 = number1 + number2;
+	{
+		printf("① printf 문을 이용해서 아래와 같은 모양 찍어보기\n");
+		printf("  *  \n");
+		printf(" *** \n");
+		printf("*****\n\n");
+	}
+	{
+		printf("② 특수문자를 이용해서 미로 모양 출력해보기\n");
+		printf("┎┒┎───┒\n");
+		printf("┃┃┖───┫\n");
+		printf("┃┗──┓┏┫\n");
+		printf("┃┎──┛┖┫\n");
+		printf("┗┛ ───┛\n\n");
+
+	}
+	{
+		printf("③ 두 수를 입력받아 스왑하기\n");
+		int Num1 = 0;
+		int Num2 = 0;
+		int Num3 = 0;
+		printf("Num1의 수: ");
+		std::cin >> Num1;
+		Num3 = Num1;
+		printf("Num2의 수: ");
+		std::cin >> Num2;
+		Num1 = Num2;
+		printf("Num1이 Num2의 수로 스왑함: %d\n", Num1);
+		Num2 = Num3;
+		printf("Num2가 Num1의 수로 스왑함: %d\n\n", Num2);
+
+	}
+	{
+		printf("④ 사각형의 가로, 세로를 입력받아 넓이를 출력하기\n");
+		int Width = 0;	//가로
+		int length = 0;	//세로
+		int area = 0;	//넓이
+		printf("사각형의 가로 길이: ");
+		std::cin >> Width;
+		printf("사각형의 세로 길이: ");
+		std::cin >> length;
+		area = Width * length;
+		printf("사각형의 넓이는: %d\n\n", area);
 
 
-	printf("두 숫자의 합은 %d입니다.", number3);
+	}
+
+	{
+		printf("⑤ 두 수를 입력받아 나머지를 출력하기 (나머지 연산자 사용하지 않기).\n");
+		int Number1 = 0;
+		int Number2 = 0;
+		int Number3 = 0;
+		float Number4 = 0;
+		printf("첫번째 수: ");
+		std::cin >> Number1;
+		printf("두번째 수: ");
+		std::cin >> Number2;
+		Number3 = Number1 / Number2;
+		Number4 = Number1 / Number2;
+		Number4 -= Number3;
+		printf("두 수를 나눈 나머지는: %f", Number4);
 
 
+
+	}
 	//주석 주석 주석
 	// 
 	//주석 주석 주석

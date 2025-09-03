@@ -71,15 +71,19 @@ int main()
 	{
 		printf("④ 나이와 키를 입력 받아, 6세 이상, 120cm 이상일 때 롤러코스터 탑승 가능, 그 외에는 불가능으로 출력\n\n");
 
-		int age = 0; //  나이 변수 선언
+		unsigned int age = 0; //  나이 변수 선언
 		float height = 0.0f;	// 키 변수 선언
+
 
 		printf("나이를 입력해주세요.: ");
 		std::cin >> age;
 		printf("키를 입력해주세요.: ");
 		std::cin >> height;
 
-		if (age >= 6 && height >= 120)
+		const unsigned int LimitAge = 6;
+		const float LimitHeight = 120.0f;
+
+		if (age >= LimitAge && LimitHeight >= 120)
 		{
 			printf("롤러코스터 탑승 가능\n\n");
 		}
@@ -90,33 +94,40 @@ int main()
 
 	}
 	{
-		printf("⑤ 점수를 입력 받아 90점 이상은 A, 80점 이상은 B, 70점 이상은 C, 60점 이상은 D, 그 이하는 F라고 출력하기\n\n");
+		printf("⑤ 점수를 입력 받아 90점 이상은 A, 80점 이상은 B, 70점 이상은 C, 60점 이상은 D, 그 미만은 F라고 출력하기\n\n");
 
 		int score = 0; // 점수 변수 선언
 		
 		printf("점수를 입력해주세요.: ");
 		std::cin >> score;
 
-		if (score >= 90)
-		{
-			printf("A\n\n");
-		}
-		else if (score >= 80)
-		{
-			printf("B\n\n");
-		}
-		else if (score >= 70)
-		{
-			printf("C\n\n");
-		}
-		else if (score >= 60)
-		{
-			printf("D\n\n");
-		}
-		else
+		const unsigned int SixTy = 60;
+		const unsigned int SevenTy = 70;
+		const unsigned int EighTy = 80;
+		const unsigned int NineTy = 90;
+
+		if (score < SixTy)
 		{
 			printf("F\n\n");
 		}
+		else if (score >= SixTy)
+		{
+			printf("D\n\n");
+		}
+		else if (score >= SevenTy)
+		{
+			printf("C\n\n");
+		}
+		else if (score >= EighTy)
+		{
+			printf("B\n\n");
+		}
+		else
+		{
+			printf("A\n\n");
+		}
+
+
 	}
 	{
 		printf("⑥ 세 과목의 점수를 입력받아, 세 과목 모두 평균 60점 이상이면 합격, 아니면 불합격을 출력하는 프로그램을 작성하세요. 한과목이라도 40점 미만이면 불합격 출력하기\n\n");
@@ -134,8 +145,12 @@ int main()
 		std::cin >> Eng;
 
 		Ave = (Kor + Math + Eng) / 3.0f;	//평균 계산
+		
+		const int LimitScore = 60;
+		const int FailScore = 40;
 
-		if (Ave >= 60 && Kor >= 40 && Math >= 40 && Eng >= 40)
+		if ((Ave >= LimitScore) && 
+			(Kor >= FailScore && Math >= FailScore && Eng >= FailScore))
 		{
 			printf("합격입니다.\n\n");
 		}

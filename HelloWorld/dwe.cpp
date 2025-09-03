@@ -8,7 +8,7 @@ int main()
 
 {
 	{
-		printf("① 숫자를 입력받아 양수인지 음수인지 0인지 출력하기\n");
+		printf("① 숫자를 입력받아 양수인지 음수인지 0인지 출력하기\n\n");
 		int Num1 = 0;
 		printf("숫자를 입력해주세요.: ");
 		std::cin >> Num1;
@@ -17,18 +17,18 @@ int main()
 		{
 			printf("%d는 양수입니다.\n\n", Num1);
 		}
-		else if (Num1 == 0)
+		else if (Num1 < 0)
 		{
-			printf("%d는 0입니다.\n\n", Num1);
+			printf("%d는 음수입니다.\n\n", Num1);
 		}
 		else
 		{
-			printf("%d는 음수입니다.\n\n", Num1);
+			printf("%d는 0입니다.\n\n", Num1);
 		}
 
 	}
 	{
-		printf("② 숫자를 입력받아 홀수인지 짝수인지 출력하기\n");
+		printf("② 숫자를 입력받아 홀수인지 짝수인지 출력하기\n\n");
 		int Num2 = 0;
 		printf("숫자를 입력해주세요.: ");
 		std::cin >> Num2;
@@ -44,7 +44,7 @@ int main()
 
 	}
 	{
-		printf("③ 두 수를 입력 받아 더 큰 수를 출력하기. 같을 경우는 같다고 출력.\n");
+		printf("③ 두 수를 입력 받아 더 큰 수를 출력하기. 같을 경우는 같다고 출력.\n\n");
 		int Num3 = 0;
 		int Num4 = 0;
 		printf("첫 번째 수를 입력해주세요.: ");
@@ -56,18 +56,18 @@ int main()
 		{
 			printf("%d가 더 큽니다.\n\n", Num3);
 		}
-		else if (Num3 == Num4)
+		else if (Num3 < Num4)
 		{
-			printf("%d랑 %d가 같습니다.\n\n", Num3, Num4);
+			printf("%d가 더 큽니다.\n\n", Num4);
 		}
 		else
 		{
-			printf("%d가 더 큽니다.\n\n", Num4);
+			printf("첫 번째 수 %d랑 두 번째 수 %d가 같습니다.\n\n", Num3, Num4);
 		}
 
 	}
 	{
-		printf("④ 나이와 키를 입력 받아, 6세 이상, 120cm 이상일 때 롤러코스터 탑승 가능, 그 외에는 불가능으로 출력\n");
+		printf("④ 나이와 키를 입력 받아, 6세 이상, 120cm 이상일 때 롤러코스터 탑승 가능, 그 외에는 불가능으로 출력\n\n");
 
 		int age = 0; // 나이 변수 선언
 		int height = 0;	// 키 변수 선언
@@ -88,7 +88,7 @@ int main()
 
 	}
 	{
-		printf("⑤ 점수를 입력 받아 90점 이상은 A, 80점 이상은 B, 70점 이상은 C, 60점 이상은 D, 그 이하는 F라고 출력하기\n");
+		printf("⑤ 점수를 입력 받아 90점 이상은 A, 80점 이상은 B, 70점 이상은 C, 60점 이상은 D, 그 이하는 F라고 출력하기\n\n");
 
 		int score = 0; // 점수 변수 선언
 		
@@ -117,12 +117,12 @@ int main()
 		}
 	}
 	{
-		printf("⑥ 세 과목의 점수를 입력받아, 세 과목 모두 평균 60점 이상이면 합격, 아니면 불합격을 출력하는 프로그램을 작성하세요. 한과목이라도 40점 미만이면 불합격 출력하기\n");
+		printf("⑥ 세 과목의 점수를 입력받아, 세 과목 모두 평균 60점 이상이면 합격, 아니면 불합격을 출력하는 프로그램을 작성하세요. 한과목이라도 40점 미만이면 불합격 출력하기\n\n");
 
 		int Kor = 0;
 		int Math = 0;
 		int Eng = 0;
-		int Ave = 0;	// 평균 변수 선언
+		float Ave = 0.0f;	// 평균 변수 선언
 
 		printf("첫번째 과목 점수를 입력해주세요.: ");
 		std::cin >> Kor;
@@ -131,7 +131,7 @@ int main()
 		printf("세번째 과목 점수를 입력해주세요.: ");
 		std::cin >> Eng;
 
-		Ave = (Kor + Math + Eng) / 3;
+		Ave = (Kor + Math + Eng) / 3.0f;	//평균 계산
 
 		if (Ave >= 60 && Kor >= 40 && Math >= 40 && Eng >= 40)
 		{

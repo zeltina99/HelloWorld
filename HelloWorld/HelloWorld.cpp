@@ -275,6 +275,11 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	// 
 	//주석 주석 주석
 
+	int square = 0;
+	printf("정사각형의 한변의 길이를 입력하세요 : ");
+	std::cin >> square;
+	printf("정사각형의 넓이는 [%d]입니다.", square * square);
+
 	return 0;
 }
 

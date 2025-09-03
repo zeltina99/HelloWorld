@@ -7,14 +7,11 @@
 int main() 
 
 {
-	float ban = 0.0f; // 반지름 선언
-	float area = 0.0f; // 넓이 선언
-	float PI = 3.14f; // 파이 선언
-
-	printf("원의 반지름을 입력 하시오: ");
-	std::cin >> ban;
-	area = PI * (ban * ban);
-	printf("원의 넓이는: %f\n", area);
+	// 간단실습 : 원의 반지름을 입력 받고 넓이 구하기
+	float radius = 0.0f;
+	printf("원의 반지름을 입력하세요 : ");
+	std::cin >> radius;
+	printf("원의 넓이는 [%f]입니다.\n", radius * radius * 3.141592f);
 
 	return 0;
 

@@ -4,6 +4,8 @@
 #include <cstdio>
 #include "header.h"
 
+// 그냥 숫자를 넣으면 매직넘버인데, 실전에서 그 숫자를 중간에 계속 비일비재로 바꾸니까 그런 숫자들은 const int 변수 나 const float 변수 여기서 변수는 대문자로 정하고서 상수로 만듬
+
 int main() 
 
 {

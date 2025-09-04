@@ -478,6 +478,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	int Sum = 0;
 	while (true)
 	{
+		printf("수 입력: ");
 		std::cin >> InputNumber;
 		Sum += InputNumber;
 
@@ -485,8 +486,8 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 		{
 			break;
 		}
-	}
-	printf("입력받은 숫자의 합 = %d", Sum);*/
+	}*/
+	/*printf("입력받은 숫자의 합 = %d", Sum);*/
 	// 2. 입력받은 숫자의 구구단 출력해보기
 	/*int InputNumber = 0;
 	printf("구구단 단수를 입력하세요 : ");
@@ -568,16 +569,16 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 
 	//printf("균등분포 : ");
 	//std::uniform_int_distribution<> unfiromDis(1, 100);
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	int Number = unfiromDis(Generate);
-	//	printf("%d", Number);
-	//	if (i < 9)
-	//	{
-	//		printf(", ");
-	//	}
-	//}
-	//printf("\n");
+	/*for (int i = 0; i < 10; i++)
+	{
+		int Number = unfiromDis(Generate);
+		printf("%d", Number);
+		if (i < 9)
+		{
+			printf(", ");
+		}
+	}
+	printf("\n");*/
 
 	//printf("정규분포 : ");
 	//std::normal_distribution<> normalDis(80, 10);
@@ -591,6 +592,326 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//	}
 	//}
 	//printf("\n");
+
+
+	// 1. 주사위를 100만번 돌려서 6이 몇번 나왔는지 카운팅해서 출력하기
+	
+	//std::random_device RandomDivece;
+	//std::mt19937 Generate(RandomDivece());
+
+	//std::uniform_int_distribution<> unfiromDis(1, 6);
+
+
+	//int Count = 0;
+	//for (int i = 0; i < 1000000; i++)
+	//{
+	//	int Number = unfiromDis(Generate);
+	//	if (i && (Number == 6))
+	//	{
+	//		Count++;
+	//	}
+	//}
+	//printf("6이 %d번 나옴\n\n",  Count);
+	//
+
+	//// 2. 가위, 바위, 보 게임 만들기
+	////	3선승제
+	////	enum 활용
+
+	//enum RSP
+	//{
+	//	Rock = 1,
+	//	Scissors = 2,
+	//	Paper = 3
+	//};
+
+	//int Player = -1;
+	//int Win_Score = 0;
+	//int Lose_Score = 0;
+
+	//srand(time(0));
+	//while (true)
+	//{
+	//	int RandomNumber = (rand() % 3) + 1;
+	//	printf("Rock, Scissors, Paper중 하나를 입력하세요.: ");
+	//	std::cin >> Player;
+
+	//	if (Player == RandomNumber)
+	//	{
+
+	//		printf("비겼습니다.\n");
+	//	}
+	//	else if ((Player == Rock) < (RandomNumber != Paper))
+	//	{
+	//		Win_Score++;
+	//		printf("%d승\n", Win_Score);
+	//	}
+	//	else if ((Player == Scissors) < RandomNumber)
+	//	{
+	//		Win_Score++;
+	//		printf("%d승\n", Win_Score);
+	//	}
+	//	else if ((Player == Paper) > (RandomNumber != Scissors))
+	//	{
+	//		Win_Score++;
+	//		printf("%d승\n", Win_Score);
+	//	}
+	//	else
+	//	{
+	//		Lose_Score++;
+	//		printf("%d패\n", Lose_Score);
+	//	}
+
+	//	if ((Win_Score == 3) || (Lose_Score == 3))
+	//	{
+	//		break;
+	//	}
+	//}
+
+
+
+	//// 3. 하이 로우
+	////	컴퓨터가 1~100 사이의 임의의 숫자를 선택하고, 
+	////	사용자가 맞출 때까지 입력을 받아 "더 높게", "더 낮게" 등의 힌트를 제공하는 게임
+	////	5번안에 맞춰야 승리
+
+	//int RandomNumber_1 = (rand() % 100) + 1;
+	//int Player_Number = 0;
+
+
+	//for (int i = 0; i < 5; i++)
+	//{
+
+	//	printf("1~100 사이에 숫자를 입력하세요. : ");
+	//	std::cin >> Player_Number;
+
+	//	if (Player_Number > RandomNumber_1)
+	//	{
+	//		printf("더 낮게\n");
+	//	}
+	//	else if (Player_Number < RandomNumber_1)
+	//	{
+	//		printf("더 높게\n");
+	//	}
+	//	else
+	//	{
+	//		printf("맞췄음\n");
+	//		break;
+	//	}
+
+	//}
+
+	//// 4. 공포 게임의 인벤토리를 비트플래그로 표현하기
+	//// 아이템 종류를 나타내는 enum을 만들고
+	//// 특정 아이템을 추가하고 삭제하는 예시 보여주기
+
+	enum Item 
+	{
+		Letter  = 1 << 0,	// 편지 아이템	0b0001
+		Lighter = 1 << 1,	// 라이터 아이템	0b0010
+		Flash	= 1 << 2,	// 손전등 아이템	0b0100
+		Battery	= 1 << 3,	// 건전지 아이템	0b1000
+	};
+
+	int Inventory = 0b0000;
+	int Select = 0;
+	while (true)
+	{
+		while(true)
+		{
+			printf("1.조사한다, 2.다음구역으로 간다. ");
+			std::cin >> Inventory;
+			if (Inventory == Letter)
+			{
+				printf("편지를 얻었습니다.\n");
+			}
+			else if (Inventory == Lighter)
+			{
+				printf("라이터를 얻었습니다.\n");
+			}
+			else
+			{
+				printf("아무것도 발견하지 못했습니다.\n");
+				Inventory = 0b0000;
+			}
+			if (Inventory < 3)
+			{
+				break;
+			}
+		}
+		printf("현재 인벤토리에 %d가 있습니다.\n", Inventory);
+
+		while (true)
+		{
+			printf("1.편지를 본다, 2. 라이터를 쓴다. ");
+			std::cin >> Select;
+			Inventory = Inventory >> Select;
+			if (Inventory == Letter)
+			{
+				Inventory >> 1;
+				printf("편지를 사용했습니다.\n");
+			}
+			else if (Inventory == Lighter)
+			{
+				Inventory >> 2;
+				printf("라이터를 사용했습니다.\n");
+			}
+			else
+			{
+				printf("아무것도 사용하지 않았습니다.\n");
+			}
+			if (Inventory >= 0)
+			{
+				break;
+			}
+		}
+		printf("현재 인벤토리에 %d가 있습니다.\n", Inventory);
+
+		if (Inventory >= 0)
+		{
+			break;
+		}
+	}
+
+	// 5. 주사위 게임 만들기
+	//	① 초기 세팅
+	//		- 플레이어와 컴퓨터 모두 일정 금액(예: 10000원)으로 시작한다.
+	// 
+	//	② 1차 주사위 굴리기
+	//		- 게임 시작 시, 플레이어와 컴퓨터가 각각 주사위(1~6)를 한 번 굴린다.
+	//		- 각자 주사위 결과를 공개한다.
+	// 
+	//	③ 배팅
+	//		- 이전 판에서 진 쪽이 배팅 금액을 제시한다.
+	//		- 제시한 배팅 금액은 두 사람 모두의 현재 소지 금액 이하이어야 한다.
+	//		- 배팅 금액은 두 사람 모두에게서 차감된다.
+	// 
+	//	④ 2차 주사위 굴리기
+	//		- 다시 플레이어와 컴퓨터가 각각 주사위를 한 번씩 굴린다.
+	//		- (1차 + 2차) 주사위의 합을 계산한다.
+	// 
+	//	⑤ 승패 판정 및 금액 증감
+	//		- 합이 더 큰 쪽이 배팅 금액의 총합(즉, 2×배팅금액)을 모두 가져간다.
+	//		- 동점일 경우 배팅 금액은 그대로 반환한다.
+	// 
+	//	⑥ 다음 판 진행
+	//		- 소지금이 0 이하인 쪽이 나오면 게임 종료.
+
+	unsigned int Player_Money = 0;	// 플레이어의 금액
+	unsigned int Computer_Money = 0;	// 컴퓨터의 금액
+	unsigned int Money = 0;			// 금액
+	unsigned int Computer_Dice_Sum = 0;	// 컴퓨터의 주사위 합
+	unsigned int Player_Dice_Sum = 0;	// 플레이어의 주사위 합
+
+	printf("플레이어와 컴퓨터에게 지급할 일정 금액을 입력하시오. : ");
+	std::cin >> Money;
+	printf("\n");
+	Player_Money = Money;
+	Computer_Money = Money;
+
+	srand(time(0));
+	while(true)
+	{
+		int Computer_RandomDice = (rand() % 6) + 1;	// 컴퓨터의 1차 주사위
+		int Player_RandomDice = (rand() % 6) + 1;	// 플레이어의 1차 주사위
+
+		while (true)	// 1차 주사위	
+		{
+			printf("컴퓨터와 플레이어의 1차 주사위는 %d, %d 입니다.\n", Computer_RandomDice, Player_RandomDice);
+
+			Computer_Dice_Sum += Computer_RandomDice;	// 컴퓨터의 1차 주사위 저장
+			Player_Dice_Sum += Player_RandomDice;		// 플레이어의 1차 주사위 저장
+
+			if (Player_RandomDice < Computer_RandomDice)	// 플레이어가 컴퓨터에게 주사위 수를 졌을 때
+			{
+				printf("플레이어가 배팅 할 금액을 입력하시오. : ");
+				std::cin >> Money;
+				if ((Player_Money >= Money) && (Computer_Money >= Money))	// 두 사람 모두의 현재 소지 금액 이하여야 한다. 
+				{
+					printf("컴퓨터와 플레이어 둘 다 %d원 베팅 하였습니다.\n\n", Money);
+					Player_Money -= Money;
+					Computer_Money -= Money;
+				}
+				else
+				{
+					printf("다시 배팅 해 주세요.\n\n");
+				}
+
+			}
+			else if (Player_RandomDice > Computer_RandomDice)	// 컴퓨터가 플레이어에게 주사위 수를 졌을 때
+			{
+				printf("컴퓨터가 배팅 할 금액을 입력하시오. : ");
+				std::cin >> Money;
+				if ((Player_Money >= Money) && (Computer_Money >= Money))	// 두 사람 모두의 현재 소지 금액 이하여야 한다. 
+				{
+					printf("컴퓨터와 플레이어 둘 다 %d원 베팅 하였습니다.\n\n", Money);
+					Player_Money -= Money;
+					Computer_Money -= Money;
+				}
+				else
+				{
+					printf("다시 배팅 해 주세요.\n\n");
+				}
+
+			}
+			else
+			{
+				printf("주사위를 다시 던져 주세요.\n");
+			}
+			if (Player_RandomDice != Computer_RandomDice)
+			{
+				break;
+			}
+		}
+
+	
+
+		while(true)	// 2차 주사위
+		{
+			printf("컴퓨터와 플레이어의 2차 주사위는 %d, %d 입니다.\n\n", Computer_RandomDice, Player_RandomDice);
+
+			Computer_Dice_Sum += Computer_RandomDice;	// 1차 + 2차 컴퓨터의 주사위 합
+			Player_Dice_Sum += Player_RandomDice;		// 1차 + 2차 플레이어의 주사위 합
+
+			printf("컴퓨터의 주사위 합은 %d, 플레이어의 주사위 합은 %d입니다.\n\n", Computer_Dice_Sum, Player_Dice_Sum);
+
+			if (Player_Dice_Sum > Computer_Dice_Sum)	// 1차 + 2차 주사위를 합친 값이 플레이어가 더 클 경우
+			{
+				printf("플레이어는 %d*2의 금액을 가져갑니다.\n\n", Money);
+				Player_Money = Player_Money + (Money * 2);
+			}
+			else if (Player_Dice_Sum < Computer_Dice_Sum)	// 1차 + 2차 주사위를 합친 값이 컴퓨터가 더 클 경우
+			{
+				printf("컴퓨터는 %d*2의 금액을 가져갑니다.\n\n", Money);
+				Computer_Money = Computer_Money + (Money * 2);
+			}
+			else
+			{
+				printf("동점입니다. 배팅한 %d금액을 반환합니다.\n\n", Money);
+				Player_Money += Money;
+				Computer_Money += Money;
+
+			}
+			printf("현재 플레이어의 소지금액: %d\n", Player_Money);
+			printf("현재 컴퓨터의 소지금액: %d\n", Computer_Money);
+
+			if (Player_RandomDice != Computer_RandomDice)
+			{
+				break;
+			}
+
+		}
+		if ((Player_Money == 0) || (Computer_Money == 0))
+		{
+			printf("게임 종료\n");
+			break;
+		}
+
+	}
+
+
+	
+
 
 
 

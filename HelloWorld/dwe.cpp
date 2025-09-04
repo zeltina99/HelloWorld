@@ -272,138 +272,153 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//}
 	//c = (a > b) ? (a * 2 + b) : (a + b * 2); // 삼항연산자
 
-	//1. 숫자를 입력받아 양수인지 음수인지 0인지 출력하기
-	int InputNumber = 0;	//변수 선언은 사용하기 직전에 선언하는게 좋다.
-	printf("숫자를 입력하세요 : ");
-	std::cin >> InputNumber;
-	if (InputNumber > 0)	//if는 범위가 큰것이 먼저 체크되게 하기
-	{
-		printf("입력한 숫자는 양수입니다.\n");
-	}
-	else if (InputNumber < 0)
-	{
-		printf("입력한 숫자는 음수입니다.\n");
-	}
-	else
-	{
-		printf("입력한 숫자는 0입니다.\n");
-	}
+	////1. 숫자를 입력받아 양수인지 음수인지 0인지 출력하기
+	//int InputNumber = 0;	//변수 선언은 사용하기 직전에 선언하는게 좋다.
+	//printf("숫자를 입력하세요 : ");
+	//std::cin >> InputNumber;
+	//if (InputNumber > 0)	//if는 범위가 큰것이 먼저 체크되게 하기
+	//{
+	//	printf("입력한 숫자는 양수입니다.\n");
+	//}
+	//else if (InputNumber < 0)
+	//{
+	//	printf("입력한 숫자는 음수입니다.\n");
+	//}
+	//else
+	//{
+	//	printf("입력한 숫자는 0입니다.\n");
+	//}
 
-	//2. 숫자를 입력받아 홀수인지 짝수인지 출력하기
-	printf("홀짝을 판별하기 위한 숫자를 입력하세요 : ");
-	std::cin >> InputNumber;
-	if (InputNumber % 2 == 0)
-	{
-		printf("짝수를 입력했습니다.\n");
-	}
-	else
-	{
-		printf("홀수를 입력했습니다.\n");
-	}
+	////2. 숫자를 입력받아 홀수인지 짝수인지 출력하기
+	//printf("홀짝을 판별하기 위한 숫자를 입력하세요 : ");
+	//std::cin >> InputNumber;
+	//if (InputNumber % 2 == 0)
+	//{
+	//	printf("짝수를 입력했습니다.\n");
+	//}
+	//else
+	//{
+	//	printf("홀수를 입력했습니다.\n");
+	//}
 
-	//3. 두 수를 입력 받아 더 큰 수를 출력하기. 같을 경우는 같다고 출력.
-	int Number1 = 0;
-	int Number2 = 0;
-	printf("더 큰 수를 확인하기 위해 숫자 두개를 입력하세요 : ");
-	std::cin >> Number1 >> Number2;
-	if (Number1 > Number2)
-	{
-		printf("첫번째 숫자가 더 큽니다.\n");
-	}
-	else if (Number2 > Number1)
-	{
-		printf("두번째 숫자가 더 큽니다.\n");
-	}
-	else
-	{
-		printf("두 수는 같은 수입니다.\n");
-	}
+	////3. 두 수를 입력 받아 더 큰 수를 출력하기. 같을 경우는 같다고 출력.
+	//int Number1 = 0;
+	//int Number2 = 0;
+	//printf("더 큰 수를 확인하기 위해 숫자 두개를 입력하세요 : ");
+	//std::cin >> Number1 >> Number2;
+	//if (Number1 > Number2)
+	//{
+	//	printf("첫번째 숫자가 더 큽니다.\n");
+	//}
+	//else if (Number2 > Number1)
+	//{
+	//	printf("두번째 숫자가 더 큽니다.\n");
+	//}
+	//else
+	//{
+	//	printf("두 수는 같은 수입니다.\n");
+	//}
 
-	//4. 나이와 키를 입력 받아, 6세 이상, 120cm 이상일 때 
-	//		롤러코스터 탑승 가능, 그 외에는 불가능으로 출력
-	const unsigned int LimitAge = 5;
-	const float LimitHeight = 120.0f;
-	unsigned int Age = 0;
-	float Height = 0;	// 암시적 변환(대충 변환해주는거, 보통 표현범위가 큰쪽으로 변경됨)
-	printf("나이를 입력하세요 : ");
-	std::cin >> Age;
-	printf("키를 입력하세요 : ");
-	std::cin >> Height;
-	if (Age > LimitAge && Height > LimitHeight)	//float일때는 =없이 해도 되긴 함
-	{
-		printf("롤러코스터 탑승가능!\n");
-	}
-	else
-	{
-		printf("롤러코스터 탑승 불가능!\n");
-	}
+	////4. 나이와 키를 입력 받아, 6세 이상, 120cm 이상일 때 
+	////		롤러코스터 탑승 가능, 그 외에는 불가능으로 출력
+	//const unsigned int LimitAge = 5;
+	//const float LimitHeight = 120.0f;
+	//unsigned int Age = 0;
+	//float Height = 0;	// 암시적 변환(대충 변환해주는거, 보통 표현범위가 큰쪽으로 변경됨)
+	//printf("나이를 입력하세요 : ");
+	//std::cin >> Age;
+	//printf("키를 입력하세요 : ");
+	//std::cin >> Height;
+	//if (Age > LimitAge && Height > LimitHeight)	//float일때는 =없이 해도 되긴 함
+	//{
+	//	printf("롤러코스터 탑승가능!\n");
+	//}
+	//else
+	//{
+	//	printf("롤러코스터 탑승 불가능!\n");
+	//}
 
-	//5. 점수를 입력 받아 90점 이상은 A, 80점 이상은 B, 70점 이상은 C, 
-	//		60점 이상은 D, 그 이하는 F라고 출력하기
-
-
-	//6. 세 과목의 점수를 입력받아, 세 과목 평균이 60점 이상이면 
-	//		"합격", 아니면 "불합격"을 출력
-	//		단, 한과목이라도 40점 미만이면 불합격 출력하기
-	int Point1 = 0;
-	int Point2 = 0;
-	int Point3 = 0;
-	printf("시험 점수를 3개 입력해 주세요 : ");
-	std::cin >> Point1 >> Point2 >> Point3;
-	const int AverageLimit = 60;
-	const int FailLimit = 40;
-	float Average = (Point1 + Point2 + Point3) / 3.0f;
-
-	if ((Average >= AverageLimit) && 
-		(Point1 >= FailLimit && Point2 >= FailLimit && Point3 >= FailLimit))	// int 나누기 float는 float
-	{
-		printf("합격\n");
-	}
-	else
-	{
-		printf("불합격\n");
-	}
+	////5. 점수를 입력 받아 90점 이상은 A, 80점 이상은 B, 70점 이상은 C, 
+	////		60점 이상은 D, 그 이하는 F라고 출력하기
 
 
-	int Flag = 0b1010;	
-	// 0b0001 = 왼쪽 키가 눌려졌다.
-	// 0b0010 = 오른쪽 키가 눌려졌다.
-	// 0b0100 = 위쪽 키가 눌려졌다.
-	// 0b1000 = 아래쪽 키가 눌려졌다.
+	////6. 세 과목의 점수를 입력받아, 세 과목 평균이 60점 이상이면 
+	////		"합격", 아니면 "불합격"을 출력
+	////		단, 한과목이라도 40점 미만이면 불합격 출력하기
+	//int Point1 = 0;
+	//int Point2 = 0;
+	//int Point3 = 0;
+	//printf("시험 점수를 3개 입력해 주세요 : ");
+	//std::cin >> Point1 >> Point2 >> Point3;
+	//const int AverageLimit = 60;
+	//const int FailLimit = 40;
+	//float Average = (Point1 + Point2 + Point3) / 3.0f;
 
-	if ((Flag & 0b0010) != 0b0000)
-	{
-		// 오른쪽 키가 눌려져 있다.
-	}
-	else
-	{
-		// 오른쪽 키가 눌려져 있지 않다.
-	}
-	// int Flag = 0b1010;	
-	Flag = Flag | 0b0001;	// 결과는 Flag = 0b1011
+	//if ((Average >= AverageLimit) && 
+	//	(Point1 >= FailLimit && Point2 >= FailLimit && Point3 >= FailLimit))	// int 나누기 float는 float
+	//{
+	//	printf("합격\n");
+	//}
+	//else
+	//{
+	//	printf("불합격\n");
+	//}
 
-	// int Flag =		0b1010;
-	int Result = Flag ^ 0b0001;	// 결과 = 0b1011;
-	Result = 0b1011 ^ 0b0001;	// 결과 = 0b1010;
 
-	Flag = 0b1010;
-	int Test = 0b0001;
-	Test = ~Test;	// 왼쪽 키를 제외한 나머지 모두 세팅
+	//int Flag = 0b1010;	
+	//// 0b0001 = 왼쪽 키가 눌려졌다.
+	//// 0b0010 = 오른쪽 키가 눌려졌다.
+	//// 0b0100 = 위쪽 키가 눌려졌다.
+	//// 0b1000 = 아래쪽 키가 눌려졌다.
 
-	// enum : 상수들에게 사람이 알아보기 좋은 이름을 붙여 놓은 것
-	enum Key	//c 스타일
-	{
-		Up		= 1 << 0,	// 0b0001
-		Down	= 1 << 1,	// 0b0010
-		Left	= 1 << 2,	// 0b0100
-		Right	= 1 << 3	// 0b1000
-	};
+	//if ((Flag & 0b0010) != 0b0000)
+	//{
+	//	// 오른쪽 키가 눌려져 있다.
+	//}
+	//else
+	//{
+	//	// 오른쪽 키가 눌려져 있지 않다.
+	//}
+	//// int Flag = 0b1010;	
+	//Flag = Flag | 0b0001;	// 결과는 Flag = 0b1011
 
-	// Flag가 Up이랑 같아서 0이 아닐경우 : Up이 눌릴경우
-	if ((Flag & Up) != 0)
-	{
-		// Up버튼이 눌려져있다.
-	}
+	//// int Flag =		0b1010;
+	//int Result = Flag ^ 0b0001;	// 결과 = 0b1011;
+	//Result = 0b1011 ^ 0b0001;	// 결과 = 0b1010;
+
+	//Flag = 0b1010;
+	//int Test = 0b0001;
+	//Test = ~Test;	// 왼쪽 키를 제외한 나머지 모두 세팅
+
+	//// enum : 상수들에게 사람이 알아보기 좋은 이름을 붙여 놓은 것
+	//enum Key	//c 스타일
+	//{
+	//	Up		= 1 << 0,	// 0b0001
+	//	Down	= 1 << 1,	// 0b0010
+	//	Left	= 1 << 2,	// 0b0100
+	//	Right	= 1 << 3	// 0b1000
+	//};
+
+	//// Flag가 Up이랑 같아서 0이 아닐경우 : Up이 눌릴경우
+	//if ((Flag & Up) != 0)
+	//{
+	//	// Up버튼이 눌려져있다.
+	//}
+
+	// 간단 실습 : 양수를 하나 입력받고 홀수인지 짝수인지 출력하기(%사용금지)
+
+	//unsigned int Num1 = 0;
+	//printf("양수를 입력 해주세요.: ");
+	//std::cin >> Num1;
+	//const unsigned int Num2 = 1; //0b0001 선언
+	//if (Num1 != Num1 ^ Num2)
+	//{
+	//	printf("%d는 홀수입니다.\n", Num1);
+	//}
+	//else
+	//{
+	//	printf("%d는 짝수입니다.\n", Num1);
+	//}
 
 
 

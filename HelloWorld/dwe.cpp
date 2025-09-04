@@ -451,28 +451,23 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	// 1. 0을 입력받을 때까지 입력을 계속 받고 0이 입력되면 입력받은 숫자의 합을 출력하기.
 	//		while이랑 do-while 모두 해보기
 	
-	int Count = 0;
-	printf("수를 입력해주세요.: ");
-	std::cin >> Count;
+	int Count = -1;
 	int Sum = 0;
-	while (Count >= 0)
+	while (Count != 0)
 	{
+		std::cin >> Count;
 		Sum += Count;
-		printf("%d\n", Count);
-		Count--;
 	}
-	printf("총 합은: %d\n\n", Sum);
+	printf("총합은 : %d\n\n", Sum);
 
-	int Count_a = 0;
-	printf("수를 입력해주세요.: ");
-	std::cin >> Count_a;
+	int Count_a = -1;
 	int Sum_a = 0;
 	do
 	{
+		std::cin >> Count_a;
 		Sum_a += Count_a;
-		printf("%d\n", Count_a);
-		Count_a--;
-	} while (Count_a >= 0);
+		
+	} while (Count_a != 0);
 	printf("총 합은: %d\n\n", Sum_a);
 
 	// 2. 입력받은 숫자의 구구단 출력해보기

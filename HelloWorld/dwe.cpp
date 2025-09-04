@@ -122,9 +122,23 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 
 */
 
+/*
+	랜덤
+	- 무작위로 숫자를 선택하는 법
+	- C 스타일
+		- rand();			 함수 활용
+		- srand(time(0));	시드값 설정
+	- C++ 스타일
+		- #include <random>
+		- C 스타일보다 많은 기능을 제공한다.
+
+*/
+
 #include <iostream>	// 입출력 관련(cout)
 #include <stdio.h>
+#include <time.h>
 #include <cstdio>	// stdio.h에 네임스페이스 추가한 래퍼
+#include <random>
 #include "header.h"
 
 //using namespace std;
@@ -532,6 +546,52 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 		}
 		printf("\n");
 	}*/
+
+	//// C 스타일의 랜덤 사용법
+	////srand(time(0));
+	//srand(0);
+	//for (int i = 0; i < 10; i++)
+	//{
+	//int RandomNumber = rand();
+	//printf("랜덤한 숫자 : %d\n", RandomNumber);
+	//}
+
+	//// 0~5까지의 숫자를 랜덤으로 구하고 싶다.
+	//int RandomNumber1 = rand() % 6;
+	//
+	//// 1~6까지의 숫자를 랜덤으로 구하고 싶다.
+	//int RandomNumber2 = rand() % 6 + 1;
+
+	//// C++ 스타일
+	//std::random_device RandomDivece;
+	//std::mt19937 Generate(RandomDivece());
+
+	//printf("균등분포 : ");
+	//std::uniform_int_distribution<> unfiromDis(1, 100);
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	int Number = unfiromDis(Generate);
+	//	printf("%d", Number);
+	//	if (i < 9)
+	//	{
+	//		printf(", ");
+	//	}
+	//}
+	//printf("\n");
+
+	//printf("정규분포 : ");
+	//std::normal_distribution<> normalDis(80, 10);
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	float Number = normalDis(Generate);
+	//	printf("%.2f", Number);
+	//	if (i < 9)
+	//	{
+	//		printf(", ");
+	//	}
+	//}
+	//printf("\n");
+
 
 
 	return 0;

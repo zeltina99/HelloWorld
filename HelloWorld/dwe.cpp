@@ -112,6 +112,16 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 	do-while	최소 한번은 무조건 실행해야 할 때 사용.(while과 거의 같음)
 */
 
+/*
+	제어문
+	continue
+		- 반복문 안에서 사용
+		- continue를 만나면 그 이후의 코드는 스킵하고 다음 반복을 진행
+	break
+		- 반복문이나 switch문에서 반복문을 벗어나거나 case를 종료시킨다.
+
+*/
+
 #include <iostream>	// 입출력 관련(cout)
 #include <stdio.h>
 #include <cstdio>	// stdio.h에 네임스페이스 추가한 래퍼
@@ -428,36 +438,101 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	}*/
 
 	//헬로 월드 10번찍기(for)
-	for (int i = 0; i < 10; i++)
-	{
-		printf("Hello World For: %d\n", i);
-	}
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	printf("Hello World For: %d\n", i);
+	//}
 
-	int Count = 1;
-	while ((Count % 3) != 0)	//while()의 조건이 참이면 코드 블럭 실행
-	{
-		printf("Hello World While: %d\n", Count);
-		Count++;
-	}
+	//int Count = 1;
+	//while ((Count % 3) != 0)	//while()의 조건이 참이면 코드 블럭 실행
+	//{
+	//	printf("Hello World While: %d\n", Count);
+	//	Count++;
+	//}
 
-	Count = 1;
-	do
-	{
-		printf("Hello World While: %d\n", Count);
-		Count++;
-	} while ((Count % 3) != 0);	//while()의 조건이 참이면 코드 블럭 실행
+	//Count = 1;
+	//do
+	//{
+	//	printf("Hello World While: %d\n", Count);
+	//	Count++;
+	//} while ((Count % 3) != 0);	//while()의 조건이 참이면 코드 블럭 실행
 
 	// 간단 실습
-	// 1. 0을 입력받을 때까지 입력을 계속 받고 0이 입력되면 입력받은 숫자의 합을 출력하기.
+	// 1. 0을 입력받을 때까지 입력을 계속 받고, 0이 입력되면 입력받은 숫자의 합을 출력하기.
 	//		while이랑 do-while 모두 해보기
+	/*int InputNumber = -1;
+	int Sum = 0;
+	while (true)
+	{
+		std::cin >> InputNumber;
+		Sum += InputNumber;
+
+		if (InputNumber == 0)
+		{
+			break;
+		}
+	}
+	printf("입력받은 숫자의 합 = %d", Sum);*/
 	// 2. 입력받은 숫자의 구구단 출력해보기
-	// 3. 숫자를 하나 입력 받고 입력받은 수까지 있는 숫자 중 홀수만 출력하기
+	/*int InputNumber = 0;
+	printf("구구단 단수를 입력하세요 : ");
+	std::cin >> InputNumber;
+	for (int i = 1; i < 10; i++)
+	{
+		printf("%d * %d = %d\n", InputNumber, i, InputNumber * i);
+	}*/
+	
+	// 3. 숫자를 하나 입력 받고, 입력받은 수까지 있는 숫자 중, 홀수만 출력하기
+	/*int InputNumber = 0;
+	printf("최대치를 입력하세요 : ");
+	std::cin >> InputNumber;
+	for (int i = 0; i <= InputNumber; i++)
+	{
+		if ((i % 2) == 0)
+		{
+			continue;
+		}
+			printf("%d는 홀수입니다.\n", i);
+	}*/
+	
 	// 4. 1~100사이의 숫자 중에 7의 배수만 출력하기
+	/*const int MinNumber = 1;
+	const int MaxNumber = 100;
+	for (int i = MinNumber; i <= MaxNumber; i++)
+	{
+		if ((i % 7) == 0)
+		{
+			printf("%d는 7의 배수입니다.\n", i);
+		}
+	}*/
+	
 	// 5. 입력받은 숫자만큼의 층을 가진 피라미드 그리기
 	//		3을 입력받았으면 아래와 같이 출력하기
 	//			*
 	//         ***
 	//		  *****
+	// 5-1. 입력을 받아야 한다. (InputNumber)
+	// 5-2. *표가 첫번째 층에서는 1개 두번째 층에서는 3개.. 이런식으로 이어지니까
+	//		각 층별로 (층수 * 2 +1 1)만큼의 *을 찍어야 한다.
+	// 5-3. 각 층별로 " "을 (총 층수 - (현재 층수 + 1))만큼 추가해야 한다.
+	/*int InputNumber = 0;
+	printf("피라미드 층수를 입력하세요 : ");
+	std::cin >> InputNumber;
+
+
+	for (int i = 0; i < InputNumber; i++)
+	{
+		for (int j = 0; j < InputNumber - (i + 1); j++)
+		{
+			printf(" ");
+		}
+		for (int k = 0; k < (i * 2 + 1 ); k++)
+		{
+			printf("*");
+		}
+		printf("\n");
+	}*/
+
 
 	return 0;
 

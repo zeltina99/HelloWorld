@@ -532,7 +532,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 		{
 			printf(" ");
 		}
-		for (int z = 0; z < 2 * x + 1; z++) 
+		for (int y = 0; y < 2 * x + 1; y++) 
 		{
 			printf("*");
 		}

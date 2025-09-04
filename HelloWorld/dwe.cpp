@@ -594,14 +594,14 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 
 	//4번
 
-	enum Item
-	{
-		KeyRed = 1,				// 1 << 0
-		KeyGreen = 2,			// 1 << 1
-		KeyBlue = 4,			// 1 << 2
-		
-	};
-	int Inventory = 0;
+	//enum Item
+	//{
+	//	KeyRed = 1,				// 1 << 0
+	//	KeyGreen = 2,			// 1 << 1
+	//	KeyBlue = 4,			// 1 << 2
+	//	
+	//};
+	//int Inventory = 0;
 	//	0b0110
 	//	인벤토리 내용 출력하기	(Inventory의 비트내용에 따라 출력)
 	//	1번 : 아이템 추가, 2번 : 아이템 버리기, 3번 : 종료

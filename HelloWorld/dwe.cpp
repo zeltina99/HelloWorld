@@ -704,6 +704,11 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//// 4. 공포 게임의 인벤토리를 비트플래그로 표현하기
 	//// 아이템 종류를 나타내는 enum을 만들고
 	//// 특정 아이템을 추가하고 삭제하는 예시 보여주기
+	//	0b0110
+	//	인벤토리 내용 출력하기	(Inventory의 비트내용에 따라 출력)
+	//	1번 : 아이템 추가, 2번 : 아이템 버리기, 3번 : 종료
+	//	이미 있는 아이템을 추가하려고 하면 "이미 있는 아이템입니다" 출력
+	//	없는 아이템을 버리려고 하면 "없는 아이템입니다." 출력
 
 	enum Item 
 	{
@@ -714,64 +719,9 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	};
 
 	int Inventory = 0b0000;
-	int Select = 0;
+	
 	while (true)
-	{
-		while(true)
-		{
-			printf("1.조사한다, 2.다음구역으로 간다. ");
-			std::cin >> Inventory;
-			if (Inventory == Letter)
-			{
-				printf("편지를 얻었습니다.\n");
-			}
-			else if (Inventory == Lighter)
-			{
-				printf("라이터를 얻었습니다.\n");
-			}
-			else
-			{
-				printf("아무것도 발견하지 못했습니다.\n");
-				Inventory = 0b0000;
-			}
-			if (Inventory < 3)
-			{
-				break;
-			}
-		}
-		printf("현재 인벤토리에 %d가 있습니다.\n", Inventory);
-
-		while (true)
-		{
-			printf("1.편지를 본다, 2. 라이터를 쓴다. ");
-			std::cin >> Select;
-			Inventory = Inventory >> Select;
-			if (Inventory == Letter)
-			{
-				Inventory >> 1;
-				printf("편지를 사용했습니다.\n");
-			}
-			else if (Inventory == Lighter)
-			{
-				Inventory >> 2;
-				printf("라이터를 사용했습니다.\n");
-			}
-			else
-			{
-				printf("아무것도 사용하지 않았습니다.\n");
-			}
-			if (Inventory >= 0)
-			{
-				break;
-			}
-		}
-		printf("현재 인벤토리에 %d가 있습니다.\n", Inventory);
-
-		if (Inventory >= 0)
-		{
-			break;
-		}
-	}
+	
 
 	// 5. 주사위 게임 만들기
 	//	① 초기 세팅

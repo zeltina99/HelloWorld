@@ -428,36 +428,117 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	}*/
 
 	//헬로 월드 10번찍기(for)
-	for (int i = 0; i < 10; i++)
-	{
-		printf("Hello World For: %d\n", i);
-	}
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	printf("Hello World For: %d\n", i);
+	//}
 
-	int Count = 1;
-	while ((Count % 3) != 0)	//while()의 조건이 참이면 코드 블럭 실행
-	{
-		printf("Hello World While: %d\n", Count);
-		Count++;
-	}
+	//int Count = 1;
+	//while ((Count % 3) != 0)	//while()의 조건이 참이면 코드 블럭 실행
+	//{
+	//	printf("Hello World While: %d\n", Count);
+	//	Count++;
+	//}
 
-	Count = 1;
-	do
-	{
-		printf("Hello World While: %d\n", Count);
-		Count++;
-	} while ((Count % 3) != 0);	//while()의 조건이 참이면 코드 블럭 실행
+	//Count = 1;
+	//do
+	//{
+	//	printf("Hello World While: %d\n", Count);
+	//	Count++;
+	//} while ((Count % 3) != 0);	//while()의 조건이 참이면 코드 블럭 실행
 
 	// 간단 실습
 	// 1. 0을 입력받을 때까지 입력을 계속 받고 0이 입력되면 입력받은 숫자의 합을 출력하기.
 	//		while이랑 do-while 모두 해보기
+	
+	int Count = 0;
+	printf("수를 입력해주세요.: ");
+	std::cin >> Count;
+	int Sum = 0;
+	while (Count >= 0)
+	{
+		Sum += Count;
+		printf("%d\n", Count);
+		Count--;
+	}
+	printf("총 합은: %d\n\n", Sum);
+
+	int Count_a = 0;
+	printf("수를 입력해주세요.: ");
+	std::cin >> Count_a;
+	int Sum_a = 0;
+	do
+	{
+		Sum_a += Count_a;
+		printf("%d\n", Count_a);
+		Count_a--;
+	} while (Count_a >= 0);
+	printf("총 합은: %d\n\n", Sum_a);
+
 	// 2. 입력받은 숫자의 구구단 출력해보기
+	int Number1 = 0;
+	printf("수를 입력해주세요.: ");
+	std::cin >> Number1;
+	for (int i = 1; i < 10; i++)
+	{
+		printf("%d*%d=%d\n", Number1, i, Number1 * i);
+	}
+	printf("\n");
 	// 3. 숫자를 하나 입력 받고 입력받은 수까지 있는 숫자 중 홀수만 출력하기
+	int Number2 = 0;
+	printf("수를 입력해주세요.: ");
+	std::cin >> Number2;
+	if (Number2 % 2 != 0)
+	{
+		while (Number2 > 0)
+		{
+			printf("%d\n", Number2);
+			Number2-=2;
+		}
+	}
+	else
+	{
+		while (Number2 > 0)
+		{
+			printf("%d\n", Number2);
+			Number2 -= 2;
+		}
+	}
+	printf("\n");
 	// 4. 1~100사이의 숫자 중에 7의 배수만 출력하기
+	const int LowLimit = 2;
+	const int HighLimit = 100;
+	const int MagicNum = 7;
+	int Sum_b = 7;
+	for (int j = LowLimit; Sum_b <= HighLimit; j++)
+	{
+		printf("%d\n", Sum_b);
+		Sum_b = j * MagicNum;
+	}
+	printf("\n");
+	
 	// 5. 입력받은 숫자만큼의 층을 가진 피라미드 그리기
 	//		3을 입력받았으면 아래와 같이 출력하기
 	//			*
 	//         ***
 	//		  *****
+
+	int Star = 0;
+	printf("수를 입력해주세요.: ");
+	std::cin >> Star;
+	for (int x = 0; x < Star; x++)
+	{
+		for (int y = Star - 1; y > x ; y--) 
+		{
+			printf(" ");
+		}
+		for (int z = 0; z < 2 * x + 1; z++) 
+		{
+			printf("*");
+		}
+		printf("\n");
+	}
+	
 
 	return 0;
 

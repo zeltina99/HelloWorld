@@ -592,21 +592,294 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//}
 	//printf("\n");
 
-	//4번
+	//1. 주사위(1~6)를 100만번 돌려서 6이 몇번 나왔는지 카운팅해서 출력하기
+	
+	//const int TestCount = 1000000;
+	//int HitCount = 0;
+	//for (int i = 0; i < TestCount; i++)	// 100만번 돌려서
+	//{
+	//	int dice = (rand() % 6) + 1;	// 주사위(1~6)를
+	//	if (dice == 6)	// 6이 몇번 나왔는지
+	//	{
+	//		HitCount++;	// 카운팅해서
+	//	}
+	//}
+	//printf("6이 나온 횟수 = %d", HitCount);	// 출력하기
+
+	
+	//2. 가위, 바위, 보 게임 만들기
+	//	3선승제
+	//	enum 활용
+	
+	//	가위 바위 보 - 두 명의 플레이어가 가위, 바위, 보 중 하나를 선택한다.
+	//	선택의 결과에 따라 승과 패가 나뉜다.
+	//	가위는 보를 이긴다.
+	//	바위는 가위를 이긴다.
+	//	보는 바위를 이긴다.
+
+//PlayerSelect != Scissors
+//&& PlayerSelect != Rock
+//&& PlayerSelect != Paper
+
+	//enum Rock_Paper_Scissors
+	//{
+	//	Scissors,
+	//	Rock,
+	//	Paper,
+	//	NumOfRps
+	//};
+	//const int WinGoal = 3;
+	//int PlayerWinCount = 0;
+	//int ComWinCount = 0;
+
+
+	//while (PlayerWinCount < WinGoal && ComWinCount < WinGoal)
+	//{
+
+
+	//	int PlayerSelect = -1;
+	//	while (true)	// 플레이어 선택
+	//	{
+	//		printf("선택하세요. [0:가위, 1:바위, 2:보] : ");
+	//		std::cin >> PlayerSelect;
+
+	//		if (PlayerSelect == Scissors
+	//			|| PlayerSelect == Rock
+	//			|| PlayerSelect == Paper)
+	//		{
+	//			break;
+	//		}
+
+	//		printf("잘못된 입력입니다. 다시 입력하세요\n");
+	//	}
+	//	int ComSelect = rand() % NumOfRps;	// 컴퓨터 선택
+
+	//	switch (PlayerSelect)	// 승패 결정
+	//	{
+	//	case Scissors:
+	//		if (ComSelect == Scissors)
+	//		{
+	//			printf("당신은 [가위]를 선택했고 컴퓨터는 [가위]를 선택했습니다.\n");
+	//			printf("비겼습니다.\n");
+	//		}
+	//		else if (ComSelect == Rock)
+	//		{
+	//			printf("당신은 [가위]를 선택했고 컴퓨터는 [바위]를 선택했습니다.\n");
+	//			printf("당신이 졌습니다.\n");
+	//			ComWinCount++;
+	//		}
+	//		else if (ComSelect == Paper)
+	//		{
+	//			printf("당신은 [가위]를 선택했고 컴퓨터는 [보]를 선택했습니다.\n");
+	//			printf("당신이 이겼습니다.\n");
+	//			PlayerWinCount++;
+	//		}
+	//		else
+	//		{
+	//			printf("ERROR!!!!! 예상외의 사건이 발생함!\n");
+	//		}
+	//		break;
+	//	case Rock:
+	//		if (ComSelect == Scissors)
+	//		{
+	//			printf("당신은 [바위]를 선택했고 컴퓨터는 [가위]를 선택했습니다.\n");
+	//			printf("당신이 이겼습니다.\n");
+	//			PlayerWinCount++;
+	//		}
+	//		else if (ComSelect == Rock)
+	//		{
+	//			printf("당신은 [바위]를 선택했고 컴퓨터는 [바위]를 선택했습니다.\n");
+	//			printf("비겼습니다.\n");
+	//		}
+	//		else if (ComSelect == Paper)
+	//		{
+	//			printf("당신은 [바위]를 선택했고 컴퓨터는 [보]를 선택했습니다.\n");
+	//			printf("당신이 졌습니다.\n");
+	//			ComWinCount++;
+	//		}
+	//		else
+	//		{
+	//			printf("ERROR!!!!! 예상외의 사건이 발생함!\n");
+	//		}
+	//		break;
+	//	case Paper:
+	//		if (ComSelect == Scissors)
+	//		{
+	//			printf("당신은 [보]를 선택했고 컴퓨터는 [가위]를 선택했습니다.\n");
+	//			printf("당신이 졌습니다.\n");
+	//			ComWinCount++;
+	//		}
+	//		else if (ComSelect == Rock)
+	//		{
+	//			printf("당신은 [보]를 선택했고 컴퓨터는 [바위]를 선택했습니다.\n");
+	//			printf("당신이 이겼습니다.\n");
+	//			PlayerWinCount++;
+	//		}
+	//		else if (ComSelect == Paper)
+	//		{
+	//			printf("당신은 [보]를 선택했고 컴퓨터는 [보]를 선택했습니다.\n");
+	//			printf("비겼습니다.\n");
+	//		}
+	//		else
+	//		{
+	//			printf("ERROR!!!!! 예상외의 사건이 발생함!\n");
+	//		}
+	//		break;
+	//	default:
+	//		printf("ERROR!!!!! 예상외의 사건이 발생함!\n");
+	//		break;
+	//	}
+
+	//	printf("Player = [%d], COM = [%d]\n", PlayerWinCount, ComWinCount);
+
+
+	//}
+
+	//if (PlayerWinCount >= WinGoal)
+	//{
+	//	printf("당신이 컴퓨터를 이겼습니다!\n");
+	//}
+	//else
+	//{
+	//	printf("당신이 컴퓨터에게 졌습니다...\n");
+	//}
+	
+	//3. 하이 로우
+	//	컴퓨터가 1~100 사이의 임의의 숫자를 선택하고, 
+	//	사용자가 맞출 때까지 입력을 받아 "더 높게", "더 낮게" 등의 힌트를 제공하는 게임
+	//	5번안에 맞춰야 승리
+	
+	/*int RandomNumber = (rand() % 100) + 1;
+	int PlayerNumber = 0;
+	int CountDown = 5;
+
+	while(CountDown > 0)
+	{
+		printf("1~100 사이의 숫자를 예상 해 보세요 : ");
+		std::cin >> PlayerNumber;
+
+		if (PlayerNumber < RandomNumber)
+		{
+			printf("더 큰 수를 찍어보세요\n");
+		}
+		else if (PlayerNumber > RandomNumber)
+		{
+			printf("더 작은 수를 찍어보세요\n");
+		}
+		else
+		{
+			printf("정답입니다!\n 찾는 수는 %d였습니다.", RandomNumber);
+			break;
+		}
+		CountDown--;
+		printf("남은 횟수는 %d번 입니다.\n", CountDown);
+	}
+	if (CountDown <= 0)
+	{
+		printf("실패했습니다.");
+	}*/
+
+
+
+	//4. 공포 게임의 인벤토리를 비트플래그로 표현하기
+	// 아이템 종류를 나타내는 enum을 만들고
+	// 특정 아이템을 추가하고 삭제하는 예시 보여주기
+	/*for (int i = 0; i < ItemCount; i++)
+	{
+
+	}*/	
+
 
 	//enum Item
 	//{
-	//	KeyRed = 1,				// 1 << 0
-	//	KeyGreen = 2,			// 1 << 1
-	//	KeyBlue = 4,			// 1 << 2
-	//	
+	//	Key	 = 1 << 0,
+	//	Fuse = 1 << 1,
+	//	Book = 1 << 2,
+	//	Note = 1 << 3
 	//};
+	//
+	//const int ItemCount = 4;
 	//int Inventory = 0;
-	//	0b0110
-	//	인벤토리 내용 출력하기	(Inventory의 비트내용에 따라 출력)
-	//	1번 : 아이템 추가, 2번 : 아이템 버리기, 3번 : 종료
-	//	이미 있는 아이템을 추가하려고 하면 "이미 있는 아이템입니다" 출력
-	//	없는 아이템을 버리려고 하면 "없는 아이템입니다." 출력
+	////Inventory = 0b1111;	// 테스트 노트
+
+	//int PlayerSelect = -1;
+
+	//while (PlayerSelect != 3)
+	//
+	//{
+	//	printf("어떤 일을 할까요 [1:아이템 추가, 2:아이템 삭제, 3:종료]: ");
+	//	std::cin >> PlayerSelect;
+
+	//	switch (PlayerSelect)
+	//	{
+	//	case 1:
+	//	{
+	//		printf("어떤 아이템을 추가할까요? :[0:열쇠, 1:퓨즈, 2:책, 3:쪽지]: ");
+	//		int AddItem = 0;
+	//		std::cin >> AddItem;
+	//		Inventory |= (1 << AddItem);
+	//	}
+	//	break;
+	//	case 2:
+	//	{
+	//		printf("어떤 아이템을 제거할까요? :[0:열쇠, 1:퓨즈, 2:책, 3:쪽지]: ");
+	//		int RemoveItem = 0;
+	//		std::cin >> RemoveItem;
+	//		Inventory &= (~(1 << RemoveItem));
+	//	}
+	//	break;
+	//	case 3:
+	//		continue;
+	//	default:
+	//		//에러 출력하기
+	//		break;
+	//	}
+	//}
+
+	//printf("인벤토리 : ");
+	//if ((Inventory & Key) != 0)
+	//{
+	//	printf("열쇠 ");
+	//}
+	//if ((Inventory & Fuse) != 0)
+	//{
+	//	printf("퓨즈 ");
+	//}
+	//if ((Inventory & Book) != 0)
+	//{
+	//	printf("책 ");
+	//}
+	//if ((Inventory & Note) != 0)
+	//{
+	//	printf("쪽지 ");
+	//}
+	//printf("\n");
+	
+	
+	//5. 주사위 게임 만들기
+	//	① 초기 세팅
+	//		- 플레이어와 컴퓨터 모두 일정 금액(예: 10000원)으로 시작한다.
+	// 
+	//	② 1차 주사위 굴리기
+	//		- 게임 시작 시, 플레이어와 컴퓨터가 각각 주사위(1~6)를 한 번 굴린다.
+	//		- 각자 주사위 결과를 공개한다.
+	// 
+	//	③ 배팅
+	//		- 이전 판에서 진 쪽이 배팅 금액을 제시한다.
+	//		- 제시한 배팅 금액은 두 사람 모두의 현재 소지 금액 이하이어야 한다.
+	//		- 배팅 금액은 두 사람 모두에게서 차감된다.
+	// 
+	//	④ 2차 주사위 굴리기
+	//		- 다시 플레이어와 컴퓨터가 각각 주사위를 한 번씩 굴린다.
+	//		- (1차 + 2차) 주사위의 합을 계산한다.
+	// 
+	//	⑤ 승패 판정 및 금액 증감
+	//		- 합이 더 큰 쪽이 배팅 금액의 총합(즉, 2×배팅금액)을 모두 가져간다.
+	//		- 동점일 경우 배팅 금액은 그대로 반환한다.
+	// 
+	//	⑥ 다음 판 진행
+	//		- 소지금이 0 이하인 쪽이 나오면 게임 종료.
+	
 
 
 	

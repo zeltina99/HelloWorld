@@ -920,40 +920,59 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//	⑥ 다음 판 진행
 	//		- 소지금이 0 이하인 쪽이 나오면 게임 종료.
 	
-	int Number = Sum(1, 7);	// Sum함수를 호출했다. 파라메터로 1과 7을 넘겼다. 그리고 8을 돌려받았다.
-	printf("1과7의 합: %d\n", Number);
+	//int Number = Sum(1, 7);	// Sum함수를 호출했다. 파라메터로 1과 7을 넘겼다. 그리고 8을 돌려받았다.
+	//printf("1과7의 합: %d\n", Number);
 
-	Number = Multiply(2, 3);
-	printf("2와3의 곱: %d\n", Number);
+	//Number = Multiply(2, 3);
+	//printf("2와3의 곱: %d\n", Number);
 
-	Number = Multiply(7);
-	printf("7과 기본 2의 곱: %d\n", Number);
+	//Number = Multiply(7);
+	//printf("7과 기본 2의 곱: %d\n", Number);
 
-	Number = Minus(5, 3);
-	printf("5와3의 빼기: %d\n", Number);
+	//Number = Minus(5, 3);
+	//printf("5와3의 빼기: %d\n", Number);
 
-	Number = Division(8, 2);
-	printf("8와2의 나누기: %d\n", Number);
+	//Number = Division(8, 2);
+	//printf("8와2의 나누기: %d\n", Number);
 
-	//TestRecurcive(5);
-	
-	float Number2 = Add(10.5f, 20.4f);
+	////TestRecurcive(5);
+	//
+	//float Number2 = Add(10.5f, 20.4f);
 
-	Add(1, 3);
+	//Add(1, 3);
 
-	int Number3 = Square(2);
-	int Number4 = Number * Number;	// inline을 붙여서 하면 위에꺼가 밑에거로 편하게 바꾸는데 그냥 요청정도임.
+	//int Number3 = Mul(10, 2);
+	//printf("10과2의 곱하기: %d\n", Number3);
+	//float Number4 = Mul(8.5f, 7.2f);
+	//printf("8.5와 7.2의 곱하기: %.2f\n", Number4);
+	//
+	//int Number5 = Min(10, 2);
+	//printf("10과2의 빼기: %d\n", Number5);
+	//float Number6 = Min(8.5f, 7.2f);
+	//printf("8.5와 7.2의 빼기: %.2f\n", Number6);
+	//
+	//int Number7 = Div(10, 2);
+	//printf("10과2의 나누기: %d\n", Number7);
+	//float Number8 = Div(8.5f, 7.2f);
+	//printf("8.5와 7.2의 나누기: %.2f\n", Number8);
 
-	for (int i = 0; i < 10; i++)
+
+
+	/*int Number3 = Square(2);
+	int Number4 = Number * Number;*/	// inline을 붙여서 하면 위에꺼가 밑에거로 편하게 바꾸는데 그냥 요청정도임.
+
+	/*for (int i = 0; i < 10; i++)
 	{
 
 	}
 	for (int i = 0; i < 5; i++)
 	{
 
-	}
+	}*/
 
 	//global = 1000;	전역변수
+
+	// TestMath사칙연산용 템플릿 함수 4개 만들기
 
 	return 0;
 

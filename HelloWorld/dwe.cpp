@@ -719,8 +719,61 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	};
 
 	int Inventory = 0b0000;
+	int Select = 0;
 	
 	while (true)
+	{	
+		printf("현재 인벤토리: ");
+		for (int i = 0; i < 4; i++)
+		{
+			printf("%d", Inventory);
+		}
+		printf("\n");
+
+		if (Select == 0)
+		{
+			printf("편지를 발견했습니다.\n1번: 아이템 추가, 2번 : 아이템 버리기, 3번 : 종료 ");
+			std::cin >> Select;
+			if (Select == 1)
+			{
+				Inventory |= Letter;
+				printf("편지를 추가했습니다.\n");
+			}
+			else if (Select == 2)
+			{
+				Inventory ^= Letter;
+				printf("편지를 버렸습니다.\n");
+			}
+			else if (Select == 3)
+			{
+				printf("종료\n");
+			}
+		}
+		else if (Select == 1)
+		{
+			printf("편지를 발견했습니다.\n1번: 아이템 추가, 2번 : 아이템 버리기, 3번 : 종료 ");
+			std::cin >> Select;
+			if (Select == 1)
+			{
+				Inventory |= Letter;
+				printf("이미 있는 아이템입니다.\n");
+			}
+			else if (Select == 2)
+			{
+				Inventory ^= Letter;
+				printf("편지를 버렸습니다.\n");
+			}
+			else if (Select == 3)
+			{
+				printf("종료\n");
+			}
+		}
+		if (Select == 3)
+		{
+			break;
+		}
+		
+	}
 	
 
 	// 5. 주사위 게임 만들기

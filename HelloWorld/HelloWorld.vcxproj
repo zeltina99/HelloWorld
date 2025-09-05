@@ -129,6 +129,7 @@
     <ClCompile Include="TestMath.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dwe.h" />
     <ClInclude Include="Practice.h" />
     <ClInclude Include="Practice_a.h" />
     <ClInclude Include="TestMath.h" />

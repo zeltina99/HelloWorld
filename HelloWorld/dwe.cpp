@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include "dwe.h"
 #include <iostream> // 입출력 관련(cout)
 #include <stdio.h>
 #include <cstdio>
@@ -179,8 +180,9 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 #include <random>
 #include "header.h"
 #include "TestMath.h"
+#include "Practice.h"
+#include "Practice_a.h"
 
-//int global = 10;		전역변수
 //using namespace std;
 
 int main() // 엔트리 포인트(코드가 시작되는 곳)
@@ -876,24 +878,24 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//	}
 	//}
 
-	//printf("인벤토리 : ");
-	//if ((Inventory & Key) != 0)
-	//{
-	//	printf("열쇠 ");
-	//}
-	//if ((Inventory & Fuse) != 0)
-	//{
-	//	printf("퓨즈 ");
-	//}
-	//if ((Inventory & Book) != 0)
-	//{
-	//	printf("책 ");
-	//}
-	//if ((Inventory & Note) != 0)
-	//{
-	//	printf("쪽지 ");
-	//}
-	//printf("\n");
+	/*printf("인벤토리 : ");
+	if ((Inventory & Key) != 0)
+	{
+		printf("열쇠 ");
+	}
+	if ((Inventory & Fuse) != 0)
+	{
+		printf("퓨즈 ");
+	}
+	if ((Inventory & Book) != 0)
+	{
+		printf("책 ");
+	}
+	if ((Inventory & Note) != 0)
+	{
+		printf("쪽지 ");
+	}
+	printf("\n");*/
 	
 	
 	//5. 주사위 게임 만들기
@@ -974,11 +976,14 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 
 	// TestMath사칙연산용 템플릿 함수 4개 만들기
 
+	Practice0905_01();
+	Practice0905_02();
+	Practice0905_03();
+	Practice0905_04();
+	Practice0905_05();
+	Practice0905_06();
+	Practice0905_07();
 	return 0;
 
-}
 
-//void Test()			전역변수
-//{
-//	global = 100;
-//}
+}

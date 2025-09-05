@@ -146,8 +146,30 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 				
 */
 
+/*
+	재귀 호출(Recurcive Call)
+	- 함수 안에서 자기자신을 다시 호출하는 함수
+*/
 
+/*
+	템플릿(Template) 함수
+	- 데이터 타입에 관계 없이 동일한 로직을 여러 자료형에 대해 사용할 수 있게 해주는 C++의 기능
+	- 컴파일 타임에 실제 사용하는 곳이 있으면 해당 타입으로 코드를 생선한다.
+		-> 해더에 선언과 구현이 함께 있어야 한다.
+*/
 
+/*
+	인라인(inline) 함수
+	- 함수 호출문을 해당 함수의 실제 코드로 대체하는 함수
+*/
+
+/*
+	스코프
+	- 변수, 함수, 객체등이 유효하게 사용될 수 있는 범위
+	- 일반적으로 선언된 중괄호 안쪽에서만 유효
+	- 지역 변수 : 특정 함수 내에서 선언된 변수
+	- 전역 변수 : 프로그램 전체에서 사용할 수 있는 변수
+*/
 
 
 #include <iostream>	// 입출력 관련(cout)
@@ -158,6 +180,7 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 #include "header.h"
 #include "TestMath.h"
 
+//int global = 10;		전역변수
 //using namespace std;
 
 int main() // 엔트리 포인트(코드가 시작되는 곳)
@@ -898,25 +921,45 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//		- 소지금이 0 이하인 쪽이 나오면 게임 종료.
 	
 	int Number = Sum(1, 7);	// Sum함수를 호출했다. 파라메터로 1과 7을 넘겼다. 그리고 8을 돌려받았다.
-
 	printf("1과7의 합: %d\n", Number);
 
 	Number = Multiply(2, 3);
-
 	printf("2와3의 곱: %d\n", Number);
 
 	Number = Multiply(7);
-
 	printf("7과 기본 2의 곱: %d\n", Number);
 
 	Number = Minus(5, 3);
-
 	printf("5와3의 빼기: %d\n", Number);
 
 	Number = Division(8, 2);
-
 	printf("8와2의 나누기: %d\n", Number);
+
+	//TestRecurcive(5);
+	
+	float Number2 = Add(10.5f, 20.4f);
+
+	Add(1, 3);
+
+	int Number3 = Square(2);
+	int Number4 = Number * Number;	// inline을 붙여서 하면 위에꺼가 밑에거로 편하게 바꾸는데 그냥 요청정도임.
+
+	for (int i = 0; i < 10; i++)
+	{
+
+	}
+	for (int i = 0; i < 5; i++)
+	{
+
+	}
+
+	//global = 1000;	전역변수
 
 	return 0;
 
 }
+
+//void Test()			전역변수
+//{
+//	global = 100;
+//}

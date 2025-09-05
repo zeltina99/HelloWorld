@@ -82,17 +82,44 @@ int ScoreClass(int Number1)
 	return Number1;
 }
 
-int ItemSet(int Number1, int Number2)
+int ItemSet(int Inventory, int ItemFlag)
 {
-	return Number1 |= (1 << Number2);
+	int Result = 0;
+	Inventory |= (1 << ItemFlag);
+	Result = Inventory;
+	return Result;
 }
 
-int ItemClear(int Number1, int Number2)
+int ItemClear(int Inventory, int ItemFlag)
 {
-	return Number1 &= (~(1 << Number2));
+	int Result = 0;
+	Inventory &= (~(1 << ItemFlag));
+	Result = Inventory;
+	return Result;
 }
 
-int ItemToggle(int Number1, int Number2)
+int ItemToggle(int Inventory, int ItemFlag)
 {
-	return Number1 ^= Number2;
+	int Result = 0;
+	Inventory ^= ItemFlag;
+	Result = Inventory;
+	return Result;
+}
+
+int Pyramid(int Number1)
+{
+	for (int i = 0; i < Number1; i++) 
+	{
+		for (int j = 0; j < Number1 - (i + 1); j++)
+		{
+			printf(" ");
+		}
+		for (int k = 0; k < (i * 2 + 1); k++)
+		{
+			printf("*");
+		}
+		printf("\n");
+
+	}
+	return Number1;
 }

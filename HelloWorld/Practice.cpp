@@ -14,7 +14,7 @@ void Practice0905_01()
 		- int 리턴
 	*/
 
-	int Number1 = 0;
+	/*int Number1 = 0;
 	int Number2 = 0;
 	int RandomNumber = 0;
 
@@ -26,7 +26,7 @@ void Practice0905_01()
 	RandomNumber = Rand(Number1, Number2);
 	printf("랜덤으로 %d가 나왔습니다.\n", RandomNumber);
 
-	return;
+	return;*/
 }
 
 void Practice0905_02()
@@ -35,13 +35,13 @@ void Practice0905_02()
 	2. "당신의 나이를 입력해 주세요 : " -> "당신은 00살 입니다"
 		- int 파라메터가 1개
 	*/
-	int Age = 0;
+	/*int Age = 0;
 	printf("당신의 나이를 입력해 주세요 : ");
 	std::cin >> Age;
 	Age = AgeA(Age);
 	printf("당신은 %d 살입니다.\n", Age);
 
-	return;
+	return;*/
 }
 
 void Practice0905_03()
@@ -52,7 +52,7 @@ void Practice0905_03()
 		- float 리턴
 	*/
 
-	float Radius = 0.0f;
+	/*float Radius = 0.0f;
 	float Area = 0.0f;
 	printf("원의 반지름을 입력하세요. : ");
 	std::cin >> Radius;
@@ -60,7 +60,7 @@ void Practice0905_03()
 
 	printf("원의 넓이는 %.3f입니다.\n", Area);
 
-	return;
+	return;*/
 }
 
 void Practice0905_04()
@@ -70,12 +70,12 @@ void Practice0905_04()
 		- int 파라메터가 1개
 		- bool 리턴(true면 홀수, false면 짝수)
 	*/
-	int Test_Number1 = 0;
+	/*int Test_Number1 = 0;
 	printf("숫자를 입력해주세요. : ");
 	std::cin >> Test_Number1;
 	ParityCheck(Test_Number1);
 
-	return;
+	return;*/
 }
 
 void Practice0905_05()
@@ -86,12 +86,12 @@ void Practice0905_05()
 		- int 리턴(enum값)
 	*/
 
-	int Score = 0;
+	/*int Score = 0;
 	printf("점수를 입력하시오. : ");
 	std::cin >> Score;
 	ScoreClass(Score);
 
-	return;
+	return;*/
 }
 
 void Practice0905_06()
@@ -104,77 +104,77 @@ void Practice0905_06()
 		- int 리턴(Inventory)
 	*/
 
-	enum Item
-	{
-		Key = 1 << 0,		//열쇠
-		Lighter = 1 << 1,	//라이터
-		Book = 1 << 2,		//책
-		Letter = 1 << 3		//편지
-	};
+	//enum Item
+	//{
+	//	Key = 1 << 0,		//열쇠
+	//	Lighter = 1 << 1,	//라이터
+	//	Book = 1 << 2,		//책
+	//	Letter = 1 << 3		//편지
+	//};
 
-	const int ItemCount = 4;
-	int Inventory = 0;
-	int PlayerSelcet = -1;
+	//const int ItemCount = 4;
+	//int Inventory = 0;
+	//int PlayerSelcet = -1;
 
-	while (PlayerSelcet != ItemCount)
-	{
-		printf("어떤 일을 할까요? \n[1.아이템 설정, 2.아이템 해제, 3.아이템 토글, 4.종료]: ");
-		std::cin >> PlayerSelcet;
+	//while (PlayerSelcet != ItemCount)
+	//{
+	//	printf("어떤 일을 할까요? \n[1.아이템 설정, 2.아이템 해제, 3.아이템 토글, 4.종료]: ");
+	//	std::cin >> PlayerSelcet;
 
-		switch (PlayerSelcet)
-		{
-		case 1:
-			{
-				int AddItem = 0;
-				printf("어떤 아이템을 추가할까요? [0:열쇠, 1:라이터, 2:책, 3:편지]: ");
-				std::cin >> AddItem;
-				ItemSet(Inventory, AddItem);
-			}
-			break;
-		case 2:
-			{
-				int RemoveItem = 0;
-				printf("어떤 아이템을 해제할까요? [0:열쇠, 1:라이터, 2:책, 3:편지]: ");
-				std::cin >> RemoveItem;
-				ItemClear(Inventory, RemoveItem);
-			}
-			break;
-		case 3:
-			{
-				int Item = 0;
-				printf("어떤 아이템을 토글할까요? [0:열쇠, 1:라이터, 2:책, 3:편지]: ");
-				std::cin >> Item;
-				ItemToggle(Inventory, Item);
-			}
-			break;
-		case 4:
-			continue;
-		default:
-			printf("ERROR!!!\n");
-			break;
-		}
-		printf("인벤토리 : ");
-			if ((Inventory & Key) != 0)
-			{
-				printf("열쇠 ");
-			}
-			if ((Inventory & Lighter) != 0)
-			{
-				printf("라이터 ");
-			}
-			if ((Inventory & Book) != 0)
-			{
-				printf("책 ");
-			}
-			if ((Inventory & Letter) != 0)
-			{
-				printf("편지 ");
-			}
-			printf("\n");
+	//	switch (PlayerSelcet)
+	//	{
+	//	case 1:
+	//		{
+	//			int AddItem = 0;
+	//			printf("어떤 아이템을 추가할까요? [0:열쇠, 1:라이터, 2:책, 3:편지]: ");
+	//			std::cin >> AddItem;
+	//			Inventory = ItemSet(Inventory, AddItem);
+	//		}
+	//		break;
+	//	case 2:
+	//		{
+	//			int RemoveItem = 0;
+	//			printf("어떤 아이템을 해제할까요? [0:열쇠, 1:라이터, 2:책, 3:편지]: ");
+	//			std::cin >> RemoveItem;
+	//			Inventory = ItemClear(Inventory, RemoveItem);
+	//		}
+	//		break;
+	//	case 3:
+	//		{
+	//			int Item = 0;
+	//			printf("어떤 아이템을 토글할까요? [0:열쇠, 1:라이터, 2:책, 3:편지]: ");
+	//			std::cin >> Item;
+	//			Inventory = ItemToggle(Inventory, Item);
+	//		}
+	//		break;
+	//	case 4:
+	//		continue;
+	//	default:
+	//		printf("ERROR!!!\n");
+	//		break;
+	//	}
+	//	printf("인벤토리 : ");
+	//		if ((Inventory & Key) != 0)
+	//		{
+	//			printf("열쇠 ");
+	//		}
+	//		if ((Inventory & Lighter) != 0)
+	//		{
+	//			printf("라이터 ");
+	//		}
+	//		if ((Inventory & Book) != 0)
+	//		{
+	//			printf("책 ");
+	//		}
+	//		if ((Inventory & Letter) != 0)
+	//		{
+	//			printf("편지 ");
+	//		}
+	//		printf("\n");
 
-	}
+	//}
 
-	return;
+	//return;
 }
 
 void Practice0905_07()
@@ -184,7 +184,13 @@ void Practice0905_07()
 		- int 파라메터가 1개
 	*/
 
-	return;
+	/*int Star = 0;
+	printf("피라미드 층수를 입력하시오. : ");
+	std::cin >> Star;
+
+	Pyramid(Star);
+
+	return;*/
 }
 
 /*
@@ -206,3 +212,48 @@ void Practice0905_07()
 		ex) 5! = 5 * 4 * 3 * 2 * 1
 		
 */
+
+void Practice0905_08()
+{
+	//① Min
+	//	-파라메터 2개
+	//	- 리턴 : 파라메터 중 작은 수 리턴
+
+	
+	/*int Number01 = Min(8, 2);
+	float Number02 = Min(2.3f, 5.3f);
+
+	printf("%d와 %.1f\n\n", Number01, Number02);*/
+
+	/*
+	② Max
+		- 파라메터 2개
+		- 리턴 : 파라메터 중 큰 수 리턴
+	*/
+
+	/*int Number03 = Max(8, 2);
+	float Number04 = Max(2.3f, 5.3f);
+
+	printf("%d와 %.1f\n\n", Number03, Number04);*/
+
+	/*
+	③ Clamp
+		- 파라메터 3개(value, min, max)
+		- 리턴  
+			value값이 min보다 작으면 min
+			value값이 max보다 크면 max
+			value값이 min과 max 사이면 value
+	*/
+
+	/*int Number05 = Clamp(17, 2, 15);
+	int Number06 = Clamp(7, 17, 23);
+	float Number07 = Clamp(12.3f, 4.7f, 19.7f);
+
+	printf("%d와 %d와 %.1f\n\n", Number05, Number06, Number07);*/
+
+}
+
+void Practice0905_09()
+{
+
+}

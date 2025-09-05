@@ -23,26 +23,6 @@ T Add(T Number1, T Number2)
 	return Number1 + Number2;
 };
 
-// 템플릿 빼기 함수
-template <typename U>
-U Min(U Number1, U Number2)
-{
-	return Number1 - Number2;
-};
-
-// 템플릿 곱하기 함수
-template <typename V>
-V Mul(V Number1, V Number2)
-{
-	return Number1 * Number2;
-};
-
-// 템플릿 나누기 함수
-template <typename W>
-W Div(W Number1, W Number2)
-{
-	return Number1 / Number2;
-};
 
 
 // 파라메터 두개를 곱해서 돌려주는 함수

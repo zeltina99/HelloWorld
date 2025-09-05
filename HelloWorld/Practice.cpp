@@ -255,5 +255,15 @@ void Practice0905_08()
 
 void Practice0905_09()
 {
+	/*
+	재귀함수를 이용해서 팩토리얼 값을 만드는 함수 만들기
+		ex) 5! = 5 * 4 * 3 * 2 * 1
+	*/
+
+	int Number001;
+	printf("팩토리얼을 할 숫자를 입력해주세요. : ");
+	std::cin >> Number001;
+	printf("%d팩토리얼은 %d입니다.\n", Number001, Factorial(Number001));
+
 
 }

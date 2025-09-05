@@ -123,3 +123,23 @@ int Pyramid(int Number1)
 	}
 	return Number1;
 }
+
+int Factorial(int Number1)
+{
+	int Result = 1;
+
+	while (true)
+	{
+		if (Number1 > 0)
+		{
+			Result *= Number1;
+			Number1--;
+		}
+
+		if (Number1 == 0)
+		{
+			break;
+		}
+	}
+	return Result;
+}

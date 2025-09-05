@@ -89,3 +89,6 @@ C Clamp(C value, C min, C max)
 
 	return Result;
 };
+
+// 팩토리얼 함수
+int Factorial(int Number1);

@@ -134,12 +134,29 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 
 */
 
+/*
+	함수(Function)
+	- 특정한 기능을 수행하는 코드블럭
+	- 선언을 하고 사용해야 한다.
+		-> 함수의 리턴타입, 함수의 이름, 함수의 파라메터를 설정해줘야 한다. 
+		함수의 리턴타입 : 함수가 끝났을 때 돌려 받을 값의 종류
+		함수의 이름 : 함수를 호출(사용)하고 싶을 때 부르는 이름 
+		함수의 파라메터 : 함수의 입력값. 0개 이상 들어갈 수 있다.
+	- 선언을 한 후에는 구현을 정의해야한다.(함수의 실제 동작을 작성)
+				
+*/
+
+
+
+
+
 #include <iostream>	// 입출력 관련(cout)
 #include <stdio.h>
 #include <time.h>
 #include <cstdio>	// stdio.h에 네임스페이스 추가한 래퍼
 #include <random>
 #include "header.h"
+#include "TestMath.h"
 
 //using namespace std;
 
@@ -880,10 +897,25 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//	⑥ 다음 판 진행
 	//		- 소지금이 0 이하인 쪽이 나오면 게임 종료.
 	
+	int Number = Sum(1, 7);	// Sum함수를 호출했다. 파라메터로 1과 7을 넘겼다. 그리고 8을 돌려받았다.
 
+	printf("1과7의 합: %d\n", Number);
 
-	
+	Number = Multiply(2, 3);
 
+	printf("2와3의 곱: %d\n", Number);
+
+	Number = Multiply(7);
+
+	printf("7과 기본 2의 곱: %d\n", Number);
+
+	Number = Minus(5, 3);
+
+	printf("5와3의 빼기: %d\n", Number);
+
+	Number = Division(8, 2);
+
+	printf("8와2의 나누기: %d\n", Number);
 
 	return 0;
 

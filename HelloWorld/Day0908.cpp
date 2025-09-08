@@ -194,8 +194,8 @@ void Practice0908_07()
 	const int MazeHeight = 10;
 	const int MazeWidth = 20;
 	char Key = 0;
-	int PlayerX = 1;
-	int PlayerY = 1;
+	int PlayerX = 1;	// [X][Y] 둘이 붙으면 2가 있는 P가 됨
+	int PlayerY = 1;	//
 
 	// 미로 배열
 	int Maze[MazeHeight][MazeWidth] =
@@ -283,7 +283,7 @@ void Practice0908_07()
 				NextY++;
 			}
 			
-			if (Maze[NextX][NextY] == 0 || Maze[NextX][NextY] == 3)
+			if (Maze[NextX][NextY] == 0 || Maze[NextX][NextY] == 3)		// 움직이고 0 또는 3이면 실행
 			{
 				if (Maze[NextX][NextY] == 3)	// 3에 도착한거니까 끝
 				{

@@ -2,6 +2,7 @@
 #include "Practice_a.h"
 #include <iostream>
 #include <stdio.h>
+#include <random>
 
 
 
@@ -42,5 +43,46 @@ void Practice0908_03()
 	int Min = 0;*/
 
 	
+
+}
+
+void Shuffle(int Array[], int Length)
+{
+	/*	피셔-예이츠 알고리즘
+		- 배열의 내용을 랜덤하게 섞는 셔플 알고리즘
+		- 동일한 확률로 섞이도록 증명 완료된 알고리즘
+	 
+	1. 배열의 마지막 요소에서 첫 요소까지 순회.
+	2. 현재 요소의 인덱스(i)와 , 0~i 중 임의의 인덱스(j)를 선택한다.
+	3. i번째 요소와 j번째 요소를 서로 교환
+	4. i가 0이 될때까지 반복
+	*/
+
+
+	for (int i = Length - 1; i > 0; i--)
+	{
+		int j = rand() % (i + 1);
+		int Temp = Array[i];
+		Array[i] = Array[j];
+		Array[j] = Temp;
+	}
+}
+
+void TestRef(int& OutData, const int& ReadData)
+{
+	OutData *= 2;
+
+}
+
+
+void Day0908_Ref()
+{
+	int Number = 10;
+	int Number2 = 2;
+	int& Ref = Number;	// Number의 참조는 Ref다.
+
+	TestRef(Number, Number2);
+
+	int i = 0;
 
 }

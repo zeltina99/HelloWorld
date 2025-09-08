@@ -478,7 +478,8 @@ void Practice0905_02_05()
 				}
 				if (PlayerWin)
 				{
-					printf("당신의 승리입니다.\n");
+					Money += CurrentBet * 2;
+					printf("조커를 뽑았습니다. 당신의 현재 금액은 %d입니다.\n", Money);
 				}
 				else
 				{

@@ -189,6 +189,7 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 #include "TestMath.h"
 #include "Practice.h"
 #include "Practice_a.h"
+#include "Day0908.h"
 
 //using namespace std;
 
@@ -995,20 +996,24 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	Practice0905_01_05();
 	Practice0905_02_05();*/
 
-	int a = 10;
-	int Array[5];	// int 5개를 관리하는 배열
-	Array[0] = 10;	// 배열의 첫번째 요소에 10을 대입한다.
-	Array[3] = 40;	// 배열의 네번째 요소에 40을 대입한다.
+	Practice0908_01();
+	Practice0908_02();
+	Practice0908_03();
 
-	int Array2[5] = { 1,2,3,4,5 };
-	int Array3[5] = { 1,2,3 };
-	int Array4[5] = {0};
+	//int a = 10;
+	//int Array[5];	// int 5개를 관리하는 배열
+	//Array[0] = 10;	// 배열의 첫번째 요소에 10을 대입한다.
+	//Array[3] = 40;	// 배열의 네번째 요소에 40을 대입한다.
 
-	const int Size = 5;
-	int Array5[Size] = {};
-	//sizeof(Array5);	// Array5의 전체 바이트 크기를 알 수 있다.
-	//sizeof(Array5[0]);	// Array5의 요소 하나의 크기를 알 수 있다.
-	int ElementCount = sizeof(Array5) / sizeof(Array5[0]);	// Array5의 요소 개수
+	//int Array2[5] = { 1,2,3,4,5 };
+	//int Array3[5] = { 1,2,3 };
+	//int Array4[5] = {0};
+
+	//const int Size = 5;
+	//int Array5[Size] = {};
+	////sizeof(Array5);	// Array5의 전체 바이트 크기를 알 수 있다.
+	////sizeof(Array5[0]);	// Array5의 요소 하나의 크기를 알 수 있다.
+	//int ElementCount = sizeof(Array5) / sizeof(Array5[0]);	// Array5의 요소 개수
 
 	//int Size2 = 5;
 	//int Array6[Size2] = {};	// 배열 선언할 때 크기를 변수로 지정할 수는 없다.

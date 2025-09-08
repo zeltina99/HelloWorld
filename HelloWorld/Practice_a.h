@@ -27,6 +27,8 @@ int ItemToggle(int Inventory, int ItemFlag);
 // 피라미드 출력 함수
 int Pyramid(int Number1);
 
+// 배열의 요소 값을 더하고 평균내는 함수
+
 // Min 템플릿 함수
 template <typename A>
 A Min(A Number1, A Number2)

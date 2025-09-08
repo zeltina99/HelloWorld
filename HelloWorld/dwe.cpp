@@ -1048,10 +1048,17 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	Practice0905_01_05();
 	Practice0905_02_05();*/
 
-	Practice0908_01();
+	/*Practice0908_01();
 	Practice0908_02();
 	Practice0908_03();
-	Day0908_Ref();
+	Day0908_Ref();*/
+	
+	srand(time(0));
+
+	Practice0908_04();
+	Practice0908_05();
+	Practice0908_06();
+	Practice0908_07();
 
 	//int a = 10;
 	//int Array[5];	// int 5개를 관리하는 배열
@@ -1076,10 +1083,10 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//Array[5] = 60;	//버퍼오버런. 배열 영역 밖을 접근하려고 하기 때문에 에러가 발생한다.
 
 	// 1. 배열 만들고 초기화 해보기
-	int Numbers[3] = { 5, 8, 3 };
+	/*int Numbers[3] = { 5, 8, 3 };*/
 
 	// 2. 배열의 모든 요소의 값을 더하고 평균 구하기
-	int Sum = 0;
+	/*int Sum = 0;
 	float Average = 0.0f;
 	int ArrayCount = static_cast<int>(sizeof(Numbers) / sizeof(Numbers[0]));
 	for (int i = 0; i < ArrayCount; i++)
@@ -1089,28 +1096,29 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	Average = Sum / static_cast<float>(ArrayCount);
 
 	printf("평균은 %.2f입니다.\n", Average);
-	
+	*/
 
 	//3. 배열의 모든 요소 중 최대값과 최소값 구하기
-	int MaxNumber = INT_MIN;
-	int MinNumber = INT_MAX;
-	for (int i = 0; i < ArrayCount; i++)
-	{
-		if (MaxNumber < Numbers[i])
-		{
-			MaxNumber = Numbers[i];
-		}
-		if (MinNumber > Numbers[i])
-		{
-			MinNumber = Numbers[i];
-		}
-	}
+	//int MaxNumber = INT_MIN;
+	//int MinNumber = INT_MAX;
+	//for (int i = 0; i < ArrayCount; i++)
+	//{
+	//	if (MaxNumber < Numbers[i])
+	//	{
+	//		MaxNumber = Numbers[i];
+	//	}
+	//	if (MinNumber > Numbers[i])
+	//	{
+	//		MinNumber = Numbers[i];
+	//	}
+	//}
 
-	int Array[4][3] = { {1,2,3}, {4,5,6}, {7,8,9}, {0,1,2} };
-	int test = Array[1][2];		// test = 6
-	int Array7[12] = { 1,2,3,4,5,6,7,8,9,0,1,2 };
+	//int Array[4][3] = { {1,2,3}, {4,5,6}, {7,8,9}, {0,1,2} };
+	//int test = Array[1][2];		// test = 6
+	//int Array7[12] = { 1,2,3,4,5,6,7,8,9,0,1,2 };
 
-	Shuffle(Array7, 12);
+	//Shuffle(Array7, 12);
+
 
 	return 0;
 }

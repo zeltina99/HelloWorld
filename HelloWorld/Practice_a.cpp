@@ -1,9 +1,11 @@
 #include "Practice_a.h"
+#include "Day0908.h"
 #include <stdio.h>
 #include <random>
 #include <time.h>
 #include <iostream>	
 #include <cstdio>
+#include <limits.h>
 
 int Rand(int Number1, int Number2)
 {
@@ -123,6 +125,22 @@ int Pyramid(int Number1)
 	}
 	return Number1;
 }
+
+void Reverse(int Array[], int Size)
+{
+	int Temp = 0;
+
+	for (int i = 0; i < (Size / 2); i++)
+	{
+		Temp = Array[i];
+		Array[i] = Array[Size -1 -i];
+		Array[Size - 1 - i] = Temp;
+	}
+
+}
+
+
+
 
 int Factorial(int Number1)
 {

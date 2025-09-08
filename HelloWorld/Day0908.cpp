@@ -282,9 +282,7 @@ void Practice0908_07()
 			{
 				NextY++;
 			}
-			else {
-				printf("잘못된 입력입니다. 이동할 수 있는 방향 중에서 선택하세요.\n");
-			}
+			
 			if (Maze[NextX][NextY] == 0 || Maze[NextX][NextY] == 3)
 			{
 				if (Maze[NextX][NextY] == 3)	// 3에 도착한거니까 끝

@@ -179,6 +179,27 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 	- 단점: 크기가 고정이다. 중간에 데이터 삽입/삭제가 어렵다.
 */
 
+/*
+	캐스팅(Casting)
+	- 하나의 데이터 타입을 다른 데이터 타입으로 변경하는 행위
+
+	// 캐스트(Cast)
+	int a = 10;
+	float b = 15.5f;
+
+	a = (int)b; // b를 int형으로 캐스팅해서 a에 대입한다. (C스타일, 명시적 캐스팅)
+	a = b;		// b를 a에 대입한다. 그런데 a와 b는 타입이 다르니까 b를 a로 암시적으로 캐스팅해서 대입한다.(C스타일, 암시적 캐스팅)
+	b = a;		// 암시적 캐스팅은 대체로 표현이 작은쪽에서 큰쪽으로는 문제없는 경우가 많다.
+
+	// C++ 캐스팅
+	 static_cast : C스타일 캐스팅을 안전하게 만든 것. 컴파일 타임에 결정됨
+	 dynamic_cast : (클래스 이후에 설명함)
+	 const_cast : const 속성을 제거하거나 추가하는데 사용. 사용하지 않는 것이 권장. 
+	 reinterpret_cast : C스타일 캐스팅에서 위험한 부분. 원래 타입의 구조를 무시하고 새 타입으로 해석하게 한다.
+
+	 a = static_cast<int>(b);	// b를 int형으로 캐스팅해서 a에 대입한다. (C++스타일, 명시적 캐스팅)
+*/
+
 
 #include <iostream>	// 입출력 관련(cout)
 #include <stdio.h>
@@ -190,6 +211,7 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 #include "Practice.h"
 #include "Practice_a.h"
 #include "Day0908.h"
+#include <limits.h>
 
 //using namespace std;
 
@@ -1022,8 +1044,35 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 
 	//Array[5] = 60;	//버퍼오버런. 배열 영역 밖을 접근하려고 하기 때문에 에러가 발생한다.
 
+	// 1. 배열 만들고 초기화 해보기
+	int Numbers[3] = { 5, 8, 3 };
 
+	// 2. 배열의 모든 요소의 값을 더하고 평균 구하기
+	int Sum = 0;
+	float Average = 0.0f;
+	int ArrayCount = static_cast<int>(sizeof(Numbers) / sizeof(Numbers[0]));
+	for (int i = 0; i < ArrayCount; i++)
+	{
+		Sum += Numbers[i];
+	}
+	Average = Sum / static_cast<float>(ArrayCount);
+
+	printf("평균은 %.2f입니다.\n", Average);
 	return 0;
 
+	//3. 배열의 모든 요소 중 최대값과 최소값 구하기
+	int MaxNumber = INT_MIN;
+	int MinNumber = INT_MAX;
+	for (int i = 0; i < ArrayCount; i++)
+	{
+		if (MaxNumber < Numbers[i])
+		{
+			MaxNumber = Numbers[i];
+		}
+		if (MinNumber > Numbers[i])
+		{
+			MinNumber = Numbers[i];
+		}
+	}
 
 }

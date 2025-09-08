@@ -985,6 +985,8 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	Practice0905_07();
 	Practice0905_08();
 	Practice0905_09();
+	Practice0905_01_05();
+	Practice0905_02_05();
 	return 0;
 
 

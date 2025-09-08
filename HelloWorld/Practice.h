@@ -9,3 +9,5 @@ void Practice0905_06();
 void Practice0905_07();
 void Practice0905_08();
 void Practice0905_09();
+void Practice0905_01_05();
+void Practice0905_02_05();

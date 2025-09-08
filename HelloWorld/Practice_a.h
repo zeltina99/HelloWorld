@@ -70,25 +70,45 @@ B Max(B Number1, B Number2)
 };
 
 // Clamp 템플릿 함수
-template <typename C>
-C Clamp(C value, C min, C max)
-{
-	float Result = 0;
-	if (value < min)
-	{
-		Result = min;
-	}
-	else if (value > max)
-	{
-		Result = max;
-	}
-	else if (min <= value <= max)
-	{
-		Result = value;
-	}
-
-	return Result;
-};
+//template <typename C>
+//C Clamp(C value, C min, C max)
+//{
+//	float Result = 0;
+//	if (value < min)
+//	{
+//		Result = min;
+//	}
+//	else if (value > max)
+//	{
+//		Result = max;
+//	}
+//	else if (min <= value <= max)
+//	{
+//		Result = value;
+//	}
+//
+//	return Result;
+//};
 
 // 팩토리얼 함수
 int Factorial(int Number1);
+
+
+// Clamp 템플릿 함수 
+template<typename T>
+T Clamp(const T& Value, const T& Min, const T& Max)	// const로 상수를 선언하고 해놓는게 좋다.
+{
+	if (Value < Min)
+	{
+		return Min;
+	}
+	else if (Value > Max)
+	{
+		return Max;
+	}
+	else
+	{
+		return Value;
+	}
+
+};

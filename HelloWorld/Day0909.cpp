@@ -73,26 +73,125 @@ void Day0909_2_ArrayAndPointer()
 
 void Day0909_DynamicAllocation()
 {
-	// C 스타일 메모리 할당 및 해제
-	int Size = 5;
-	int* Array = nullptr;
-	Array = (int*)malloc(sizeof(int) * Size);	// int 5개짜리 메모리 블럭 할당 받기
+	//// C 스타일 메모리 할당 및 해제
+	//int Size = 5;
+	//int* Array = nullptr;
+	//Array = (int*)malloc(sizeof(int) * Size);	// int 5개짜리 메모리 블럭 할당 받기
 
-	Array[2] = 20;
+	//Array[2] = 20;
 
 	/*
 	작업들 하기 전에 밑에 있는 해제를 먼저 넣는다.
 	*/
 
-	free(Array);		// Array를 해제. malloc을 했으면 무조건 free부터 만들고 작업할것
-	Array = nullptr;	// 댕글링 포인터 방지
+	//free(Array);		// Array를 해제. malloc을 했으면 무조건 free부터 만들고 작업할것
+	//Array = nullptr;	// 댕글링 포인터 방지
 
-	// C++ 스타일 메모리 할당 및 해제
-	int* Data = new int(5);		// int 하나를 할당 받는데 주소가 가리키는 값은 5를 설정해라
-	delete Data;
-	Data = nullptr;
-	Array = new int[10];	 // int 10개짜리 배열을 만들어라
-	delete[] Array;				// 배열은 반드시 이렇게 해제해야 한다.
-	//delete Array;				// 절대 이렇게 하면 안된다. 이렇게 하면 Array[0]부분만 할당 해제가 된다.
+	//// C++ 스타일 메모리 할당 및 해제
+	//int* Data = new int(5);		// int 하나를 할당 받는데 주소가 가리키는 값은 5를 설정해라
+	//delete Data;
+	//Data = nullptr;
+	//Array = new int[10];	 // int 10개짜리 배열을 만들어라
+	//delete[] Array;				// 배열은 반드시 이렇게 해제해야 한다.
+	////delete Array;				// 절대 이렇게 하면 안된다. 이렇게 하면 Array[0]부분만 할당 해제가 된다.
+	//Array = nullptr;
+
+	// 간단 실습
+	// 1. int 배열 할당받기(첫 할당은 3개만)
+	/*int* Array = nullptr;
+	Array = new int[3];
+	delete[] Array;
+	Array = nullptr;*/
+
+	// 2. 숫자를 입력받을 때마다 배열에 추가하기
+	
+	//int Number = 0;
+	//int Size = 0;
+	//
+	//while(true)
+	//{
+	//	printf("숫자를 입력해주세요. (단, 1000을 입력하면 끝) : ");
+	//	std::cin >> Number;
+
+	//	if (Number == 1000)
+	//	{
+	//		break;
+	//	}
+	//	
+	//	int* NewArray = new int[Size + 1];
+	//	for(int i = 0; i < Size; i++)
+	//	{
+	//		NewArray[i] = Array[i];
+	//	}
+
+	//	NewArray[Size] = Number;
+	//	delete[] Array;
+	//	Array = NewArray;
+	//	Size++;
+
+	//	// 현재 배열 출력
+	//	printf("현재 배열: ");
+	//	for (int i = 0; i < Size; i++)
+	//	{
+	//		printf("%d ", Array[i]);
+	//	}
+	//	printf("\n");
+	//}
+	//delete[] Array;
+	//Array = nullptr;
+	
+
+}
+
+void Day0909_Example()
+{
+	// 간단 실습
+	// 1. int 배열 할당받기(첫 할당은 3개만)
+	// 2. 숫자를 입력받을 때마다 배열에 추가하기
+	
+	
+	const int ExitInput = -1;	// 입력 종료값 or 빈칸 표현값
+	const int StartSize = 3;
+	int* Array = new int[StartSize];
+	for (int i = 0; i < StartSize; i++)
+	{
+		Array[i] = ExitInput;
+	}
+	int CurrentIndex = 0;
+	int CurrentSize = StartSize;
+
+	int InputNumber = 0;
+	while (InputNumber != ExitInput)
+	{
+		printf("배열에 넣을 숫자를 입력하세요 : ");
+		std::cin >> InputNumber;
+
+		Array[CurrentIndex] = InputNumber;
+		CurrentIndex++;
+
+		if (CurrentIndex >= CurrentSize)
+		{
+			int* newArray = new int[CurrentSize + 1];
+			for (int i = 0; i < CurrentSize; i++)
+			{
+				newArray[i] = Array[i];
+			}
+			newArray[CurrentSize] = ExitInput;
+			delete[] Array;
+			Array = newArray;
+			CurrentSize++;
+		}
+
+		printf("입력된 데이터 : ");
+		for (int i=0; i<CurrentSize; i++)
+		{
+			printf("%d ", Array[i]);
+		}
+		printf("\n");
+	}
+
+	delete[] Array;
 	Array = nullptr;
+
+
 }

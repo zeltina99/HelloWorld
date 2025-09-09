@@ -1204,6 +1204,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	Day0909();
 	Day0909_2_ArrayAndPointer();
 	Day0909_DynamicAllocation();
+	Day0909_Example();
 
 	return 0;
 }

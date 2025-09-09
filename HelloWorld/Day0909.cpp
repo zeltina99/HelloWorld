@@ -445,7 +445,7 @@ void Practice0908_Practice6()
 	{
 		printf("%d ", Array[i]);
 	}
-	printf("\n");
+	printf("\n\n\n");
 	delete[] Array;
 	Array = nullptr;
 }
@@ -458,16 +458,23 @@ void Practice0908_Practice7()
 	- 이동했을 때 일정확률(10%)로 플레이어 HP가 회복된다.
 	- 두 이벤트는 중복으로 발생하지 않는다. //70%: 아무일도 안 일어남, 20%: 전투가 발생, 10%: 플레이어 HP 회복
 */
-
+	srand(time(0));
 	int PlayerX = 0;
 	int PlayerY = 0;
 	FindStartPosition(PlayerX, PlayerY);
+	int PlayerHP = 100;
+	int EnemyHP = 30;
+	int EventNumber = 0;
+	int DamageNumber = 0;
+	int PlayerRecoveryNumber = 0;
 
 	printf("~~ 미로 탈출 게임 ~~\n");
 
 	while (true)
 	{
 		PrintMaze(PlayerX, PlayerY);
+		printf("\n");
+		printf("플레이어의 현재 체력은 : [%d]\n", PlayerHP);
 
 		if (IsEnd(PlayerX, PlayerY))
 		{
@@ -496,25 +503,40 @@ void Practice0908_Practice7()
 			// 있을 수 없음
 			break;
 		}
+		EventNumber = rand() % 10;	// 0~9까지 뽑기
+		if (EventNumber == 9)	// 10% 확률로 플레이어 체력이 회복함
+		{
+			PlayerRecoveryNumber = (rand() % 30) + 1;
+			printf("플레이어의 체력이 [%d] 회복했습니다.\n", PlayerRecoveryNumber);
+			PlayerHP += PlayerRecoveryNumber;
+		}
+		else if ((EventNumber >= 7) && (EventNumber <= 8))	// 20% 확률로 전투가 발생함.
+		{
+			printf("적을 만났습니다.\n");
+			while ((PlayerHP > 0) && (EnemyHP > 0))
+			{
+				printf("적의 체력은 [%d]입니다.\n", EnemyHP);
+				DamageNumber = (rand() % 15) - 1;
+				EnemyHP -= DamageNumber;
+				if (EnemyHP <= 0)
+				{
+					printf("적이 죽었습니다.\n");
+					break;
+				}
+				PlayerHP -= DamageNumber;
+				if (PlayerHP <= 0)
+				{
+					printf("게임 패배.\n");
+					return;
+				}
+			}
+			EnemyHP = 30;
+		}
+		
 	}
 
 }
 
-void Event(int EventNumber)
-{
-	if (EventNumber <= 6)
-	{
-		return;
-	}
-	else if (6 < EventNumber <= 8)
-	{
-
-	}
-	else
-	{
-
-	}
-}
 
 
 

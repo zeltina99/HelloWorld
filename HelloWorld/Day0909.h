@@ -23,10 +23,12 @@ void Practice0908_Practice7();
 
 
 /// <summary>
-/// 10%확률로 플레이어가 회복하거나 20%확률로 적과 싸우거나 70%확률로 아무것도 안 일어남
+/// 확률에 따라 해야 할 행동을 정합니다.
 /// </summary>
-/// <param name="EventNumber">rand함수를 돌려서 나온 수를 입력하는 곳</param>
-void Event(int EventNumber);
+/// <param name="EventNumber">일단 rand함수를 돌려 확률을 뽑습니다. 70%확률로 아무것도 안함</param>
+/// <param name="DamageNumber">20%확률로 적과 싸움</param>
+/// <param name="RecoveryNumber">10%확률로 플레이어의 체력을 회복</param>
+void Event(int& OutEventNumber, int& OutDamageNumber, int& OutRecoveryNumber);
 
 enum MazeTile
 {

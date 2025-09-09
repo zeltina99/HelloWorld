@@ -1,4 +1,5 @@
 #include "Day0909.h"
+#include "Day0908.h"
 #include <stdio.h>
 #include <iostream>
 
@@ -194,4 +195,278 @@ void Day0909_Example()
 	Array = nullptr;
 
 
+}
+
+int RollDice(int FaceNumber)
+{
+	return rand() % FaceNumber + 1;
+}
+
+void Practice0908_Practice1()
+{
+	/*
+		① 6면체 주사위를 100만번 던져서 각 눈의 수가 몇번 나왔는지 카운팅하기
+			- 6면체 주사위를 돌리는 함수 만들기
+	*/
+
+	const int TestCount = 1000000;
+	int Counters[6] = { 0 };
+	for (int i = 0; i < TestCount; i++)
+	{
+		Counters[RollDice()-1]++;
+	}
+	printf("최종 결과 : ");
+	for (auto count : Counters)
+	{
+		printf("%d ", count);
+	}
+	printf("\n");
+}
+
+void Reverse(int* Array, int Size)
+{
+	int HalfSize = Size / 2;
+	for (int i = 0; i < HalfSize; i++)
+	{
+		int Temp = Array[i];
+		Array[i] = Array[Size - 1 - i];
+		Array[Size - 1 - i] = Temp;
+	}
+
+}
+
+void Practice0908_Practice2()
+{
+	/*
+		② 배열에 저장된 값을 거꾸로 뒤집는 함수 만들기
+			- 파라매터 int Array[], int Size
+	*/
+	int Array[10] = { 1,2,3,4,5,6,7,8,9,0 };
+
+	printf("Array : ");
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%d ", Array[i]);
+	}
+	printf("\n");
+
+	Reverse(Array, 10);
+	printf("Array(Reverse) : ");
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%d ", Array[i]);
+	}
+	printf("\n");
+
+}
+
+void Practice0908_Practice3()
+{
+	/*
+		③ 로또 번호 생성기
+			- 전체 숫자 범위: 1번부터 45번까지.
+			- 6개 랜덤으로 뽑기.
+	*/
+	const int MaxNumber = 45;
+	int Array[MaxNumber];
+	for (int i = 0; i < MaxNumber; i++)
+	{
+		Array[i] = i + 1;
+	}
+
+	Shuffle(Array, MaxNumber);
+
+	printf("로또 번호는 ");
+	const int PickCount = 6;
+	for (int i = 0; i < PickCount; i++)
+	{
+		printf("%d ", Array[i]);
+	}
+	printf("입니다.\n");
+}
+
+void Practice0908_Practice4()
+{
+	/*
+		④ 미로 게임
+	*/
+
+	int PlayerX = 0;
+	int PlayerY = 0;
+	FindStartPosition(PlayerX, PlayerY);
+
+	printf("~~ 미로 탈출 게임 ~~\n");
+
+	while(true)
+	{
+		PrintMaze(PlayerX, PlayerY);
+
+		if (IsEnd(PlayerX, PlayerY))
+		{
+			printf("축하합니다! 미로를 탈출했습니다!\n");
+			break;
+		}
+
+		int MoveFlags = PrintAvailableMoves(PlayerX, PlayerY);
+		MoveDirection Direction = GetMoveInput(MoveFlags);
+		switch (Direction)
+		{
+		case DirUp:
+			PlayerY--;
+			break;
+		case DirDown:
+			PlayerY++;
+			break;
+		case DirLeft:
+			PlayerX--;
+			break;
+		case DirRight:
+			PlayerX++;
+			break;
+		case DirNone:
+		default:
+			// 있을 수 없음
+			break;
+		}
+	}
+
+}
+
+void PrintMaze(int PlayerX, int PlayerY)
+{
+	for (int y = 0; y < MazeHeight; y++)
+	{
+		for (int x = 0; x < MazeWidth; x++)
+		{
+			if (PlayerX == x && PlayerY == y)
+			{
+				printf("P ");
+			}
+			else if (Maze[y][x] == Wall)
+			{
+				printf("# ");
+			}
+			else if (Maze[y][x] == Path)
+			{
+				printf(". ");
+			}
+			else if (Maze[y][x] == Start)
+			{
+				printf("S ");
+			}
+			else if (Maze[y][x] == End)
+			{
+				printf("E ");
+			}
+			else
+			{
+				// 절대 들어오면 안되는 곳 == 맵 데이터가 잘못된 것
+			}
+		}
+		printf("\n");
+	}
+}
+
+void FindStartPosition(int& OutStartX, int& OutStartY)
+{
+	for (int y = 0; y < MazeHeight; y++)
+	{
+		for (int x = 0; x < MazeWidth; x++)
+		{
+			if (Maze[y][x] == Start)
+			{
+				OutStartX = x;
+				OutStartY = y;
+				return;
+			}
+		}
+	}
+	OutStartX = 0;
+	OutStartY = 0;
+}
+
+int PrintAvailableMoves(int PlayerX, int PlayerY)
+{
+	int MoveFlags = DirNone;
+
+	printf("이동할 수 있는 방향을 선택하세요 (w:위 a:왼쪽 s:아래쪽 d:오른쪽):\n");
+	if (!IsWall(PlayerX, PlayerY - 1))
+	{
+		printf("W(↑) ");
+		MoveFlags |= DirUp;
+	}
+	if (!IsWall(PlayerX, PlayerY + 1))
+	{
+		printf("S(↓) ");
+		MoveFlags |= DirDown;
+	}
+	if (!IsWall(PlayerX - 1, PlayerY))
+	{
+		printf("A(←) ");
+		MoveFlags |= DirLeft;
+	}
+	if (!IsWall(PlayerX + 1, PlayerY))
+	{
+		printf("D(→) ");
+		MoveFlags |= DirRight;
+	}
+	printf("\n");
+
+	return MoveFlags;
+}
+
+bool IsWall(int X, int Y)
+{
+	bool isWall = false;
+	if (Y < 0 || Y >= MazeHeight || 
+		X < 0 || X >= MazeWidth || 
+		Maze[Y][X] == Wall)
+		isWall = true;
+	return isWall;
+}
+
+bool IsEnd(int X, int Y)
+{
+	return Maze[Y][X] == End;
+}
+
+MoveDirection GetMoveInput(int MoveFlags)
+{
+	char InputChar = 0;
+	MoveDirection Direction = DirNone;
+	
+	
+	while (true)
+	{
+		printf("방향을 입력하세요 : ");
+		std::cin >> InputChar;
+
+		if ((InputChar == 'w' || InputChar == 'W')
+			&& (MoveFlags & DirUp)/* != 0 */)
+		{
+			Direction = DirUp;
+			break;
+		}
+		if ((InputChar == 's' || InputChar == 'S')
+			&& (MoveFlags & DirDown)/* != 0 */)
+		{
+			Direction = DirDown;
+			break;
+		}
+		if ((InputChar == 'a' || InputChar == 'A')
+			&& (MoveFlags & DirLeft)/* != 0 */)
+		{
+			Direction = DirLeft;
+			break;
+		}
+		if ((InputChar == 'd' || InputChar == 'D')
+			&& (MoveFlags & DirRight)/* != 0 */)
+		{
+			Direction = DirRight;
+			break;
+		}
+
+		printf("잘못된 입력입니다. 이동할 수 있는 방향 중에서 선택하세요.\n");
+	}
+	return Direction;
 }

@@ -1201,10 +1201,15 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	
 	//int* p = nullptr;
 
-	Day0909();
+	/*Day0909();
 	Day0909_2_ArrayAndPointer();
 	Day0909_DynamicAllocation();
-	Day0909_Example();
+	Day0909_Example();*/
+
+	//Practice0908_Practice1();
+	//Practice0908_Practice2();
+	//Practice0908_Practice3();
+	Practice0908_Practice4();
 
 	return 0;
 }

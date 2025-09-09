@@ -1209,7 +1209,11 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//Practice0908_Practice1();
 	//Practice0908_Practice2();
 	//Practice0908_Practice3();
-	Practice0908_Practice4();
+	//Practice0908_Practice4();
+	Practice0908_Practice5();
+	Practice0908_Practice6();
+	Practice0908_Practice7();
+
 
 	return 0;
 }

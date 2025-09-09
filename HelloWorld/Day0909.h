@@ -16,6 +16,17 @@ void Practice0908_Practice1();
 void Practice0908_Practice2();
 void Practice0908_Practice3();
 void Practice0908_Practice4();
+void Practice0908_Practice5();
+void Practice0908_Practice6();
+void Practice0908_Practice7();
+
+
+
+/// <summary>
+/// 10%확률로 플레이어가 회복하거나 20%확률로 적과 싸우거나 70%확률로 아무것도 안 일어남
+/// </summary>
+/// <param name="EventNumber">rand함수를 돌려서 나온 수를 입력하는 곳</param>
+void Event(int EventNumber);
 
 enum MazeTile
 {

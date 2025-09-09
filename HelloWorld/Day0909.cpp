@@ -2,6 +2,7 @@
 #include "Day0908.h"
 #include <stdio.h>
 #include <iostream>
+#include <random>
 
 void PointerParameter(int* pNumber)
 {
@@ -332,6 +333,191 @@ void Practice0908_Practice4()
 
 }
 
+void Practice0908_Practice5()
+{
+/*
+	① 가로 세로를 입력받아 배열을 생성하고 배열의 안을 0부터 1씩 증가하는 값으로 채우기
+	- EX) 가로5 세로4
+		0  1  2  3  4
+		5  6  7  8  9
+		10 11 12 13 14
+		15 16 17 18 19
+*/
+	int Width = 0;	//가로
+	int Height = 0;	//세로
+
+	printf("가로를 입력해주세요. : ");
+	std::cin >> Width;
+	printf("세로를 입력해주세요. : ");
+	std::cin >> Height;
+
+	// 2차원 배열 동적 할당
+	int** Array = new int* [Height];
+	for (int i = 0; i < Height; i++)
+	{
+		Array[i] = new int[Width];
+	}
+
+	int value = 0;
+	for (int i = 0; i < Height; i++)
+	{
+		for (int j = 0; j < Width; j++)
+		{
+			Array[i][j] = value++;
+		}
+	}
+
+	for (int i = 0; i < Height; i++)
+	{
+		for (int j = 0; j < Width; j++)
+		{
+			printf("%2d ", Array[i][j]);
+		}
+		printf("\n");
+	}
+
+	// 메모리 해제
+	for (int i = 0; i < Height; i++)
+	{
+		delete[] Array[i];
+	}
+	delete[] Array;
+}
+	
+
+
+
+void Practice0908_Practice6()
+{
+/*
+	② 하이로우 수정하기
+	- 게임이 종료되었을 때 이때까지 플레이어가 입력한 모든 수를 출력해서 보여주기
+*/
+
+	//	컴퓨터가 1~100 사이의 임의의 숫자를 선택하고, 
+	//	사용자가 맞출 때까지 입력을 받아 "더 높게", "더 낮게" 등의 힌트를 제공하는 게임
+	//	5번안에 맞춰야 승리
+
+	int RandomNumber = (rand() % 100) + 1;
+	int PlayerNumber = 0;
+	int CountDown = 5;
+	int Size = 0;
+	int* Array = nullptr;
+
+	while(CountDown > 0)
+	{
+		printf("1~100 사이의 숫자를 예상 해 보세요 : ");
+		std::cin >> PlayerNumber;
+
+		if (PlayerNumber < RandomNumber)
+		{
+			printf("더 큰 수를 찍어보세요\n");
+		}
+		else if (PlayerNumber > RandomNumber)
+		{
+			printf("더 작은 수를 찍어보세요\n");
+		}
+		else
+		{
+			printf("정답입니다!\n 찾는 수는 %d였습니다.", RandomNumber);
+			break;
+		}
+		CountDown--;
+		printf("남은 횟수는 %d번 입니다.\n", CountDown);
+
+		int* NewArray = new int[Size + 1];
+			for(int i = 0; i < Size; i++)
+			{
+				NewArray[i] = Array[i];
+			}
+			NewArray[Size] = PlayerNumber;
+				delete[] Array;
+				Array = NewArray;
+				Size++;
+	}
+	if (CountDown <= 0)
+	{
+		printf("실패했습니다.");
+	}
+	printf("\n");
+	printf("지금까지 입력 한 수: ");
+	for (int i = 0; i < Size; i++)
+	{
+		printf("%d ", Array[i]);
+	}
+	printf("\n");
+	delete[] Array;
+	Array = nullptr;
+}
+
+void Practice0908_Practice7()
+{
+/*
+	③ 미로 탈출 게임 수정하기
+	- 이동했을 때 일정확률(20%)로 전투가 발생한다.
+	- 이동했을 때 일정확률(10%)로 플레이어 HP가 회복된다.
+	- 두 이벤트는 중복으로 발생하지 않는다. //70%: 아무일도 안 일어남, 20%: 전투가 발생, 10%: 플레이어 HP 회복
+*/
+
+	int PlayerX = 0;
+	int PlayerY = 0;
+	FindStartPosition(PlayerX, PlayerY);
+
+	printf("~~ 미로 탈출 게임 ~~\n");
+
+	while (true)
+	{
+		PrintMaze(PlayerX, PlayerY);
+
+		if (IsEnd(PlayerX, PlayerY))
+		{
+			printf("축하합니다! 미로를 탈출했습니다!\n");
+			break;
+		}
+
+		int MoveFlags = PrintAvailableMoves(PlayerX, PlayerY);
+		MoveDirection Direction = GetMoveInput(MoveFlags);
+		switch (Direction)
+		{
+		case DirUp:
+			PlayerY--;
+			break;
+		case DirDown:
+			PlayerY++;
+			break;
+		case DirLeft:
+			PlayerX--;
+			break;
+		case DirRight:
+			PlayerX++;
+			break;
+		case DirNone:
+		default:
+			// 있을 수 없음
+			break;
+		}
+	}
+
+}
+
+void Event(int EventNumber)
+{
+	if (EventNumber <= 6)
+	{
+		return;
+	}
+	else if (6 < EventNumber <= 8)
+	{
+
+	}
+	else
+	{
+
+	}
+}
+
+
+
 void PrintMaze(int PlayerX, int PlayerY)
 {
 	for (int y = 0; y < MazeHeight; y++)
@@ -470,3 +656,7 @@ MoveDirection GetMoveInput(int MoveFlags)
 	}
 	return Direction;
 }
+
+
+
+

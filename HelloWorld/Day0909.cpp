@@ -50,24 +50,24 @@ void Day0909()
 void Day0909_2_ArrayAndPointer()
 {
 	// 배열과 포인터 (기본적으로 같다.)
-	int Array[5] = { 10, 20, 30, 40, 50 };
-	int* pArray = Array;	// 배열의 이름은 배열의 첫번째 요소의 주소와 같다.
-	int* pArray2 = &Array[0];	// Array == &Array[0] 두개는 같은 의미
+	//int Array[5] = { 10, 20, 30, 40, 50 };
+	//int* pArray = Array;	// 배열의 이름은 배열의 첫번째 요소의 주소와 같다.
+	//int* pArray2 = &Array[0];	// Array == &Array[0] 두개는 같은 의미
 
-	// pArray를 이용해서 Array[2]를 300으로 수정하기
-	*(pArray + 2) = 300;
+	//// pArray를 이용해서 Array[2]를 300으로 수정하기
+	//*(pArray + 2) = 300;
 
-	for (int i = 0; i < 5; i++)
-	{
-		printf("%d ", Array[i]);
-	}
-	printf("\n");
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	printf("%d ", Array[i]);
+	//}
+	//printf("\n");
 
-	for (int data : Array)		// range-for : Array안의 요소들을 순차적으로 하나씩 data에 넣어 처리
-	{
-		printf("%d ", data);
-	}
-	printf("\n");
+	//for (int data : Array)		// range-for : Array안의 요소들을 순차적으로 하나씩 data에 넣어 처리
+	//{
+	//	printf("%d ", data);
+	//}
+	//printf("\n");
 
 }
 
@@ -86,4 +86,13 @@ void Day0909_DynamicAllocation()
 
 	free(Array);		// Array를 해제. malloc을 했으면 무조건 free부터 만들고 작업할것
 	Array = nullptr;	// 댕글링 포인터 방지
+
+	// C++ 스타일 메모리 할당 및 해제
+	int* Data = new int(5);		// int 하나를 할당 받는데 주소가 가리키는 값은 5를 설정해라
+	delete Data;
+	Data = nullptr;
+	Array = new int[10];	 // int 10개짜리 배열을 만들어라
+	delete[] Array;				// 배열은 반드시 이렇게 해제해야 한다.
+	//delete Array;				// 절대 이렇게 하면 안된다. 이렇게 하면 Array[0]부분만 할당 해제가 된다.
+	Array = nullptr;
 }

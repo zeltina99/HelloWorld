@@ -283,9 +283,27 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 		해제 : free
 		단순 메모리 블럭만 받는 형식(초기화가 없음. 타입 안정성 없음. 생성자/소멸자 실행안됨)
 	- C++ 스타일
+		할당 : new
+		해제 : 일반 변수는 delete, 배열은 delete[]
+		int* Data = new int(5); // int 하나를 할당 받는데 주소가 가리키는 값은 5를 설정해라
+		delete Data;
+		Data = nullptr;
+		int* Array = new int[10]; // int 10개짜리 배열을 만들어라
+		delete[] Array;			  // 배열은 반드시 이렇게 해제해야 한다.
+		//delete Array; // 절대 이렇게 하면 안된다. 이렇게 하면 Array[0]부분만 할당 해제가 된다.
+		Array = nullptr;
+		특정 객체(Object)를 생성하는 방식.(초기화가 있다. 타입 안정성이 있다. 생성자와 소멸자가 실행된다.)
+	- 메모리 할당과 성능 문제
+		메모리 할당은 오래 걸린다.(컴퓨터 입장에서 느리다. 운영체제의 메모리관리나 적절한 사이즈를 찾는데 시간이 걸림)
+		메모리 단편화 문제(메모리 할당 해제를 반복하다가 전체 빈공간은 충분하지만 연속된 빈공간이 부족해지는 현상)
+	- 메모리 릭(메모리 누수)
+		할당한 메모리를 반환하지 않아 해당 영역을 사용하지 못하게 되는 현상
 */
 
 
+#define _CRTDBG_MAP_ALLOC
+#define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#include <crtdbg.h>
 
 #include <iostream>	// 입출력 관련(cout)
 #include <stdio.h>
@@ -304,6 +322,7 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 
 int main() // 엔트리 포인트(코드가 시작되는 곳)
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	//printf("Hello\tWorld!\n");		// C언어의 출력 방법
 	//printf("\"고병조\"\t");			// ""안에 \n이 있으면 줄을 바꾸라는 의미(
 	//printf("82년생입니다.┌─┐▣□\n");

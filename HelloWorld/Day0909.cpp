@@ -22,28 +22,28 @@ void Day0909()
 	// Number라는 변수를 하나 선언하고 포인터 변수 p에 Number의 주소를 저장하기
 	// p를 이용해서 Number의 값을 변경 시키기
 
-	//float Number = 123.01f;
-	//int Number2 = 10;
-	//float* p = nullptr;	// p는 완전히 비어있다.
-	//p = &Number;		// p에 Number의 주소를 저장했다.
-	////p = &Number2;		// 타입이 다르기 때문에 안된다.
+	float Number = 123.01f;
+	int Number2 = 10;
+	float* p = nullptr;	// p는 완전히 비어있다.
+	p = &Number;		// p에 Number의 주소를 저장했다.
+	//p = &Number2;		// 타입이 다르기 때문에 안된다.
 
-	//(*p) = 100.0f;
+	(*p) = 100.0f;
 
-	//PointerParameter(&Number2);
+	PointerParameter(&Number2);
 
 	// 간단 실습
 	// int*와 float*를 파라메터로 받는 함수 만들기
 	// int*받은 값은 3 더하기, float*로 받은 값은 절반으로 만들기
 
-	/*int PointerNumber1 = 20;
+	int PointerNumber1 = 20;
 	float PointerNumber2 = 10.0f;
 
 	TestPointer(&PointerNumber1, &PointerNumber2);
 	printf("%d, %.1f", PointerNumber1, PointerNumber2);
 
 	float* test = p;
-	test++;*/
+	test++;
 
 	//(*test) = 20;		// 매우 위험. 절대 하면 안됨. 어차피 터짐.
 

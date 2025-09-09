@@ -10,5 +10,6 @@ void Practice0908_06();
 void Practice0908_07();
 
 int Shuffle(int Array[], int Length);
+//int Shuffle(int* Array, int Length);	// 일반적으로 이렇게 사용하는 것이 보통이다.
 
 void Day0908_Ref();

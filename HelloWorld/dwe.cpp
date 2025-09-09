@@ -1,9 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include "dwe.h"
-#include <iostream> // 입출력 관련(cout)
-#include <stdio.h>
-#include <cstdio>
-#include "header.h"
 
 /*
 데이터 타입
@@ -303,8 +297,9 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 
 #define _CRTDBG_MAP_ALLOC
 #define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#define _CRT_SECURE_NO_WARNINGS		//scanf 함수를 쓰게 만듬
+#include "dwe.h"
 #include <crtdbg.h>
-
 #include <iostream>	// 입출력 관련(cout)
 #include <stdio.h>
 #include <time.h>
@@ -1108,33 +1103,11 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 
 	}*/
 
-	//global = 1000;	전역변수
-
-	// TestMath사칙연산용 템플릿 함수 4개 만들기
-
-	/*Practice0905_01();
-	Practice0905_02();
-	Practice0905_03();
-	Practice0905_04();
-	Practice0905_05();
-	Practice0905_06();
-	Practice0905_07();
-	Practice0905_08();
-	Practice0905_09();
-	Practice0905_01_05();
-	Practice0905_02_05();*/
-
-	/*Practice0908_01();
-	Practice0908_02();
-	Practice0908_03();
-	Day0908_Ref();*/
+	
 	
 	srand(time(0));
 
-	/*Practice0908_04();
-	Practice0908_05();
-	Practice0908_06();
-	Practice0908_07();*/
+	
 
 	//int a = 10;
 	//int Array[5];	// int 5개를 관리하는 배열
@@ -1201,18 +1174,45 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	
 	//int* p = nullptr;
 
-	/*Day0909();
-	Day0909_2_ArrayAndPointer();
-	Day0909_DynamicAllocation();
-	Day0909_Example();*/
-
+	/*
+		9월 5일
+	*/
+	//Practice0905_01();
+	//Practice0905_02();
+	//Practice0905_03();
+	//Practice0905_04();
+	//Practice0905_05();
+	//Practice0905_06();
+	//Practice0905_07();
+	//Practice0905_08();
+	//Practice0905_09();
+	//Practice0905_01_05();
+	//Practice0905_02_05();
+	/*
+		9월 8일
+	*/
+	//Practice0908_02();
+	//Practice0908_01();
+	//Practice0908_03();
+	//Day0908_Ref();
+	//Practice0908_04();
+	//Practice0908_05();
+	//Practice0908_06();
+	//Practice0908_07();
 	//Practice0908_Practice1();
 	//Practice0908_Practice2();
 	//Practice0908_Practice3();
 	//Practice0908_Practice4();
-	Practice0908_Practice5();
-	Practice0908_Practice6();
-	Practice0908_Practice7();
+	/*
+		9월 9일
+	*/
+	//Day0909();
+	//Day0909_2_ArrayAndPointer();
+	//Day0909_DynamicAllocation();
+	//Day0909_Example();
+	//Practice0908_Practice5();
+	//Practice0908_Practice6();
+	//Practice0908_Practice7();
 
 
 	return 0;

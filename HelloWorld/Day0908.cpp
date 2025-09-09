@@ -289,7 +289,7 @@ void Practice0908_07()
 				{
 					return;
 				}
-				if (PlayerX == 1 && PlayerY == 1)	//Maze[1][1]이면
+				if (PlayerX == 1 && PlayerY == 1)	//Maze[1][1]에
 				{
 					Maze[PlayerX][PlayerY] = 4;		// S를 출력
 				}

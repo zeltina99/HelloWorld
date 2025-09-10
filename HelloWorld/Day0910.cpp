@@ -99,6 +99,20 @@ void Day0910_String()
 	//		int MyAtoI(const char* Source);
 	// 6. 문자열을 입력 받아 실수를 리턴하는 함수 만들기
 	//		float MyAtoF(const char* Source);
+
+
+	const int Size = 32;
+	char InputString[Size];
+	printf("문장을 입력하세요 : ");
+	std::cin.getline(InputString, Size);
+	
+	printf("입력된 문장은[%s]입니다.", InputString);
+
+	// 간단 실습
+	// ,뒤에 있는 영어 알파벳은 모두 대문자이어야 한다.
+	// 입력문장 예시 : "Hello,World!"
+	// 출력문장 예시 : "Hello,WORLD!"
+
 }
 
 int FindCharIndex(const char* TargetString, const char TargetCharacter)

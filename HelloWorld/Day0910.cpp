@@ -124,25 +124,25 @@ void Day0910_String()
 	float FloatNumber = MyAtoF("123.45");
 	FloatNumber = MyAtoF("55");
 
-	//const int Size = 32;
-	//char InputString[Size];
-	//printf("문장을 입력하세요 : ");
-	//std::cin.getline(InputString, Size);
-	//printf("입력된 문장은[%s]입니다.\n", InputString);
+	const int Size = 32;
+	char InputString[Size];
+	printf("문장을 입력하세요 : ");
+	std::cin.getline(InputString, Size);
+	printf("입력된 문장은[%s]입니다.\n", InputString);
 
-	//// 간단 실습
-	//// ,뒤에 있는 영어 알파벳은 모두 대문자이어야 한다.
-	//// 입력문장 예시 : "Hello,World!"
-	//// 출력문장 예시 : "Hello,WORLD!"
-	//SimpleParser(InputString, ',');
-	//printf("파싱된 문장은 [%s]입니다.\n", InputString);
+	// 간단 실습
+	// ,뒤에 있는 영어 알파벳은 모두 대문자이어야 한다.
+	// 입력문장 예시 : "Hello,World!"
+	// 출력문장 예시 : "Hello,WORLD!"
+	SimpleParser(InputString, ',');
+	printf("파싱된 문장은 [%s]입니다.\n", InputString);
 
-	//// #include <direct.h> 추가
-	//char Working[256];
-	//if (_getcwd(Working, 256) != nullptr)
-	//{
-	//	printf("작업 디렉토리 : %s\n", Working);
-	//}
+	// #include <direct.h> 추가
+	char Working[256];
+	if (_getcwd(Working, 256) != nullptr)
+	{
+		printf("작업 디렉토리 : %s\n", Working);
+	}
 	// 파일 읽기
 	ReadFile();
 

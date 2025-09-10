@@ -1227,7 +1227,13 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	/*
 		9월 10일
 	*/
-	Day0910_String();
+	//Day0910_String();
+	Practice0910_Practice1();
+	Practice0910_Practice2();
+	Practice0910_Practice3();
+	Practice0910_Practice4();
+	Practice0910_Practice5();
+	Practice0910_Practice6();
 
 
 

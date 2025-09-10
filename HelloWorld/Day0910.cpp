@@ -80,44 +80,27 @@ void Day0910_String()
 	
 	const int Size = 32;
 	char InputString[Size];
-	bool AfterComma = false;
 	printf("문장을 입력하세요 : ");
 	std::cin.getline(InputString, Size);
-	for (int i = 1; i < Size; i++)
-	{
-		if (InputString[i] == ',')
-		{
-			AfterComma = true;
-			if ((AfterComma && InputString[i]) >= 'a' && (InputString[i] <= 'z'))
-			{
-				InputString[i] = (InputString[i] - 'a' + 'A');
-			}
-		}
-		
-	}
-	printf("입력된 문장은[%s]입니다.", InputString);
+	printf("입력된 문장은 [%s]입니다.\n", InputString);
+
+	SimpleParser(InputString, ',');
+	printf("파싱된 문장은 [%s]입니다.\n", InputString);
 
 }
 
 int FindCharIndex(const char* TargetString, const char TargetCharacter)
 {
 	int Index = 0;
-	bool IsFind = false;
 	while (TargetString[Index] != '\0')
 	{
 		if (TargetString[Index] == TargetCharacter)
 		{
-			IsFind = true;
-			break;
+			return Index;
 		}
 		Index++;
 	}
-
-	if (IsFind)
-	{
-		Index = -1;
-	}
-	return Index;
+	return -1;
 }
 
 void Practice0910_Practice1()
@@ -176,12 +159,62 @@ void Practice0910_Practice5()
 {
 	// 5. 문자열을 입력 받아 정수를 리턴하는 함수 만들기
 	//		int MyAtoI(const char* Source);
+
+	const int Size = 32;
+	int PrintNumber = 0;
+	char String[Size] = { 0 };
+	printf("문장을 입력해주세요. : ");
+	std::cin.getline(String, Size);
+	PrintNumber = MyAtoI(String);
+	printf("입력한 문장의 정수는 [%d]입니다.\n\n", PrintNumber);
+
+
 }
 
 void Practice0910_Practice6()
 {
 	// 6. 문자열을 입력 받아 실수를 리턴하는 함수 만들기
-	//		int MyAtoF(const char* Source);
+	//		float MyAtoF(const char* Source);
+
+	const int Size = 32;
+	float PrintNumber = 0.0f;
+	char String[Size] = { 0 };
+	printf("문장을 입력해주세요. : ");
+	std::cin.getline(String, Size);
+	PrintNumber = MyAtoF(String);
+	printf("입력한 문장의 실수는 [%.2f]입니다.", PrintNumber);
+}
+
+void Practice0910_Practice7()
+{
+/*
+	① 미로 탈출 게임을 수정하여 맵 데이터파일에서 읽은 내용을 기반으로 맵 만들기
+		- 데이터 파일 구조
+		  - 첫줄은 가로 길이와 세로 길이가 저장되어 있다.
+		   - ex) 20, 10 ⇒ 가로 20, 세로 10
+		   - 두번째 줄 부터는 미로의 각 셀을 콤마(,)로 구분하여 셀의 타입을 나타낸다.
+		    - 콤마(,),
+		   - \n으로 다음 줄로 이동한다.
+*/
+
+
+
+
+}
+
+void SimpleParser(char* Source, const char Delimiter)
+{
+	int CommaIndex = FindCharIndex(Source, Delimiter);
+	char* AfterComma = Source + CommaIndex + 1;
+	const int ToUpperGap = 'a' - 'A';
+	while (*AfterComma != '\0')
+	{
+		if ((*AfterComma) >= 'a' && (*AfterComma) <= 'z')
+		{
+			(*AfterComma) -= ToUpperGap;
+		}
+		AfterComma++;
+	}
 }
 
 int MyStringLength(const char* Target)
@@ -256,7 +289,66 @@ int MyStringCompare(const char* String1, const char* String2)
 	}
 	return Result;
 }
-	
+
+int MyAtoI(const char* Source)
+{
+	int Result = 0;
+	int Index = 0;
+	if (Source == nullptr || Source[0] == '\0')		// 아무것도 없거나 첫 번째가 널 문자일때 0을 출력
+	{
+		return 0;
+	}
+	while (Source[Index] >= '0' && Source[Index] <= '9')	// 문자열에 0 이상 그리고 9 이하 일때
+	{
+		Result = Result * 10 + (Source[Index] - '0');		// 문자열에 '0'을 뺀 값을, Result에 10을 곱한거에 더해서 Result에 추가
+		Index++;
+	}
+
+	return Result;
+}
+
+float MyAtoF(const char* Source)
+{
+	float Result = 0.0f;
+	float Fraction = 0.0f;
+	float Divider = 1.0f;
+	int Index = 0;
+	bool isFraction = false;
+	if (Source == nullptr || Source[0] == '\0')		// 아무것도 없거나 첫 번째가 널 문자일때 0을 출력
+	{
+		return 0;
+	}
+	while (Source[Index] != '\0')
+	{
+		if (Source[Index] == '.')
+		{
+			isFraction = true;
+			Index++;
+			continue;
+		}
+		if (Source[Index] >= '0' && Source[Index] <= '9') 
+		{
+	        if (!isFraction) 
+			{
+	            Result = Result * 10 + (Source[Index] - '0');
+	        } 
+			else 
+			{
+	            Fraction = Fraction * 10 + (Source[Index] - '0');
+	            Divider *= 10.0f;
+	        }
+	    } 
+		else 
+		{
+			break; // 숫자가 아니면 변환 종료
+		}
+	    Index++;	// 널 문자 입력
+	}
+	Result = Result + Fraction / Divider;
+	return Result;
+}
+
+
 	
 	
 	

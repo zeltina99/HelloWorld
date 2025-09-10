@@ -17,6 +17,9 @@ void Practice0910_Practice3();
 void Practice0910_Practice4();
 void Practice0910_Practice5();
 void Practice0910_Practice6();
+void Practice0910_Practice7();
+
+void SimpleParser(char* Source, const char Delimiter);
 
 /// <summary>
 /// 문자열의 길이를 측정하는 함수
@@ -50,5 +53,25 @@ void MyStringCat(char* Source, const char* Destination);
 /// <param name="String2">두번째 문자열</param>
 /// <returns>리턴 값이 두 문자열이 같으면 0, 첫번째가 작으면 음수, 두번째가 작으면 양수</returns>
 int MyStringCompare(const char* String1, const char* String2);
+
+
+
+
+/// <summary>
+/// 문자열을 입력 받아 정수를 리턴하는 함수
+/// </summary>
+/// <param name="Source">문자열을 입력 받음</param>
+/// <returns>정수로 리턴</returns>
+int MyAtoI(const char* Source);
+
+
+/// <summary>
+/// 문자열을 입력 받아 실수를 리턴하는 함수
+/// </summary>
+/// <param name="Source">문자열을 입력 받음</param>
+/// <returns>실수로 리턴</returns>
+float MyAtoF(const char* Source);
+
+
 
 

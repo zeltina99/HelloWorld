@@ -54,7 +54,7 @@ void Day0910_String()
 		printf("[%c]는 찾을 수 없습니다\n", Target);
 	}*/
 
-	char Target = 'l';
+	/*char Target = 'l';
 	int Index = FindCharIndex(HelloString, Target);
 	if (Index >= 0)
 	{
@@ -63,22 +63,42 @@ void Day0910_String()
 	else
 	{
 		printf("[%c]는 찾을 수 없습니다\n", Target);
-	}
+	}*/
 
 	// 실습
 	// 1. 문자열의 길이를 측정하는 함수 만들기
 	//		int MyStringLength(const char* Target);
+	const char* TestString = "Hello";
+	int Length = MyStringLength(TestString);
+	printf("\n\n문자열 길이 측정\n");
+	printf("[%s]의 길이는 %d입니다.", TestString, Length);
+	
 	// 2. 문자열을 복사하는 함수 만들기
 	//		void MyStringCopy(const char* Source, char* Destination);
+	char Destination[32] = { 0 };	// 크기는 그냥 충분하다고 가정
+	char* Destination2 = new char[MyStringLength(TestString) + 1];	// +1은 '\0'용 공간
+	MyStringCopy(TestString, Destination2);
+	printf("\n\n문자열 복사하기\n");
+	printf("Source\t\t: %s\n", TestString);
+	printf("Destination\t: %s\n", Destination2);
+	delete[] Destination2;
+	Destination2 = nullptr;
+	
 	// 3. 문자열을 합치는 함수 만들기(Source 뒤에 Destination의 내용을 붙이기)
 	//		void MyStringCat(char* Source, const char* Destination);
+	printf("\n\n문자열 합치기\n");
+	char TestSource[32] = "Hello";
+	printf("원본 : %s\n", TestSource);
+	MyStringCat(TestSource, " World!");
+	printf("결과 : %s\n", TestSource);
+	
 	// 4. 문자열 두개를 비교하는 함수 만들기
 	//		리턴 값이 두 문자열이 같으면 0, 첫번째가 작으면 음수, 두번째가 작으면 양수
 	//		int MyStringCompare(const char* String1, const char* String2);
 	// 5. 문자열을 입력 받아 정수를 리턴하는 함수 만들기
 	//		int MyAtoI(const char* Source);
 	// 6. 문자열을 입력 받아 실수를 리턴하는 함수 만들기
-	//		int MyAtoF(const char* Source);
+	//		float MyAtoF(const char* Source);
 }
 
 int FindCharIndex(const char* TargetString, const char TargetCharacter)
@@ -100,4 +120,37 @@ int FindCharIndex(const char* TargetString, const char TargetCharacter)
 		Index = -1;
 	}
 	return Index;
+}
+
+int MyStringLength(const char* Target)
+{
+	int Length = 0;
+	while (Target[Length] != '\0')
+	{
+		Length++;
+	}
+	return Length;
+}
+
+void MyStringCopy(const char* Source, char* Destination)
+{
+	int Index = 0;
+	while (Source[Index] != '\0')
+	{
+		Destination[Index] = Source[Index];
+		Index++;
+	}
+	Destination[Index] = '\0';
+}
+
+void MyStringCat(char* Source, const char* Destination)
+{
+	int SourceLast = MyStringLength(Source);
+	int Index = 0;
+	while (Destination[Index] != '\0')
+	{
+		Source[SourceLast + Index] = Destination[Index];
+		Index++;
+	}
+	Source[SourceLast + Index] = '\0';
 }

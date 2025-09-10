@@ -11,6 +11,8 @@ void Day0910_String();
 /// <returns>-1이면 못찾음, 그 외는 TargetCharacter의 인덱스</returns>
 int FindCharIndex(const char* TargetString, const char TargetCharacter);
 
-
+int MyStringLength(const char* Target);
+void MyStringCopy(const char* Source, char* Destination);
+void MyStringCat(char* Source, const char* Destination);
 
 

@@ -18,6 +18,7 @@ void Practice0910_Practice4();
 void Practice0910_Practice5();
 void Practice0910_Practice6();
 void Practice0910_Practice7();
+void Practice0910_Practice8();
 
 void SimpleParser(char* Source, const char Delimiter);
 void ReadFile();

@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <iostream>
 #include <random>
+#include <direct.h>
+#include <fstream>
+#include <string>
 
 void Day0910_String()
 {
@@ -196,7 +199,48 @@ void Practice0910_Practice7()
 		    - 콤마(,),
 		   - \n으로 다음 줄로 이동한다.
 */
+	ReadFile();
+	int PlayerX = 0;
+	int PlayerY = 0;
+	FindStartPosition(PlayerX, PlayerY);
 
+	printf("~~ 미로 탈출 게임 ~~\n");
+
+	while (true)
+	{
+
+		PrintMaze(PlayerX, PlayerY);
+		printf("\n");
+
+		if (IsEnd(PlayerX, PlayerY))
+		{
+			printf("축하합니다! 미로를 탈출했습니다!\n");
+			break;
+		}
+
+		int MoveFlags = PrintAvailableMoves(PlayerX, PlayerY);
+		MoveDirection Direction = GetMoveInput(MoveFlags);
+		switch (Direction)
+		{
+		case DirUp:
+			PlayerY--;
+			break;
+		case DirDown:
+			PlayerY++;
+			break;
+		case DirLeft:
+			PlayerX--;
+			break;
+		case DirRight:
+			PlayerX++;
+			break;
+		case DirNone:
+		default:
+			// 있을 수 없음
+			break;
+		}
+
+	}
 
 
 
@@ -215,6 +259,26 @@ void SimpleParser(char* Source, const char Delimiter)
 		}
 		AfterComma++;
 	}
+}
+
+void ReadFile()
+{
+	const char* FilePath = ".\\Data\\MapData.txt";
+
+	std::ifstream InputFile(FilePath);
+	if (!InputFile.is_open())	// 파일이 열렸는지 확인하는 함수
+	{
+		printf("파일을 열 수 없습니다. \n");
+		printf("[%s] 경로를 확인하세요.\n", FilePath);
+		return;
+	}
+	std::string FileContents(
+		(std::istreambuf_iterator<char>(InputFile)),
+		std::istreambuf_iterator<char>());
+
+	printf("%s\n", FileContents.c_str());
+
+
 }
 
 int MyStringLength(const char* Target)

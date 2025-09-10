@@ -20,6 +20,7 @@ void Practice0910_Practice6();
 void Practice0910_Practice7();
 
 void SimpleParser(char* Source, const char Delimiter);
+void ReadFile();
 
 /// <summary>
 /// 문자열의 길이를 측정하는 함수

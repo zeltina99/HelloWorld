@@ -7,7 +7,7 @@
 
 void Day0910_String()
 {
-	char HelloString[14];
+	/*char HelloString[14];
 	HelloString[0] = 'H';
 	HelloString[1] = 'e';
 	HelloString[2] = 'l';
@@ -21,14 +21,14 @@ void Day0910_String()
 	HelloString[10] = 'd';
 	HelloString[11] = '!';
 	HelloString[12] = '\n';
-	HelloString[13] = '\0';
+	HelloString[13] = '\0';*/
 	//char HelloString[] = { 'H', 'e', 'l', 'l', 'o', ' ','W', 'o', 'r', 'l', 'd', '!', '\n' };
 	//char HelloString[] = "Hello World!\n";
 
-	printf("%s", HelloString);	// 문자열 출력하기
+	//printf("%s", HelloString);	// 문자열 출력하기
 
-	HelloString[5] = '\0';
-	printf("%s\n", HelloString);	// Hello만 출력됨
+	//HelloString[5] = '\0';
+	//printf("%s\n", HelloString);	// Hello만 출력됨
 
 	// 간단 실습
 	// HelloString에서 'e'가 몇번째 있는지 출력해보기
@@ -54,7 +54,7 @@ void Day0910_String()
 		printf("[%c]는 찾을 수 없습니다\n", Target);
 	}*/
 
-	char Target = 'l';
+	/*char Target = 'l';
 	int Index = FindCharIndex(HelloString, Target);
 	if (Index >= 0)
 	{
@@ -63,9 +63,40 @@ void Day0910_String()
 	else
 	{
 		printf("[%c]는 찾을 수 없습니다\n", Target);
-	}
+	}*/
 
+
+	/*const int Size = 32;
+	char InputString[Size];
+	printf("문장을 입력하세요 : ");
+	std::cin.getline(InputString, Size);
+
+	printf("입력된 문장은[%s]입니다.", InputString);*/
+
+	// 간단 실습
+	// ,뒤에 있는 영어 알파벳은 모두 대문자이어야 한다.
+	// 입력문장 예시 : "Hello,World!"
+	// 출력문장 예시 : "Hello,WORLD!"
 	
+	const int Size = 32;
+	char InputString[Size];
+	bool AfterComma = false;
+	printf("문장을 입력하세요 : ");
+	std::cin.getline(InputString, Size);
+	for (int i = 1; i < Size; i++)
+	{
+		if (InputString[i] == ',')
+		{
+			AfterComma = true;
+			if ((AfterComma && InputString[i]) >= 'a' && (InputString[i] <= 'z'))
+			{
+				InputString[i] = (InputString[i] - 'a' + 'A');
+			}
+		}
+		
+	}
+	printf("입력된 문장은[%s]입니다.", InputString);
+
 }
 
 int FindCharIndex(const char* TargetString, const char TargetCharacter)

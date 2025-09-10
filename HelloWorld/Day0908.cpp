@@ -70,11 +70,11 @@ int Shuffle(int Array[], int Length)
 	return Temp;
 }
 
-//void TestRef(int& OutData, const int& ReadData)
-//{
-//	OutData *= 2;
-//
-//}
+void TestRef(int& OutData, const int& ReadData)
+{
+	OutData *= 2;
+
+}
 
 
 void Day0908_Ref()

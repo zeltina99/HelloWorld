@@ -207,141 +207,6 @@ void Practice0910_Practice7()
 
 }
 
-void Practice0910_Practice8()
-{
-	const int MAX_LINE = 256;
-
-	// --- 문자열 길이 ---
-	int MyStrLen(const char* str) {
-		int len = 0;
-		while (str[len] != '\0') ++len;
-		return len;
-	}
-
-	// --- 문자열 복사 ---
-	void MyStrCpy(char* dest, const char* src) {
-		while (*src) {
-			*dest++ = *src++;
-		}
-		*dest = '\0';
-	}
-
-	// --- 문자열 비교 ---
-	int MyStrCmp(const char* s1, const char* s2) {
-		while (*s1 && *s2) {
-			if (*s1 != *s2) return *s1 - *s2;
-			++s1; ++s2;
-		}
-		return *s1 - *s2;
-	}
-
-	// --- 문자열을 정수로 ---
-	int MyAtoI(const char* str) {
-		int result = 0;
-		bool isNegative = false;
-
-		if (*str == '-') {
-			isNegative = true;
-			++str;
-		}
-
-		while (*str >= '0' && *str <= '9') {
-			result = result * 10 + (*str - '0');
-			++str;
-		}
-
-		return isNegative ? -result : result;
-	}
-
-	// --- 수동 토큰 분리 ---
-	bool GetNextToken(const char* line, int& index, char* outToken)
-	{
-		int outIdx = 0;
-
-		// 콤마와 공백 넘기기
-		while (line[index] == ',' || line[index] == ' ') ++index;
-
-		// 끝이면 종료
-		if (line[index] == '\0' || line[index] == '\n') return false;
-
-		// 다음 콤마나 줄 끝까지 복사
-		while (line[index] != ',' && line[index] != '\0' && line[index] != '\n') {
-			outToken[outIdx++] = line[index++];
-		}
-
-		outToken[outIdx] = '\0'; // 종료
-
-		return true;
-	}
-
-	void LoadMap(const char* filePath)
-	{
-		std::ifstream file(filePath);
-		if (!file.is_open()) {
-			std::cout << "파일을 열 수 없습니다.\n";
-			return;
-		}
-
-		char line[MAX_LINE];
-		char token[32];
-
-		// === [1] 맵 크기 파싱 ===
-		file.getline(line, MAX_LINE);
-		int index = 0;
-		GetNextToken(line, index, token);
-		int width = MyAtoI(token);
-		GetNextToken(line, index, token);
-		int height = MyAtoI(token);
-
-		std::cout << "맵 크기: " << width << " x " << height << "\n";
-
-		// === [2] 맵 배열 할당 ===
-		int** map = new int* [height];
-		for (int i = 0; i < height; ++i) {
-			map[i] = new int[width];
-		}
-
-		// === [3] 맵 데이터 읽기 ===
-		for (int row = 0; row < height; ++row) {
-			file.getline(line, MAX_LINE);
-			index = 0;
-
-			for (int col = 0; col < width; ++col) {
-				if (GetNextToken(line, index, token)) {
-					map[row][col] = MyAtoI(token);
-				}
-				else {
-					map[row][col] = -1; // 오류 표시
-				}
-			}
-		}
-
-		file.close();
-
-		// === [4] 맵 출력 ===
-		std::cout << "=== 미로 맵 ===\n";
-		for (int y = 0; y < height; ++y) {
-			for (int x = 0; x < width; ++x) {
-				switch (map[y][x]) {
-				case 0: std::cout << '.'; break;
-				case 1: std::cout << '#'; break;
-				case 2: std::cout << 'P'; break;
-				case 3: std::cout << 'E'; break;
-				default: std::cout << '?'; break;
-				}
-			}
-			std::cout << '\n';
-		}
-
-		// === [5] 메모리 해제 ===
-		for (int i = 0; i < height; ++i) {
-			delete[] map[i];
-		}
-		delete[] map;
-	}
-
-}
-
 void SimpleParser(char* Source, const char Delimiter)
 {
 	int CommaIndex = FindCharIndex(Source, Delimiter);
@@ -374,6 +239,25 @@ void ReadFile()
 
 	printf("%s\n", FileContents.c_str());
 
+
+}
+
+void MazeMap(const char* File)
+{
+	const char* FilePath = ".\\Data\\MapData.txt";
+
+	std::ifstream InputFile(FilePath);
+	if (!InputFile.is_open())	// 파일이 열렸는지 확인하는 함수
+	{
+		printf("파일을 열 수 없습니다. \n");
+		printf("[%s] 경로를 확인하세요.\n", FilePath);
+		return;
+	}
+	std::string FileContents(
+		(std::istreambuf_iterator<char>(InputFile)),
+		std::istreambuf_iterator<char>());
+
+	char Maze[200] = { 0 };
 
 }
 
@@ -509,49 +393,37 @@ float MyAtoF(const char* Source)
 }
 
 
-	
-//int PlayerX = 0;
-//int PlayerY = 0;
-//FindStartPosition(PlayerX, PlayerY);
-//
-//printf("~~ 미로 탈출 게임 ~~\n");
-//
-//while (true)
-//{
-//
-//	PrintMaze(PlayerX, PlayerY);
-//	printf("\n");
-//
-//	if (IsEnd(PlayerX, PlayerY))
-//	{
-//		printf("축하합니다! 미로를 탈출했습니다!\n");
-//		break;
-//	}
-//
-//	int MoveFlags = PrintAvailableMoves(PlayerX, PlayerY);
-//	MoveDirection Direction = GetMoveInput(MoveFlags);
-//	switch (Direction)
-//	{
-//	case DirUp:
-//		PlayerY--;
-//		break;
-//	case DirDown:
-//		PlayerY++;
-//		break;
-//	case DirLeft:
-//		PlayerX--;
-//		break;
-//	case DirRight:
-//		PlayerX++;
-//		break;
-//	case DirNone:
-//	default:
-//		// 있을 수 없음
-//		break;
-//	}
-//
-//}
-	
-	
+int ParseNumberInline(const char* Line, int& Index) 
+{
+	int Result = 0;
+	bool IsNegative = false;
+
+	// 음수 처리
+	if (Line[Index] == '-') 
+	{
+		IsNegative = true;
+		++Index;
+	}
+
+	// 숫자 조합
+	while (Line[Index] >= '0' && Line[Index] <= '9') 
+	{
+		Result = Result * 10 + (Line[Index] - '0');
+		++Index;
+	}
+
+	// 콤마나 다른 구분자 건너뜀
+	if (Line[Index] == ',' || Line[Index] == ' ') 
+	{
+		++Index;
+	}
+
+	if (IsNegative) 
+	{
+		Result = -Result;
+	}
+
+	return Result;
+}
 	
 	

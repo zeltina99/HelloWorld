@@ -18,10 +18,14 @@ void Practice0910_Practice4();
 void Practice0910_Practice5();
 void Practice0910_Practice6();
 void Practice0910_Practice7();
-void Practice0910_Practice8();
 
 void SimpleParser(char* Source, const char Delimiter);
+
+int MyAtoI_Inline(const char* line, int& idx);
+int ParseNumberInline(const char* line, int& idx);
+
 void ReadFile();
+void MazeMap(const char* File);
 
 /// <summary>
 /// 문자열의 길이를 측정하는 함수

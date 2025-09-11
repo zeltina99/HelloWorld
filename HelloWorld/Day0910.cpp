@@ -7,7 +7,6 @@
 #include <direct.h>
 #include <fstream>
 #include <string>
-
 void Day0910_String()
 {
 	/*char HelloString[14];
@@ -188,6 +187,8 @@ void Practice0910_Practice6()
 	printf("입력한 문장의 실수는 [%.2f]입니다.", PrintNumber);
 }
 
+
+
 void Practice0910_Practice7()
 {
 /*
@@ -222,6 +223,21 @@ void SimpleParser(char* Source, const char Delimiter)
 	}
 }
 
+int ParseNextNumber(const std::string& line, int& index)	
+{
+	int number = 0;
+	while (index < (int)line.length() && line[index] >= '0' && line[index] <= '9')
+	{
+		number = number * 10 + (line[index] - '0');
+		index++;
+	}
+	while (index < (int)line.length() && (line[index] == ',' || line[index] == ' '))	// 숫자 다음에 있는 ,나 공백 스킵해서 다음 숫자 위치로 이동
+	{
+		index++;
+	}
+	return number;
+}
+
 void ReadFile()
 {
 	const char* FilePath = ".\\Data\\MapData.txt";
@@ -233,33 +249,59 @@ void ReadFile()
 		printf("[%s] 경로를 확인하세요.\n", FilePath);
 		return;
 	}
-	std::string FileContents(
-		(std::istreambuf_iterator<char>(InputFile)),
-		std::istreambuf_iterator<char>());
+	std::string line;
+	const int maxWidth = 100;
+	const int maxHeight = 100;
 
-	printf("%s\n", FileContents.c_str());
+	int map[100][100];  // 지역 변수
+	int width = 0;
+	int height = 0;
+	int row = 0;
 
-
-}
-
-void MazeMap(const char* File)
-{
-	const char* FilePath = ".\\Data\\MapData.txt";
-
-	std::ifstream InputFile(FilePath);
-	if (!InputFile.is_open())	// 파일이 열렸는지 확인하는 함수
+	while (std::getline(InputFile, line))
 	{
-		printf("파일을 열 수 없습니다. \n");
-		printf("[%s] 경로를 확인하세요.\n", FilePath);
-		return;
-	}
-	std::string FileContents(
-		(std::istreambuf_iterator<char>(InputFile)),
-		std::istreambuf_iterator<char>());
+		int index = 0;
 
-	char Maze[200] = { 0 };
+		if (row == 0)
+		{
+			width = ParseNextNumber(line, index);
+			height = ParseNextNumber(line, index);
+
+			printf("맵 크기: %d x %d\n", width, height);
+
+			if (width > maxWidth || height > maxHeight)
+			{
+				std::cout << "맵 크기가 너무 큽니다.\n";
+				return;
+			}
+		}
+		else if (row <= height)
+		{
+			for (int col = 0; col < width; col++)
+			{
+				map[row - 1][col] = ParseNextNumber(line, index);
+			}
+		}
+
+		row++;
+	}
+
+	InputFile.close();
+
+	// 출력
+	for (int y = 0; y < height; y++)
+	{
+		for (int x = 0; x < width; x++)
+		{
+			std::cout << map[y][x] << ' ';
+		}
+		std::cout << '\n';
+	}
+
 
 }
+
+
 
 int MyStringLength(const char* Target)
 {
@@ -393,37 +435,5 @@ float MyAtoF(const char* Source)
 }
 
 
-int ParseNumberInline(const char* Line, int& Index) 
-{
-	int Result = 0;
-	bool IsNegative = false;
-
-	// 음수 처리
-	if (Line[Index] == '-') 
-	{
-		IsNegative = true;
-		++Index;
-	}
-
-	// 숫자 조합
-	while (Line[Index] >= '0' && Line[Index] <= '9') 
-	{
-		Result = Result * 10 + (Line[Index] - '0');
-		++Index;
-	}
-
-	// 콤마나 다른 구분자 건너뜀
-	if (Line[Index] == ',' || Line[Index] == ' ') 
-	{
-		++Index;
-	}
-
-	if (IsNegative) 
-	{
-		Result = -Result;
-	}
-
-	return Result;
-}
 	
 	

@@ -1,5 +1,5 @@
 #pragma once
-
+#include <string>
 void Day0910_String();
 
 
@@ -20,13 +20,9 @@ void Practice0910_Practice6();
 void Practice0910_Practice7();
 
 void SimpleParser(char* Source, const char Delimiter);
-
-int MyAtoI_Inline(const char* line, int& idx);
-int ParseNumberInline(const char* line, int& idx);
+int ParseNextNumber(const std::string& line, int& index);
 
 void ReadFile();
-void MazeMap(const char* File);
-
 /// <summary>
 /// 문자열의 길이를 측정하는 함수
 /// </summary>

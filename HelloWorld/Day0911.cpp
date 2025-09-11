@@ -33,7 +33,7 @@ bool ReadMapFile(const char* MapFileName, std::string& OutDataString)
 	char FilePath[256];		// FilePath라는 문자열의 배열을 선언
 
 	strcpy(FilePath, DirectoryName);	//DirectoryName을 전역변수로 선언했고, 그걸 문자열의 포인터로 선언했으니까, 그 안에 있는 .\\Data\\ 문자열을 FilePath에 복사한다.
-	strcpy(FilePath, MapFileName);		//MapFileName을 상수이자 문자열의 포인터(배열)로 파라메터를 설정했고, 그 안에 있는 문자열을 FilePath에 복사한다.
+	strcat(FilePath, MapFileName);		//MapFileName을 상수이자 문자열의 포인터(배열)로 파라메터를 설정했고, 그 안에 있는 문자열을 FilePath에 복사한다.
 
 	std::ifstream InputFile(FilePath);	// 그렇게 합쳐진 파일의 이름을 열어라
 

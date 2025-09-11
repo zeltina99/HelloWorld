@@ -287,7 +287,7 @@ void Practice0908_Practice3()
 	printf("입니다.\n");
 }
 
-void Practice0908_Practice4()
+void MazeMapGame()
 {
 	/*
 		④ 미로 게임

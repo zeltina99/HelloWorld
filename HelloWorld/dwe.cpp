@@ -300,7 +300,7 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 	- C언어에서는 문자열을 표현하기 위해 char*를 사용.(=> char[]을 쓰기도 한다)
 	- 항상 마지막 문자열은 널 문자('\0')로 끝난다.
 	- char*에는 아스키 코드가 기록된다.
-	*/
+*/
 
 
 #define _CRTDBG_MAP_ALLOC
@@ -320,6 +320,7 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 #include "Day0908.h"
 #include "Day0909.h"
 #include "Day0910.h"
+#include "Day0911.h"
 #include <limits.h>
 
 //using namespace std;
@@ -1114,7 +1115,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 
 	
 	
-	srand(time(0));
+	
 
 	
 
@@ -1239,7 +1240,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	/*
 		9월 11일
 	*/
-
+	Day0911();
 
 	return 0;
 }

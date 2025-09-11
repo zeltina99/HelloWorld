@@ -36,7 +36,7 @@ char* GetLine(char** InOutSource);
 /// <param name="LineData">파싱할 문자열</param>
 /// <param name="ArraySize">결과가 저장될 배열의 크기</param>
 /// <param name="OutArray">결과가 저장될 배열</param>
-void ParsLineData(const char* LineData, int ArraySize, int* OutArray);
+void ParseLineData(const char* LineData, int ArraySize, int* OutArray);
 
 /// <summary>
 /// 힙 영역에 저장된 미로 관련된 메모리들을 다시 해제 시킬 함수

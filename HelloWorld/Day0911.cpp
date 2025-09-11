@@ -63,7 +63,7 @@ bool ParseMapData(std::string& DataString)
 
 	// 라인 파싱하기
 	int SizeNumber[2] = { 0 };			// 일단 미로가 2차원 배열이니까, 가로에 들어갈 배열과 세로에 들어갈 배열 따라서 크기를 [2]로 뒀다.
-	ParsLineData(LinePtr, 2, SizeNumber);
+	ParseLineData(LinePtr, 2, SizeNumber);
 
 	/* 위에 코드들은 전부 맵 파일에 있는 문자열들을 한 줄로 나누고 그 줄에서 또 숫자로 하나씩 파싱하는 작업을 한 코드고 */
 
@@ -82,7 +82,7 @@ bool ParseMapData(std::string& DataString)
 	while ((*Current) != '\0')
 	{
 		LinePtr = GetLine(&Current);
-		ParsLineData(LinePtr, MazeWidth, Maze[HeightIndex]);
+		ParseLineData(LinePtr, MazeWidth, Maze[HeightIndex]);
 		HeightIndex++;
 
 		if (HeightIndex >= MazeHeight)
@@ -113,7 +113,7 @@ char* GetLine(char** InOutSource)
 	return Result;
 }
 
-void ParsLineData(const char* LineData, int ArraySize, int* OutArray)
+void ParseLineData(const char* LineData, int ArraySize, int* OutArray)
 {
 	const char* LinePointer = LineData;
 	int SizeIndex = 0;

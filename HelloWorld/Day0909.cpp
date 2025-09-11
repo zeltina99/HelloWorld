@@ -287,6 +287,10 @@ void Practice0908_Practice3()
 	printf("¿‘¥œ¥Ÿ.\n");
 }
 
+int MazeWidth = 20;
+int MazeHeight = 10;
+int** Maze = nullptr;
+
 void MazeMapGame()
 {
 	/*

@@ -5,7 +5,6 @@ extern int MazeWidth;
 extern int MazeHeight;
 extern int** Maze;
 
-const char* DirectoryName = ".\\Data\\";
 
 /// <summary>
 /// 맵 파일을 읽는 함수
@@ -27,5 +26,22 @@ bool ParseMapData(std::string& DataString);
 /// <param name="Source">\n을 찾을 원본 데이터</param>
 /// <returns>\n 다음 주소</returns>
 char* GetNextLine(char* Source);
+/// <summary>
+/// 문자열 한줄을 파싱하는 함수
+/// </summary>
+/// <param name="LineData">파싱할 문자열</param>
+/// <param name="Size">결과가 저장될 배열의 크기</param>
+/// <param name="OutArray">결과가 저장될 배열</param>
+void ParseLineData(char* LineData, int Size, int* OutArray);
+
+/// <summary>
+/// 미로 게임을 초기화 하는 함수
+/// </summary>
+void InitializeMaze();
+
+/// <summary>
+/// 미로 게임을 정리하는 함수 (할당된 메모리를 해제하는 함수)
+/// </summary>
+void ClearMaze();
 
 void Day0911();

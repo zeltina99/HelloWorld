@@ -1,54 +1,44 @@
 #pragma once
 
 void Day0909();
-void PointerParameter(int* pNumber);
-void TestPointer(int* pNumber1, float* pNumber2);
-void Day0909_2_ArrayAndPointer();
+void Day0909_ArrayAndPointer();
 void Day0909_DynamicAllocation();
 void Day0909_Example();
+
 /// <summary>
 /// 주사위 굴리는 함수
 /// </summary>
-/// <param name="FaceNumber">주사위면수 6입니다.</param>
-/// <returns></returns>
+/// <param name="FaceNumber">주사위의 면 수. 기본값은 6</param>
+/// <returns>랜덤으로 나온 주사위 값</returns>
 int RollDice(int FaceNumber = 6);
-void Practice0908_Practice1();
-void Practice0908_Practice2();
-void Practice0908_Practice3();
-void Practice0908_Practice4();
-void Practice0908_Practice5();
-void Practice0908_Practice6();
-void MazeEscapeRun();
-
+void Day0908_Practice1();
+void Day0908_Practice2();
+void Day0908_Practice3();
 
 
 /// <summary>
-/// 확률에 따라 해야 할 행동을 정합니다.
+/// 미로 탈출 게임 코드 실행용
 /// </summary>
-/// <param name="EventNumber">일단 rand함수를 돌려 확률을 뽑습니다. 70%확률로 아무것도 안함</param>
-/// <param name="DamageNumber">20%확률로 적과 싸움</param>
-/// <param name="RecoveryNumber">10%확률로 플레이어의 체력을 회복</param>
-//void Event(int& OutEventNumber, int& OutDamageNumber, int& OutRecoveryNumber);
+void MazeEscapeRun();
 
 enum MazeTile
 {
-    Path    = 0,
-    Wall    = 1,
-    Start   = 2,
-    End     = 3
+    Path = 0,
+    Wall = 1,
+    Start = 2,
+    End = 3
 };
 
 enum MoveDirection
 {
-    DirNone     = 0,
-    DirUp       = 1 << 0,
-    DirDown     = 1 << 1,
-    DirLeft     = 1 << 2,
-    DirRight    = 1 << 3
+    DirNone = 0,
+    DirUp = 1 << 0,
+    DirDown = 1 << 1,
+    DirLeft = 1 << 2,
+    DirRight = 1 << 3
 };
 
-
- //미로 크기가 고정이었을 때의 코드
+// 미로 크기가 고정이었을 때의 코드
 //const int MazeWidth = 20;
 //const int MazeHeight = 10;
 //
@@ -67,7 +57,7 @@ enum MoveDirection
 //};
 
 
-//int* Maze = nullptr
+//int* Maze = nullptr;
 
 
 /// <summary>
@@ -80,12 +70,12 @@ void PrintMaze(int PlayerX, int PlayerY);
 /// <summary>
 /// 플레이어의 시작위치를 받아오는 함수
 /// </summary>
-/// <param name="OutStartX">플레이어의 시작위치(X) 출력용 파라메터</param>
-/// <param name="OutStartY">플레이어의 시작위치(ㅛ) 출력용 파라메터</param>
+/// <param name="OutStartX">플레이어의 시작위치(X) 출력용파라메터</param>
+/// <param name="OutStartY">플레이어의 시작위치(Y) 출력용파라메터</param>
 void FindStartPosition(int& OutStartX, int& OutStartY);
 
 /// <summary>
-/// 플레이어의 현재 위치에서 가능한 이동 경로를 출력하고 모든 경로를 합친 비트플래그를 반환합니다.
+/// 플레이어의 현재 위치에서 가능한 이동 경로를 출력하고 모든 경로를 합친 비트 플래그를 반환합니다.
 /// </summary>
 /// <param name="PlayerX">플레이어의 현재 X 좌표입니다.</param>
 /// <param name="PlayerY">플레이어의 현재 Y 좌표입니다.</param>
@@ -114,8 +104,3 @@ bool IsEnd(int X, int Y);
 /// <param name="MoveFlags">이동가능한 모든 경로의 비트플래그 합</param>
 /// <returns>결정된 방향</returns>
 MoveDirection GetMoveInput(int MoveFlags);
-
-
-
-
-

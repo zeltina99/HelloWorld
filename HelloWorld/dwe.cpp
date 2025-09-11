@@ -1120,7 +1120,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 
 	
 	
-	srand(time(0));
+	//srand(time(0));
 
 	
 
@@ -1228,7 +1228,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//Day0909_Example();
 	//Practice0908_Practice5();
 	//Practice0908_Practice6();
-	MazeEscapeRun();
+	//MazeEscapeRun();
 
 	/*
 		9월 10일

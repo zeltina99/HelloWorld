@@ -252,7 +252,7 @@ void TestString()
 
 	std::string str3 = str1;		// 복사
 	size_t Length = str3.length();	// 길이 확인
-	//int Size = Length;	// 크기가 안 맞아서 짤릴 수 있다.
+	//int Size = Length;	// 크기가 안맞아서 짤릴 수 있다.
 	Length = str3.size();
 
 	std::string str4 = str1 + " " + str2;	// str4 = "Hello World", + 방식은 성능에 문제가 있을 수 있다.
@@ -273,15 +273,13 @@ void TestString()
 
 	size_t Position = str1.find('e');
 	// 발견을 못했으면 std::string::npos 리턴
-	Position = str1.find('e', Position+1);	// 두번째 e를 찾을 때(첫번째 e가 발견되었다는 전제하에)
+	Position = str1.find('e', Position + 1);	// 두번째 e를 찾을 때(첫번째 e가 발견되었다는 전제하에)
 
 	str1[1] = 'E';	// 특정 위치의 글자에 접근하기. 인덱스 범위 확인을 안함. 런타임 에러가 뜰 수 있음
 	//str1[10] = 'E';	// 터짐
 	str1.at(1) = 'E';	// 안전하게 접근
 
 	str1.c_str();	// C스타일 문자열 접근하기
-
-
 }
 
 int MyStringCompare(const char* String1, const char* String2)

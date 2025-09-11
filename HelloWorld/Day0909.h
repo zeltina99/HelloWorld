@@ -18,7 +18,7 @@ void Practice0908_Practice3();
 void Practice0908_Practice4();
 void Practice0908_Practice5();
 void Practice0908_Practice6();
-void Practice0908_Practice7();
+void MazeEscapeRun();
 
 
 
@@ -28,7 +28,7 @@ void Practice0908_Practice7();
 /// <param name="EventNumber">일단 rand함수를 돌려 확률을 뽑습니다. 70%확률로 아무것도 안함</param>
 /// <param name="DamageNumber">20%확률로 적과 싸움</param>
 /// <param name="RecoveryNumber">10%확률로 플레이어의 체력을 회복</param>
-void Event(int& OutEventNumber, int& OutDamageNumber, int& OutRecoveryNumber);
+//void Event(int& OutEventNumber, int& OutDamageNumber, int& OutRecoveryNumber);
 
 enum MazeTile
 {
@@ -47,22 +47,29 @@ enum MoveDirection
     DirRight    = 1 << 3
 };
 
-const int MazeWidth = 20;
-const int MazeHeight = 10;
 
-const int Maze[MazeHeight][MazeWidth] =
-{
-    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-    {1,2,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,1,0,1},
-    {1,1,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,0,1},
-    {1,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1},
-    {1,0,1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1},
-    {1,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1},
-    {1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1},
-    {1,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,3,1},
-    {1,0,1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1},
-    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
-};
+ //미로 크기가 고정이었을 때의 코드
+//const int MazeWidth = 20;
+//const int MazeHeight = 10;
+//
+//const int Maze[MazeHeight][MazeWidth] =
+//{
+//    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+//    {1,2,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,1,0,1},
+//    {1,1,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,0,1},
+//    {1,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1},
+//    {1,0,1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1},
+//    {1,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1},
+//    {1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1},
+//    {1,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,3,1},
+//    {1,0,1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1},
+//    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+//};
+
+
+//int* Maze = nullptr
+
+
 /// <summary>
 /// 미로를 출력하는 함수
 /// </summary>

@@ -450,31 +450,67 @@ void Practice0908_Practice6()
 	Array = nullptr;
 }
 
-void Practice0908_Practice7()
+
+
+void MazeEscapeRun()
 {
-/*
-	③ 미로 탈출 게임 수정하기
-	- 이동했을 때 일정확률(20%)로 전투가 발생한다.
-	- 이동했을 때 일정확률(10%)로 플레이어 HP가 회복된다.
-	- 두 이벤트는 중복으로 발생하지 않는다. //70%: 아무일도 안 일어남, 20%: 전투가 발생, 10%: 플레이어 HP 회복
-*/
-	srand(time(0));
+	/*
+	*	- 2차원 배열을 활용하여 텍스트 기반 미로 탈출 게임을 구현.
+		- 미로의 구성
+			- 10행 20열의 2차원 배열
+			- 저장 방식
+				- 길(0): '. '으로 표시
+				- 벽(1): '# '으로 표시
+				- 시작점(2): 'S '로 표시
+				- 출구(3): 'E '로 표시
+			- 미로 코드
+
+				```cpp
+				// 미로 크기
+				const int MazeRows = 10;
+				const int MazeCols = 20;
+
+				// 미로 배열
+				int Maze[MazeRows][MazeCols] =
+				{
+					{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+					{1,2,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,1,0,1},
+					{1,1,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,0,1},
+					{1,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1},
+					{1,0,1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1},
+					{1,0,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,1},
+					{1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1},
+					{1,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,3,1},
+					{1,0,1,1,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1},
+					{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+				};
+				```
+
+		- 이동 입력 처리
+			- w(W): 위, s(S): 아래, a(A): 왼쪽, d(D): 오른쪽
+			- 대소문자 구분 없이 처리
+		- 플레이어가 출구에 도착하면 종료
+			- 플레이어는 ‘P ‘로 표시
+		- 게임 화면은 다음과 같은 양식을 따른다.
+
+			```cpp
+			=== 텍스트 미로 탈출 게임 ===
+			[미로 화면 출력]
+			이동할 수 있는 방향을 선택하세요 (w: 위, s: 아래, a: 왼쪽, d: 오른쪽):
+			w(↑) s(↓) a(←) d(→)
+			방향 입력:
+			```
+	*/
+
 	int PlayerX = 0;
 	int PlayerY = 0;
 	FindStartPosition(PlayerX, PlayerY);
-	int PlayerHP = 100;
-	int EnemyHP = 30;
-	int EventNumber = 0;
-	int DamageNumber = 0;
-	int PlayerRecoveryNumber = 0;
 
 	printf("~~ 미로 탈출 게임 ~~\n");
 
 	while (true)
 	{
 		PrintMaze(PlayerX, PlayerY);
-		printf("\n");
-		printf("플레이어의 현재 체력은 : [%d]\n", PlayerHP);
 
 		if (IsEnd(PlayerX, PlayerY))
 		{
@@ -503,36 +539,6 @@ void Practice0908_Practice7()
 			// 있을 수 없음
 			break;
 		}
-		EventNumber = rand() % 10;	// 0~9까지 뽑기
-		if (EventNumber == 9)	// 10% 확률로 플레이어 체력이 회복함
-		{
-			PlayerRecoveryNumber = (rand() % 30) + 1;
-			printf("플레이어의 체력이 [%d] 회복했습니다.\n", PlayerRecoveryNumber);
-			PlayerHP += PlayerRecoveryNumber;
-		}
-		else if ((EventNumber >= 7) && (EventNumber <= 8))	// 20% 확률로 전투가 발생함.
-		{
-			printf("적을 만났습니다.\n");
-			while ((PlayerHP > 0) && (EnemyHP > 0))
-			{
-				printf("적의 체력은 [%d]입니다.\n", EnemyHP);
-				DamageNumber = (rand() % 15) - 1;
-				EnemyHP -= DamageNumber;
-				if (EnemyHP <= 0)
-				{
-					printf("적이 죽었습니다.\n");
-					break;
-				}
-				PlayerHP -= DamageNumber;
-				if (PlayerHP <= 0)
-				{
-					printf("게임 패배.\n");
-					return;
-				}
-			}
-			EnemyHP = 30;
-		}
-		
 	}
 
 }

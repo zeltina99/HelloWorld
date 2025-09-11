@@ -1,15 +1,10 @@
 #pragma once
 
-void Practice0908_01();
-void Practice0908_02();
-void Practice0908_03();
+void Day0908();
 
-void Practice0908_04();
-void Practice0908_05();
-void Practice0908_06();
-void Practice0908_07();
+void Day0908_Cast();
 
-int Shuffle(int Array[], int Length);
-//int Shuffle(int* Array, int Length);	// 일반적으로 이렇게 사용하는 것이 보통이다.
+void Shuffle(int Array[], int Length);
+//void Shuffle(int* Array, int Length);	// 일반적으로 이렇게 사용하는 것이 보통
 
 void Day0908_Ref();

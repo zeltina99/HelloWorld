@@ -350,5 +350,5 @@ void TestString()
 	//str1[10] = 'E';	// 터짐
 	str1.at(1) = 'E';	// 안전하게 접근
 
-	str1.c_str();	// C스타일 문자열 접근하기
+	//str1.c_str();	// C스타일 문자열 접근하기
 }

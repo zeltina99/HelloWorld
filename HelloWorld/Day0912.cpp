@@ -13,26 +13,40 @@ void Day0912_Struct()
 	
 	// 1. 고블린 동적할당 받아보기(멤버 변수 4개도 조절하기)
 	Enemy* pGoblin = new Enemy();
-	printf("이름 : %s\n", pGoblin->Name.c_str());
-	printf("생명력 : %.1f\n", pGoblin->Health = 50.0f);
-	printf("공격력 : %.1f\n", pGoblin->AttackPower = 15.0f);
-	printf("보상 : %d Gold\n", pGoblin->DropGold = 200);
-	printf("\n");
+	pGoblin->Name = "고블린 2호";
+	pGoblin->Health = static_cast<float>(rand() % 100 + 50);	// 50~150
+	pGoblin->AttackPower = static_cast<float>(rand() % 10 + 5);	// 5~15
+	pGoblin->DropGold = static_cast<int>(pGoblin->Health * pGoblin->AttackPower);
+	PrintEnemy(pGoblin);
 	delete pGoblin;
 	pGoblin = nullptr;
 	
 	// 2. 다른 구조체 만들어보기(ex:아이템, 무기, 방어구 등등)
-	Item Sword;
-	printf("이름 : %s\n", Sword.Name.c_str());
-	printf("공격력 :%1.f\n", Sword.AttackPower);
-	printf("가격 : %d\n", Sword.PriceGold);
-	printf("\n");
+	Weapon Sword;
+	Sword.Name = "강철검";
+	Sword.Desc = "튼튼하다.";
+	Sword.AttackPower = 15.0f;
+	Sword.Price = 200;
 
-	Item* pArmor = new Item();
-	printf("이름 : %s\n", pArmor->Name1.c_str());
-	printf("체력 : %.1f\n", pArmor->Health = 200.0f);
-	printf("가격 : %d\n", pArmor->PriceGold = 300);
+	//Enemy Goblins[3];
+	Enemy* Goblins = nullptr;
+	Goblins = new Enemy[3];
+	for (int i = 0; i < 3; i++)
+	{
+		Goblins[i].Name = "고블린" + std::to_string(i + 1) + "호";	// std::to_string : 문자열이 아닌것을 string으로 변경해주는 함수
+		PrintEnemy(&Goblins[i]);
+	}
+	delete[] Goblins;
+	Goblins = nullptr;
 
-	delete pArmor;
-	pArmor = nullptr;
+	Enemy NamedGoblin("보스 고블린");
+	PrintEnemy(&NamedGoblin);
+}
+
+void PrintEnemy(const Enemy* pEnemy)
+{
+	printf("이름 : %s\n", pEnemy->Name.c_str());
+	printf("생명력 : %.1f\n", pEnemy->Health);
+	printf("공격력 : %.1f\n", pEnemy->AttackPower);
+	printf("보상 : %d Gold\n", pEnemy->DropGold);
 }

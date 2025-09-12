@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 
+
 // 구조체는 헤더에 선언한다.
 struct Enemy
 {
@@ -67,12 +68,38 @@ struct Enemy
 	// 간단 실습
 	// 1. Enemy - 연산자 오버로딩하기
 	//		왼쪽에 있는 것에서 오른쪽의 값 절반을 빼기
+	
+	Enemy operator-(const Enemy& other) const
+	{
+		return Enemy(
+			Name + "(빼기)",
+			Health - (other.Health * 0.5f),
+			AttackPower - (other.AttackPower * 0.5f),
+			static_cast<int>(DropGold - (other.DropGold * 0.5f))
+		);
+	}
+	
 	// 2. Enemy *연산자 오버로딩 하기
 	//		왼쪽은 float타입이다.
 	/*Enemy operator*(float Multipiler) const
 	{
 		return;
 	}*/
+		// 실사용 예시
+		// Enemy Goblin;
+		// Enemy Goblin2 = Goblin * 2.0f;
+
+	Enemy operator*(float Multipiler) const
+	{
+		return Enemy(
+			Name + "(곱하기)",
+			Health * Multipiler,
+			static_cast<float>(AttackPower * Multipiler),
+			static_cast<int>(DropGold * Multipiler)
+		);
+	}
+
+	
 	//3. Enemy *= 연산자 오버로딩하기
 	/*Enemy& operator*(float Multipiler) const
 	{
@@ -95,10 +122,76 @@ struct Weapon
 	//}
 };
 
+/// <summary>
+/// 플레이어의 위치, HP를 저장하는 구조체
+/// </summary>
+struct PlayerStatus
+{
+	float PlayerHealth = 100.0f;
+	int X = 1;
+	int Y = 1;
+	PlayerStatus()
+	{
+		FindStartPosition(X, Y);  // 시작 위치 자동 설정
+	}
+};
+
+struct EnemyStatus
+{
+	float EnemyHealth = 25.0f;
+	float AttackPower = 5.0f;
+	int DropPortion = 20;
+
+	EnemyStatus(float _EnemyHealth, float _AttackPower, int _DropGold)
+		: EnemyHealth(_EnemyHealth), AttackPower(_AttackPower), DropPortion(_DropGold)
+	{
+
+	}
+
+	EnemyStatus()
+	{
+
+	}
+
+};
+
+
+struct Position
+{
+	int X = 0;
+	int Y = 0;
+
+	Position(int _X, int _Y)
+		: X(_X), Y(_Y)
+	{
+
+	}
+
+	Position operator+(const Position& other)const
+	{
+		return Position
+		{
+				X + other.X,
+				Y + other.Y
+		};
+	}
+	Position operator-(const Position& other)const
+	{
+		return Position
+		{
+				X - other.X,
+				Y - other.Y
+		};
+	}
+};
+
 
 void Day0912_Struct();
 
 void Day0912_OperatorOverloading();
+
+void Practice0912_01();
+void Practice0912_02();
 
 
 /// <summary>
@@ -106,3 +199,4 @@ void Day0912_OperatorOverloading();
 /// </summary>
 /// <param name="pEnemy">출력할 적(읽기 전용)</param>
 void PrintEnemy(const Enemy* pEnemy);	// pEnemy는 읽기 전용
+

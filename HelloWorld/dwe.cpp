@@ -385,6 +385,7 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 int main() // 엔트리 포인트(코드가 시작되는 곳)
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	srand(time(0));
 	//printf("Hello\tWorld!\n");		// C언어의 출력 방법
 	//printf("\"고병조\"\t");			// ""안에 \n이 있으면 줄을 바꾸라는 의미(
 	//printf("82년생입니다.┌─┐▣□\n");
@@ -1296,8 +1297,10 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	/*
 		9월 12일
 	*/
-	Day0912_Struct();
-	Day0912_OperatorOverloading();
+	//Day0912_Struct();
+	//Day0912_OperatorOverloading();
+	Practice0912_01();
+	Practice0912_02();
 
 
 

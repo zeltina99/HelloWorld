@@ -1,6 +1,11 @@
-#include "Day0912.h"
-#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
 #include <fstream>
+#include <stdio.h>
+#include <string>
+#include "Day0909.h"
+#include "Day0910.h"
+#include "Day0911.h"
+#include "Day0912.h"
 
 void Day0912_Struct()
 {
@@ -58,9 +63,63 @@ void Day0912_OperatorOverloading()
 {
 	Enemy Goblin1("고블린1호");
 	Enemy Goblin2("고블린2호");
+	Enemy Goblin3("고블린3호");
+	Enemy Goblin4("고블린4호");
+	
 
 	Enemy FusionGoblin = Goblin1 + Goblin2;
 	PrintEnemy(&FusionGoblin);
+
+	Enemy DivisionGoblin = Goblin1 - Goblin2;
+	PrintEnemy(&DivisionGoblin);
+
+	Goblin4 = Goblin3 * 5.0f;
+	PrintEnemy(&Goblin4);
+	printf("\n");
+}
+
+void Practice0912_01()
+{
+/*
+	- 위치 표현용 구조체 Position 만들기
+		 ## 요구사항
+		① 구조체 이름은 Position으로 한다.
+		② 멤버 변수로 int x, int y를 가진다.
+		③ 두 멤버 변수는 기본값이 0이어야 한다.
+		④ 두 개의 정수 값을 받아서 멤버 변수에 할당하는 생성자를 만든다.
+		⑤ + 연산자를 오버로딩하여 두 Position 객체를 더했을 때, 각각의 멤버끼리 더한 결과를 갖는 새로운 Position 객체가 생성되도록 한다.
+		⑥ 연산자도 오버로딩하여 두 Position 객체를 뺐을 때, 각각의 멤버끼리 뺀 결과를 갖는 새로운 Position 객체가 생성되도록 한다.
+
+*/
+
+	Position p1(2, 3);
+	Position p2(5, 1);
+
+	Position sum = p1 + p2;
+	Position diff = p1 - p2;
+
+	printf("sum.x == %d, ", sum.X);
+	printf("sum.y == %d\n", sum.Y);
+	printf("diff.x == %d, ", diff.X);
+	printf("diff.y == %d\n", diff.Y);
+
+}
+
+void Practice0912_02()
+{
+/*
+	- 변경된 미로 탈출 게임에 기능 추가하기
+		① 플레이어의 위치, HP를 저장하는 구조체 만들고 적용하기
+		② 적의 HP, 공격력, 보상이 들어있는 구조체 만들고 적용하기
+		③ 적 생성시 HP와 공격력과 보상을 랜덤하게 설정하기
+		④ 이동시 확률로 HP 회복하던 것을 보상을 사용하여 회복하는 것으로 수정하기
+
+*/
+	
+	Day0911();
+
+
+
 }
 
 void PrintEnemy(const Enemy* pEnemy)
@@ -70,3 +129,4 @@ void PrintEnemy(const Enemy* pEnemy)
 	printf("공격력 : %.1f\n", pEnemy->AttackPower);
 	printf("보상 : %d Gold\n", pEnemy->DropGold);
 }
+

@@ -1299,7 +1299,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	*/
 	//Day0912_Struct();
 	//Day0912_OperatorOverloading();
-	Practice0912_01();
+	//Practice0912_01();
 	Practice0912_02();
 
 

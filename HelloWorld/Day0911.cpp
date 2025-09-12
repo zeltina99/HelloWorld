@@ -157,8 +157,6 @@ void ClearMaze()
 void Day0911()
 {
 	InitializeMaze();
-
 	MazeEscapeRun();
-
 	ClearMaze();
 }

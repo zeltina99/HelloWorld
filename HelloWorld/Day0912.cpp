@@ -2,6 +2,8 @@
 #include <fstream>
 #include <stdio.h>
 #include <string>
+#include <random>
+#include <iostream>
 #include "Day0909.h"
 #include "Day0910.h"
 #include "Day0911.h"
@@ -115,11 +117,96 @@ void Practice0912_02()
 		④ 이동시 확률로 HP 회복하던 것을 보상을 사용하여 회복하는 것으로 수정하기
 
 */
-	
-	Day0911();
+	ClearMaze();
+
+	PlayerStatus Player;
+
+	EnemyStatus Enemy;
+	Enemy.EnemyHealth = static_cast<float>(rand() % 21 + 15);     // 적 체력 15 ~ 35
+	Enemy.EAttackPower = static_cast<float>(rand() % 11 + 5);      // 적 공격력 5 ~ 15
+	Enemy.DropGold = rand() % 51 + 50;							// 적 보상 50 ~ 100
 
 
+	bool GameRunning = true;
+	while (GameRunning)
+	{
+		// 미로 화면 그리기, 플레이어 위치 표시 등
+		PrintMaze(Player.X, Player.Y);
 
+		// 이동 가능 방향, 이동 입력 받기
+		int MoveFlags = PrintAvailableMoves(Player.X, Player.Y);
+		MoveDirection Dir = GetMoveInput(MoveFlags);
+		// 이동 적용
+		switch (Dir)
+		{
+		case DirUp:   
+			Player.Y--; 
+		break;
+		case DirDown: 
+			Player.Y++; 
+		break;
+		case DirLeft:  
+			Player.X--; 
+		break;
+		case DirRight: 
+			Player.X++; 
+		break;
+		default: 
+			// ERROR !!!
+		break;
+		}
+		int Event = rand() % 10;
+		if (Event >= 8)
+		{
+
+			printf("적을 만났습니다!\n");
+			// 전투 시뮬레이션 - 플레이어와 적의 HP 비교, 데미지 주고 받기
+			while (Player.PlayerHealth > 0 && Enemy.EnemyHealth > 0)
+			{
+				// 적 체력 출력
+				printf("적의 체력: %.1f\n", Enemy.EnemyHealth);
+				// 플레이어 공격
+				Enemy.EnemyHealth -= Player.PAttackPower;
+				if (Enemy.EnemyHealth <= 0)
+				{
+					printf("적을 물리쳤습니다!\n");
+					// 보상 획득
+					Player.PlayerGold += Enemy.DropGold;
+					break;
+				}
+				// 적 공격
+				Player.PlayerHealth -= Enemy.EAttackPower;
+				if (Player.PlayerHealth <= 0)
+				{
+					printf("플레이어가 전투에서 패배했습니다...\n");
+					GameRunning = false;
+					break;
+				}
+
+			}
+
+
+		}
+		if (Player.PlayerGold >= 10)
+		{
+			printf("보상 10 골드를 사용하여 체력을 회복할까요? (Y/N)\n");
+			char C = 0;
+			std::cin >> C;
+			if (C == 'y' || C == 'Y')
+			{
+				Player.PlayerHealth += 20.0f;  // 회복량
+				Player.PlayerGold -= 10;
+				printf("체력이 회복되었습니다. 현재 HP: %.1f\n", Player.PlayerHealth);
+			}
+		}
+
+		// 게임 탈출 조건
+		if (IsEnd(Player.X, Player.Y))
+		{
+			printf("축하합니다! 미로 탈출!\n");
+			GameRunning = false;
+		}
+	}
 }
 
 void PrintEnemy(const Enemy* pEnemy)
@@ -130,3 +217,51 @@ void PrintEnemy(const Enemy* pEnemy)
 	printf("보상 : %d Gold\n", pEnemy->DropGold);
 }
 
+
+
+/*
+PlayerStatus* pPlayer = new PlayerStatus();
+		{
+			pPlayer->PAttackPower = static_cast<float>(rand() % 10 + 5);		// 5~15 정도의 플레이어의 공격력
+			pPlayer->PlayerHealth = 100;
+		}
+
+		EnemyStatus* pGoblin = new EnemyStatus();
+		{
+			pGoblin->EnemyHealth = static_cast<float>(rand() % 10 + 20);	// 20~30 정도의 적의 체력
+			pGoblin->EAttackPower = static_cast<float>(rand() % 10 + 5);		// 5~15 정도의 적의 공격력
+			pGoblin->DropGold = static_cast<int>(rand() % 100 + 50);		// 50~150 정도의 골드
+		}
+
+		int EventNumber = rand() % 10;	// 0~9까지 뽑기
+		if ((EventNumber >= 8) && (EventNumber <= 9))	// 20% 확률로 전투가 발생함.
+		{
+			printf("적을 만났습니다.\n");
+			while (PlayerHealth > 0) && (EnemyHealth > 0))
+			{
+				printf("적의 체력은 [%d]입니다.\n", EnemyHealth);
+				EnemyHealth -= PAttackPower;
+				if (EnemyHealth <= 0)
+				{
+					printf("적이 죽었습니다.\n");
+					break;
+				}
+				PlayerHealth -= EAttackPower;
+				if (PlayerHealth <= 0)
+				{
+					printf("게임 패배.\n");
+					delete pPlayer;
+					pPlayer = nullptr;
+					delete pGoblin;
+					pGoblin = nullptr;
+					return;
+				}
+			}
+		}
+		delete pPlayer;
+			pPlayer = nullptr;
+			delete pGoblin;
+			pGoblin = nullptr;
+
+
+*/

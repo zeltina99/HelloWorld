@@ -11,4 +11,13 @@ struct Enemy
 	int DropGold = 100;
 };
 
+struct Item
+{
+	std::string Name = "³ì½¼ Ã¶°Ë";
+	std::string Name1 = "°¡Á× °©¿Ê";
+	float AttackPower = 10.0f;
+	float Health = 150.0f;
+	int PriceGold = 150;
+};
+
 void Day0912_Struct();

@@ -206,7 +206,7 @@ void Day0912_Struct();
 void Day0912_OperatorOverloading();
 
 void Practice0912_01();
-void Practice0912_02();
+void Practive0912_02();
 
 
 /// <summary>

@@ -107,7 +107,7 @@ void Practice0912_01()
 
 }
 
-void Practice0912_02()
+void Practive0912_02()
 {
 /*
 	- 변경된 미로 탈출 게임에 기능 추가하기

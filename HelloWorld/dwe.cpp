@@ -378,6 +378,7 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 #include "Day0910.h"
 #include "Day0911.h"
 #include "Day0912.h"
+#include "Maze0912.h"
 #include <limits.h>
 
 //using namespace std;
@@ -1300,7 +1301,8 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//Day0912_Struct();
 	//Day0912_OperatorOverloading();
 	//Practice0912_01();
-	Practice0912_02();
+	//Practice0912_02();
+	Maze0912_Practice();
 
 
 

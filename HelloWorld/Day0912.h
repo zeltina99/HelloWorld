@@ -27,6 +27,15 @@ struct Enemy
 	// - Health는 모디파이어의 10배로 설정
 	// - AttackPower는 모디파이어의 5배로 설정
 	// - DropGold는 모디파이어의 100배로 설정
+
+	Enemy(const float Modifier, std::string _Name)
+	{
+		Name = _Name;
+		Health = Modifier * 10;
+		AttackPower = Modifier * 5;
+		DropGold = Modifier * 100;
+	}
+
 };
 
 

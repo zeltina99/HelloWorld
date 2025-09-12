@@ -41,6 +41,10 @@ void Day0912_Struct()
 
 	Enemy NamedGoblin("보스 고블린");
 	PrintEnemy(&NamedGoblin);
+
+	Enemy NamedSlime(3.0f, "슬라임");
+	PrintEnemy(&NamedSlime);
+
 }
 
 void PrintEnemy(const Enemy* pEnemy)

@@ -149,6 +149,9 @@ struct PlayerStatus
 
 };
 
+/// <summary>
+/// 적의 HP, 공격력, 보상이 들어있는 구조체
+/// </summary>
 struct EnemyStatus
 {
 	float EnemyHealth = 25.0f;

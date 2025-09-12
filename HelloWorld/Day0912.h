@@ -128,22 +128,35 @@ struct Weapon
 struct PlayerStatus
 {
 	float PlayerHealth = 100.0f;
+	float PAttackPower = 5.0f;
+	int PlayerGold = 0;
 	int X = 1;
 	int Y = 1;
+
+	PlayerStatus(float _PlayerHealth, float _PAttackPower, int _PlayerGold, int _X, int _Y)
+		: PlayerHealth(_PlayerHealth),PAttackPower(_PAttackPower),PlayerGold(_PlayerGold), X(_X), Y(_Y)
+	{
+
+	}
+
 	PlayerStatus()
 	{
 		FindStartPosition(X, Y);  // 시작 위치 자동 설정
 	}
+
+	
+
+
 };
 
 struct EnemyStatus
 {
 	float EnemyHealth = 25.0f;
-	float AttackPower = 5.0f;
-	int DropPortion = 20;
+	float EAttackPower = 5.0f;
+	int DropGold = 20;
 
-	EnemyStatus(float _EnemyHealth, float _AttackPower, int _DropGold)
-		: EnemyHealth(_EnemyHealth), AttackPower(_AttackPower), DropPortion(_DropGold)
+	EnemyStatus(float _EnemyHealth, float _EAttackPower, int _DropGold)
+		: EnemyHealth(_EnemyHealth), EAttackPower(_EAttackPower), DropGold(_DropGold)
 	{
 
 	}
@@ -152,6 +165,8 @@ struct EnemyStatus
 	{
 
 	}
+
+	
 
 };
 

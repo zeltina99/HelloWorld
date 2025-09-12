@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "Day0908.h"
+#include "Day0912.h"
 
 void PointerParameter(int* pNumber)
 {
@@ -293,11 +294,7 @@ void MazeEscapeRun()
 	{
 		PrintMaze(PlayerX, PlayerY);
 
-		if (IsEnd(PlayerX, PlayerY))
-		{
-			printf("축하합니다! 미로를 탈출했습니다!\n");
-			break;
-		}
+		
 
 		int MoveFlags = PrintAvailableMoves(PlayerX, PlayerY);
 		MoveDirection Direction = GetMoveInput(MoveFlags);
@@ -318,6 +315,53 @@ void MazeEscapeRun()
 		case DirNone:
 		default:
 			// 있을 수 없음
+			break;
+		}
+		PlayerStatus* pPlayer = new PlayerStatus();
+		{
+			pPlayer->PAttackPower = static_cast<float>(rand() % 10 + 5);		// 5~15 정도의 플레이어의 공격력 
+			pPlayer->PlayerHealth = 100;
+		}
+
+		EnemyStatus* pGoblin = new EnemyStatus();
+		{
+			pGoblin->EnemyHealth = static_cast<float>(rand() % 10 + 20);	// 20~30 정도의 적의 체력
+			pGoblin->EAttackPower = static_cast<float>(rand() % 10 + 5);		// 5~15 정도의 적의 공격력
+			pGoblin->DropGold = static_cast<int>(rand() % 100 + 50);		// 50~150 정도의 골드
+		}
+
+		int EventNumber = rand() % 10;	// 0~9까지 뽑기
+		if ((EventNumber >= 8) && (EventNumber <= 9))	// 20% 확률로 전투가 발생함.
+		{
+			printf("적을 만났습니다.\n");
+			while (PlayerHealth > 0) && (EnemyHealth > 0))
+			{
+				printf("적의 체력은 [%d]입니다.\n", EnemyHealth);
+				EnemyHealth -= PAttackPower;
+				if (EnemyHealth <= 0)
+				{
+					printf("적이 죽었습니다.\n");
+					break;
+				}
+				PlayerHealth -= EAttackPower;
+				if (PlayerHealth <= 0)
+				{
+					printf("게임 패배.\n");
+					delete pPlayer;
+					pPlayer = nullptr;
+					delete pGoblin;
+					pGoblin = nullptr;
+					return;
+				}
+			}
+		}
+		if (IsEnd(PlayerX, PlayerY))
+		{
+			printf("축하합니다! 미로를 탈출했습니다!\n");
+			delete pPlayer;
+			pPlayer = nullptr;
+			delete pGoblin;
+			pGoblin = nullptr;
 			break;
 		}
 	}

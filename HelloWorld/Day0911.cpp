@@ -76,15 +76,6 @@ bool ParseMapData(std::string& DataString)
 		if (HeightIndex >= MazeHeight)
 			break;
 	}
-	PlayerStatus Player;
-	EnemyStatus Enemy;
-
-	EnemyStatus* pGoblin = new EnemyStatus();
-	pGoblin->EnemyHealth = static_cast<float>(rand() % 10 + 20);	// 20~30 정도의 적의 체력
-	pGoblin->AttackPower = static_cast<float>(rand() % 10 + 5);	// 5~15 정도의 적의 공격력
-	pGoblin->DropPortion = static_cast<int>(rand() % 10 + 15);	// 15~25 정도의 회복 보상
-	delete pGoblin;
-	pGoblin = nullptr;
 
 	return true;
 }

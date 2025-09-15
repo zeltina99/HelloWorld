@@ -128,6 +128,8 @@
     <ClCompile Include="Day0910.cpp" />
     <ClCompile Include="Day0911.cpp" />
     <ClCompile Include="Day0912.cpp" />
+    <ClCompile Include="Day0915.cpp" />
+    <ClCompile Include="DayOfWeek.cpp" />
     <ClCompile Include="dwe.cpp" />
     <ClCompile Include="Practice.cpp" />
     <ClCompile Include="Practice_a.cpp" />
@@ -139,7 +141,10 @@
     <ClInclude Include="Day0910.h" />
     <ClInclude Include="Day0911.h" />
     <ClInclude Include="Day0912.h" />
+    <ClInclude Include="Day0915.h" />
+    <ClInclude Include="DayOfWeek.h" />
     <ClInclude Include="dwe.h" />
+    <ClInclude Include="Position.h" />
     <ClInclude Include="Practice.h" />
     <ClInclude Include="Practice_a.h" />
     <ClInclude Include="TestMath.h" />

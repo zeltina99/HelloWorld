@@ -357,6 +357,13 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 
 */
 
+/*
+
+
+
+*/
+
+
 
 
 #define _CRTDBG_MAP_ALLOC
@@ -378,7 +385,9 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 #include "Day0910.h"
 #include "Day0911.h"
 #include "Day0912.h"
+#include "Day0915.h"
 #include <limits.h>
+#include "Position.h"
 
 //using namespace std;
 
@@ -386,6 +395,19 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	srand(time(0));
+
+	//Position posA(1, 2);
+	//Position posB(3, -1);
+	//Position posC = posA + posB;
+	//Position posC = posA - posB;
+
+	//int i = 0;
+	////Position* pPos = new Position(2, 3);
+	////delete pPos;
+	////pPos = nullptr;
+
+	//////Position pos2;
+	//Position pos2 = Position();
 	//printf("Hello\tWorld!\n");		// C언어의 출력 방법
 	//printf("\"고병조\"\t");			// ""안에 \n이 있으면 줄을 바꾸라는 의미(
 	//printf("82년생입니다.┌─┐▣□\n");
@@ -1300,7 +1322,14 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//Day0912_Struct();
 	//Day0912_OperatorOverloading();
 	//Practice0912_01();
-	Practice0912_02();
+	//Practice0912_02();
+
+	
+	/*
+		9월 15일
+	*/
+
+Day0915_WeekPractive();
 
 
 

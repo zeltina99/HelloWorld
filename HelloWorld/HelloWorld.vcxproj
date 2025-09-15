@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BlackJack.cpp" />
     <ClCompile Include="Day0908.cpp" />
     <ClCompile Include="Day0909.cpp" />
     <ClCompile Include="Day0910.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="TestMath.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlackJack.h" />
     <ClInclude Include="Day0908.h" />
     <ClInclude Include="Day0909.h" />
     <ClInclude Include="Day0910.h" />

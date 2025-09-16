@@ -136,13 +136,18 @@
     <ClCompile Include="DayOfWeek.cpp" />
     <ClCompile Include="dwe.cpp" />
     <ClCompile Include="Eagle.cpp" />
+    <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="Lion.cpp" />
     <ClCompile Include="Monkey.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Orc.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Practice.cpp" />
     <ClCompile Include="Practice_a.cpp" />
     <ClCompile Include="Shark.cpp" />
+    <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="TestMath.cpp" />
+    <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
@@ -158,13 +163,18 @@
     <ClInclude Include="DayOfWeek.h" />
     <ClInclude Include="dwe.h" />
     <ClInclude Include="Eagle.h" />
+    <ClInclude Include="Goblin.h" />
     <ClInclude Include="Lion.h" />
     <ClInclude Include="Monkey.h" />
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="Orc.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Practice.h" />
     <ClInclude Include="Practice_a.h" />
     <ClInclude Include="Shark.h" />
+    <ClInclude Include="Skeleton.h" />
     <ClInclude Include="TestMath.h" />
+    <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

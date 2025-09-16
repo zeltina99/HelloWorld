@@ -5,6 +5,11 @@
 #include "Eagle.h"
 #include "Shark.h"
 #include "Monkey.h"
+#include "Monster.h"
+#include "Goblin.h"
+#include "Orc.h"
+#include "Zombie.h"
+#include "Skeleton.h"
 #include <string>
 #include <stdio.h>
 
@@ -106,6 +111,64 @@ void Practice0916_01::TestMonkey()
 	monkey.ShowInfo();
 }
 
+
+/*
+	① Monster 클래스 예시 만들기
+		- 추상화
+		 - Monster 클래스 만들기
+		  - 기본 속성 : 이름, 체력, 공격력
+		  - 공통 함수 : Attack()
+		- 캡슐화
+		 - 각 속성을 protected로 만들기
+		  - 기본 속성은 생성자에서 세팅
+		  - 각종 Getter만들기
+		- 상속
+		 - 고블린, 오크, 좀비, 스켈레톤 등등 만들기
+		  - 고유 스킬 만들기
+*/
+
+void Practice0916_01::PracticeGoblin()
+{
+	Goblin goblin = Goblin("고블린");
+	goblin.Attack();
+	goblin.Hide();
+	goblin.MonsterInfo();
+}
+
+void Practice0916_01::PracticeOrc()
+{
+	Orc orc = Orc("오크");
+	orc.Berserk();
+	orc.Attack();
+	orc.MonsterInfo();
+}
+
+void Practice0916_01::PracticeZombie()
+{
+	Zombie zombie = Zombie("좀비");
+	zombie.Attack();
+	zombie.Undead();
+	zombie.MonsterInfo();
+}
+
+void Practice0916_01::PracticeSkeleton()
+{
+	Skeleton skeleton = Skeleton("스켈레톤");
+	skeleton.Attack();
+	skeleton.Reconstitution();
+	skeleton.MonsterInfo();
+}
+
+
+
+/*	② 미로 탈출 게임 수정하기
+		- 적을 클래스화하기 (Monster로 대체)
+		- 플레이어 클래스 만들고 적용하기
+		- 적과 플레이어의 부모인 Actor 클래스 만들기
+*/
+
+
 // 간단 실습
 // 다른 동물 만들어보기(3종류)
 // 다른 동물 전용 함수 구현하기
+

@@ -1395,10 +1395,14 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 
 	Practice0916_01 day0916;
 	//day0916.ClassAnimalInstace();
-	day0916.TestLion();
-	day0916.TestEagle();
-	day0916.TestShark();
-	day0916.TestMonkey();
+	//day0916.TestLion();
+	//day0916.TestEagle();
+	//day0916.TestShark();
+	//day0916.TestMonkey();
+	day0916.PracticeGoblin();
+	day0916.PracticeOrc();
+	day0916.PracticeZombie();
+	day0916.PracticeSkeleton();
 
 	return 0;
 }

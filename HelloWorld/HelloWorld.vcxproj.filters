@@ -19,6 +19,9 @@
     <Filter Include="동물시리즈">
       <UniqueIdentifier>{f986f7bc-4c5f-4794-b097-61c5549fdf26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="몬스터시리즈">
+      <UniqueIdentifier>{44d2ba16-b315-47aa-84cc-95baf77d1729}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dwe.cpp">
@@ -81,6 +84,21 @@
     <ClCompile Include="Monkey.cpp">
       <Filter>동물시리즈</Filter>
     </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>몬스터시리즈</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>몬스터시리즈</Filter>
+    </ClCompile>
+    <ClCompile Include="Skeleton.cpp">
+      <Filter>몬스터시리즈</Filter>
+    </ClCompile>
+    <ClCompile Include="Orc.cpp">
+      <Filter>몬스터시리즈</Filter>
+    </ClCompile>
+    <ClCompile Include="Goblin.cpp">
+      <Filter>몬스터시리즈</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestMath.h">
@@ -142,6 +160,21 @@
     </ClInclude>
     <ClInclude Include="Monkey.h">
       <Filter>동물시리즈</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>몬스터시리즈</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>몬스터시리즈</Filter>
+    </ClInclude>
+    <ClInclude Include="Skeleton.h">
+      <Filter>몬스터시리즈</Filter>
+    </ClInclude>
+    <ClInclude Include="Orc.h">
+      <Filter>몬스터시리즈</Filter>
+    </ClInclude>
+    <ClInclude Include="Goblin.h">
+      <Filter>몬스터시리즈</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

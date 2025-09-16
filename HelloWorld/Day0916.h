@@ -23,6 +23,10 @@ public:
 	void TestEagle();
 	void TestShark();
 	void TestMonkey();
+	void PracticeGoblin();
+	void PracticeOrc();
+	void PracticeZombie();
+	void PracticeSkeleton();
 
 private:
 

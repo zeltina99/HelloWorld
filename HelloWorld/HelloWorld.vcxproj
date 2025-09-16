@@ -132,6 +132,7 @@
     <ClCompile Include="Day0915.cpp" />
     <ClCompile Include="DayOfWeek.cpp" />
     <ClCompile Include="dwe.cpp" />
+    <ClCompile Include="Position.cpp" />
     <ClCompile Include="Practice.cpp" />
     <ClCompile Include="Practice_a.cpp" />
     <ClCompile Include="TestMath.cpp" />

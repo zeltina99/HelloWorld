@@ -54,6 +54,7 @@ void PlayBlackJack()
 		{
 			printf("플레이어 점수 : %d\n", GetBestScore(PlayerHand, PlayerCount));
 			printf("Hit(1) / Stand(2)? : ");
+
 			int Input = 0;
 			std::cin >> Input;
 			if (Input == 1)
@@ -92,7 +93,23 @@ void PlayBlackJack()
 			}
 		}
 
-
+		// 점수 확인
+		int PlayerScore = GetBestScore(PlayerHand, PlayerCount);
+		int DealerScore = GetBestScore(DealerHand, DealerCount);
+		PrintHands(PlayerHand, PlayerCount, DealerHand, DealerCount, true);
+		printf("플레이어 점수: %d, 딜러 점수: %d\n", PlayerScore, DealerScore);
+		if (PlayerScore > DealerScore)
+		{
+			printf("플레이어 승리!\n");
+		}
+		else if (PlayerScore < DealerScore)
+		{
+			printf("딜러 승리!\n");
+		}
+		else
+		{
+			printf("무승부!\n");
+		}
 	}
 }
 

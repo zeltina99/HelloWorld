@@ -359,7 +359,7 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 
 /*
 
-
+	객체지향
 
 */
 
@@ -1333,7 +1333,15 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//Day0915_WeekPractive();
 	//Day0915_WeekPractiveTest();
 	//Day0915_WeekPracticeBlackJackTest();
-	Day0915_WeekPracticeBlackJack();
+	//Day0915_WeekPracticeBlackJack();
+
+
+	/*
+		9월 16일	
+	*/
+
+
+
 
 	return 0;
 }

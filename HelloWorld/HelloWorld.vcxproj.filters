@@ -16,6 +16,9 @@
     <Filter Include="헬로월드">
       <UniqueIdentifier>{05cf97a1-20f1-4cd0-9430-7be68b51b05e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="동물시리즈">
+      <UniqueIdentifier>{f986f7bc-4c5f-4794-b097-61c5549fdf26}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dwe.cpp">
@@ -57,6 +60,27 @@
     <ClCompile Include="Position.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Day0916.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Animal.cpp">
+      <Filter>동물시리즈</Filter>
+    </ClCompile>
+    <ClCompile Include="Lion.cpp">
+      <Filter>동물시리즈</Filter>
+    </ClCompile>
+    <ClCompile Include="Eagle.cpp">
+      <Filter>동물시리즈</Filter>
+    </ClCompile>
+    <ClCompile Include="Shark.cpp">
+      <Filter>동물시리즈</Filter>
+    </ClCompile>
+    <ClCompile Include="Monkey.cpp">
+      <Filter>동물시리즈</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestMath.h">
@@ -97,6 +121,27 @@
     </ClInclude>
     <ClInclude Include="BlackJack.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0916.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal.h">
+      <Filter>동물시리즈</Filter>
+    </ClInclude>
+    <ClInclude Include="Lion.h">
+      <Filter>동물시리즈</Filter>
+    </ClInclude>
+    <ClInclude Include="Eagle.h">
+      <Filter>동물시리즈</Filter>
+    </ClInclude>
+    <ClInclude Include="Shark.h">
+      <Filter>동물시리즈</Filter>
+    </ClInclude>
+    <ClInclude Include="Monkey.h">
+      <Filter>동물시리즈</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

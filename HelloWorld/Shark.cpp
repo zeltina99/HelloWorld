@@ -7,6 +7,11 @@ void Shark::Swim()
 	printf("[%s]의 에너지가 20%% 소모하였습니다.\n", Name.c_str());
 }
 
+void Shark::Battle()
+{
+	printf("[%s]가 깨물었다.\n", Name.c_str());
+}
+
 void Shark::Move()
 {
 	if (Energy < 0.1f)

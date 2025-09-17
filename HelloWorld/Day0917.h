@@ -7,6 +7,7 @@ public:
 	void TestVirtualFuction();
 	void TestPractice1();
 	void TestAbstractClass();
+	void TestInterface();
 
 private:
 	// static : Á¤Àû ¸â¹ö

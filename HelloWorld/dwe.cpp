@@ -1454,7 +1454,8 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//day0917.TestPolymorphism();
 	//day0917.TestVirtualFuction();
 	//day0917.TestPractice1();
-	day0917.TestAbstractClass();
+	//day0917.TestAbstractClass();
+	day0917.TestInterface();
 
 	return 0;
 }

@@ -169,7 +169,9 @@
     <ClInclude Include="Eagle.h" />
     <ClInclude Include="Goblin.h" />
     <ClInclude Include="Hawk.h" />
+    <ClInclude Include="IBattle.h" />
     <ClInclude Include="IFlyable.h" />
+    <ClInclude Include="ISwim.h" />
     <ClInclude Include="Lion.h" />
     <ClInclude Include="Monkey.h" />
     <ClInclude Include="Monster.h" />

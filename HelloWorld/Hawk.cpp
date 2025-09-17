@@ -23,5 +23,10 @@ void Hawk::MakeSound()
 
 void Hawk::Fly()
 {
-	printf("[%s]가 난다요.", Name.c_str());
+	printf("[%s]가 난다요.\n", Name.c_str());
+}
+
+void Hawk::Battle()
+{
+	printf("[%s]가 부리로 공격한다.", Name.c_str());
 }

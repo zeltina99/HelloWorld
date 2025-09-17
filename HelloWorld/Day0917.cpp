@@ -6,6 +6,9 @@
 #include "Monkey.h"
 #include "TestSample.h"
 #include "Shape.h"
+#include "IFlyable.h"
+#include "ISwim.h"
+#include "IBattle.h"
 
 void Day0917::TestPolymorphism()
 {
@@ -116,6 +119,23 @@ void Day0917::TestAbstractClass()
 
 }
 
-// 간단 실습
-// 수영 인터페이스 만들기
-// 전투 인터페이스 만들기
+void Day0917::TestInterface()
+{
+	// 간단 실습
+	// 수영 인터페이스 만들기
+	// 전투 인터페이스 만들기
+
+	Shark* shark = new Shark("상어");
+	Hawk* hawk = new Hawk("매");
+
+	shark->Swim();
+	shark->Battle();
+	hawk->Fly();
+	hawk->Battle();
+
+	delete hawk;
+	hawk = nullptr;
+	delete shark;
+	shark = nullptr;
+}
+

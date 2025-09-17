@@ -29,3 +29,13 @@ void Lion::MakeSound()
 	printf("으르렁!\n");
 	Animal::MakeSound();
 }
+
+void Lion::Attack(ICanBattle* InTarget)
+{
+	InTarget->TakeDamage(AttackPower);
+}
+
+void Lion::TakeDamage(float InDamage)
+{
+	printf("[%.0f]의 피해를 입었다.", InDamage);
+}

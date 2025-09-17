@@ -6,6 +6,7 @@
 #include "Monkey.h"
 #include "TestSample.h"
 #include "Shape.h"
+#include <stdint.h>
 
 void Day0917::TestPolymorphism()
 {
@@ -113,6 +114,75 @@ void Day0917::TestAbstractClass()
 		delete Zoo[i];
 		Zoo[i] = nullptr;
 	}
+
+}
+
+
+
+void Day0917::TestEnumClass()
+{
+	enum Color
+	{
+		Red = 0,
+		Green,
+		Blue
+	};
+	enum Fruit
+	{
+		Apple = 0,
+		Orange,
+		Banana
+	};
+	/*enum TrafficLight
+	{
+		Red, Yellow, Green
+	};*/	// 기존 enum은 범위가 전역이기 때문에 이름이 겹치면 안됨
+
+	Color myColor = Green;
+	Fruit myFruit = Orange;
+	if (myColor == myFruit)
+	{
+		// 논리적으로는 말이 안되지만 문법적으로 허용이 됨
+	}
+
+	enum class Color2
+	{
+		Red = 0,
+		Green,
+		Blue
+	};
+
+	enum class Fruit2
+	{
+		Apple = 0,
+		Orange,
+		Banana
+	};
+	
+	enum class TrafficLight2	// TrafficLight2 안에 있는 Red기 때문에 이름이 겹치지 않는다.
+	{
+		Red = 0, 
+		Yellow, 
+		Green
+	};
+
+	Color2 myColor2 = Color2::Red;
+	Fruit2 myFruit2 = Fruit2::Apple;
+	//if (myColor2 == myFruit2)
+	//{
+	//	// 문법적으로 금지.
+	//}
+	//int Number = myColor2;					// 암시적 캐스팅은 금지
+	int Number = static_cast<int>(myColor2);	// 명시적 캐스팅이 필수
+
+	
+	
+
+	PlayerState state = PlayerState::None;
+	state = static_cast<PlayerState>(static_cast<int>(state) | static_cast<int>(PlayerState::OnGround));
+	state = state | PlayerState::OnGround;	// 명령어 오버로딩을 해야 가능
+
+	// &, ~, |=, &=
 
 }
 

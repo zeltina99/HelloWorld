@@ -197,5 +197,8 @@
     <ClInclude Include="Shape.h">
       <Filter>모양</Filter>
     </ClInclude>
+    <ClInclude Include="IFlyable.h">
+      <Filter>동물시리즈</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

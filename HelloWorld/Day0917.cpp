@@ -88,6 +88,8 @@ void Day0917::TestPractice1()
 
 void Day0917::TestAbstractClass()
 {
-	Shape* pShape = new Shape();
+	//Shape* pShape = new Shape();
+
+
 }
 

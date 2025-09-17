@@ -56,7 +56,7 @@ void Day0916::ClassInstance()
 
 void Practice0916_01::ClassAnimalInstace()
 {
-	Animal Tiger = Animal("È£¶ûÀÌ");
+	/*Animal Tiger = Animal("È£¶ûÀÌ");
 	Tiger.MakeSound();
 	Tiger.Move();
 	Tiger.Move();
@@ -69,7 +69,7 @@ void Practice0916_01::ClassAnimalInstace()
 	Tiger.ShowInfo();
 	
 	int Age = Tiger.GetAge();
-	const std::string& Name = Tiger.GetName();
+	const std::string& Name = Tiger.GetName();*/
 }
 
 void Practice0916_01::TestLion()

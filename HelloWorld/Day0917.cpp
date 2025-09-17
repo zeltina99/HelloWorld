@@ -90,6 +90,32 @@ void Day0917::TestAbstractClass()
 {
 	//Shape* pShape = new Shape();
 
+	// 간단 실습
+	// Animal의 Move함수를 순수 가상 함수로 만들어서 Animal을 추상클래스로 만들기
+	// 각 동물들의 Move는 별도로 다 구현하기
+
+	const int Size = 5;
+	Animal* Zoo[Size];
+	Zoo[0] = new Eagle("독수리");
+	Zoo[1] = new Shark("상어");
+	Zoo[2] = new Monkey("원숭이");
+	Zoo[3] = new Lion("사자");
+	Zoo[4] = new Hawk("매");
+
+	for (int i = 0; i < Size; i++)
+	{
+		//Zoo[i]->MakeSound();
+		Zoo[i]->Move();
+	}
+
+	for (int i = 0; i < Size; i++)
+	{
+		delete Zoo[i];
+		Zoo[i] = nullptr;
+	}
 
 }
 
+// 간단 실습
+// 수영 인터페이스 만들기
+// 전투 인터페이스 만들기

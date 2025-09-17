@@ -6,3 +6,15 @@ void Monkey::Climb()
 	SetEnergy(Energy - 0.1f);
 	printf("[%s]의 에너지가 10%% 소모하였습니다.\n", Name.c_str());
 }
+
+void Monkey::Move()
+{
+	printf("[%s]가 춤을 추며 움직입니다,\n", Name.c_str());
+	Animal::Move();
+}
+
+void Monkey::MakeSound()
+{
+	printf("[%s]가 기교를 부립니다.\n", Name.c_str());
+	Animal::MakeSound();
+}

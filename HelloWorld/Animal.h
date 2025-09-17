@@ -4,8 +4,8 @@
 class Animal
 {
 public:
-	void Move();		//움직이면->에너지를 소비
-	void MakeSound();	//소리 지르는 걸 제어
+	virtual void Move();		// Move는 가상함수다
+	virtual void MakeSound();	// MakeSound는 가상함수다
 	void Eat();			//먹으면->에너지가 증가
 	void Sleep();		//잠을 자면->나이가 증가, 에너지가 완전 회복
 	
@@ -28,6 +28,7 @@ public:
 		: Name(InName)
 	{
 	}	// 짧은 경우는 함수의 구현이 헤더에 있어도 된다(자동 Inline 처리)
+	virtual ~Animal() {};
 
 protected:
 	inline void SetEnergy(float InEnergy)

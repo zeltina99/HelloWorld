@@ -413,6 +413,23 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 	 - 부모 클래스의 포인터나 참조를 통해 자식 클래스를 다룰 수 있다.
 */
 
+/*
+	가상 함수
+	- 부모 클래스에서 함수의 선언 앞에다가 virtual을 붙이면 된다.
+	- 자식 클래스는 부모의 가상함수를 덮어쓸 경우에만 함수의 선언 앞에 virtual이라고 쓰고 뒤에 override라고 붙인다.
+	- 주의 : 상속을 하거나 받았을 때는 소멸자를 무조건 가상함수 처리해야 한다.
+	- 가상 테이블(vtable)
+		- 클래스에 가상 함수가 하나라도 있으면 자동으로 생성
+		- 그 클래스의 가상 함수들의 주소 목록을 저장해 놓은 테이블
+*/
+/*
+	dynamic_cast
+		- 런타임(실행중)에 이 주소가 실제 어떤 자식 클래스의 객체를 가리키고 있는지 안전하게 확인해주는 cast
+		- 부모 클래스에 반드시 하나 이상의 가상함수가 있어야 함.(vtable이 있어야 하기 때문에)
+		- Child* pChild = dynamic_cast<Child*>(pParent);
+		- 속도가 늦기 때문에 가능한 적게 쓰는게 좋다.
+*/
+
 
 
 
@@ -437,6 +454,7 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 #include "Day0912.h"
 #include "Day0915.h"
 #include "Day0916.h"
+#include "Day0917.h"
 #include "BlackJack.h"
 #include <limits.h>
 #include "Position.h"
@@ -1399,10 +1417,19 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//day0916.TestEagle();
 	//day0916.TestShark();
 	//day0916.TestMonkey();
-	day0916.PracticeGoblin();
-	day0916.PracticeOrc();
-	day0916.PracticeZombie();
-	day0916.PracticeSkeleton();
+	//day0916.PracticeGoblin();
+	//day0916.PracticeOrc();
+	//day0916.PracticeZombie();
+	//day0916.PracticeSkeleton();
+
+
+	/*
+		9월 17일
+	*/
+	Day0917 day0917;
+	//day0917.TestPolymorphism();
+	//day0917.TestVirtualFuction();
+	day0917.TestPractice1();
 
 	return 0;
 }

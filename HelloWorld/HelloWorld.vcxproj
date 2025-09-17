@@ -133,10 +133,12 @@
     <ClCompile Include="Day0912.cpp" />
     <ClCompile Include="Day0915.cpp" />
     <ClCompile Include="Day0916.cpp" />
+    <ClCompile Include="Day0917.cpp" />
     <ClCompile Include="DayOfWeek.cpp" />
     <ClCompile Include="dwe.cpp" />
     <ClCompile Include="Eagle.cpp" />
     <ClCompile Include="Goblin.cpp" />
+    <ClCompile Include="Hawk.cpp" />
     <ClCompile Include="Lion.cpp" />
     <ClCompile Include="Monkey.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -160,10 +162,12 @@
     <ClInclude Include="Day0912.h" />
     <ClInclude Include="Day0915.h" />
     <ClInclude Include="Day0916.h" />
+    <ClInclude Include="Day0917.h" />
     <ClInclude Include="DayOfWeek.h" />
     <ClInclude Include="dwe.h" />
     <ClInclude Include="Eagle.h" />
     <ClInclude Include="Goblin.h" />
+    <ClInclude Include="Hawk.h" />
     <ClInclude Include="Lion.h" />
     <ClInclude Include="Monkey.h" />
     <ClInclude Include="Monster.h" />
@@ -174,6 +178,7 @@
     <ClInclude Include="Shark.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="TestMath.h" />
+    <ClInclude Include="TestSample.h" />
     <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

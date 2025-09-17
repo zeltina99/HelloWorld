@@ -13,14 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="헬로월드">
-      <UniqueIdentifier>{05cf97a1-20f1-4cd0-9430-7be68b51b05e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="동물시리즈">
       <UniqueIdentifier>{f986f7bc-4c5f-4794-b097-61c5549fdf26}</UniqueIdentifier>
     </Filter>
     <Filter Include="몬스터시리즈">
       <UniqueIdentifier>{44d2ba16-b315-47aa-84cc-95baf77d1729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="모양">
+      <UniqueIdentifier>{05cf97a1-20f1-4cd0-9430-7be68b51b05e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +104,9 @@
     </ClCompile>
     <ClCompile Include="Hawk.cpp">
       <Filter>동물시리즈</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>모양</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="TestSample.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>모양</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

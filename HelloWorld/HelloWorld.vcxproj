@@ -146,6 +146,7 @@
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Practice.cpp" />
     <ClCompile Include="Practice_a.cpp" />
+    <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Shark.cpp" />
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="TestMath.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Position.h" />
     <ClInclude Include="Practice.h" />
     <ClInclude Include="Practice_a.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="Shark.h" />
     <ClInclude Include="Skeleton.h" />
     <ClInclude Include="TestMath.h" />

@@ -5,6 +5,7 @@
 #include "Shark.h"
 #include "Monkey.h"
 #include "TestSample.h"
+#include "Shape.h"
 
 void Day0917::TestPolymorphism()
 {
@@ -83,5 +84,10 @@ void Day0917::TestPractice1()
 		delete Zoo[i];
 		Zoo[i] = nullptr;
 	}
+}
+
+void Day0917::TestAbstractClass()
+{
+	Shape* pShape = new Shape();
 }
 

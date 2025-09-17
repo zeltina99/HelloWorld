@@ -6,6 +6,7 @@ public:
 	void TestPolymorphism();
 	void TestVirtualFuction();
 	void TestPractice1();
+	void TestAbstractClass();
 
 private:
 	// static : Á¤Àû ¸â¹ö

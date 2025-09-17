@@ -175,9 +175,6 @@ void Day0917::TestEnumClass()
 	//int Number = myColor2;					// 암시적 캐스팅은 금지
 	int Number = static_cast<int>(myColor2);	// 명시적 캐스팅이 필수
 
-	
-	
-
 	PlayerState state = PlayerState::None;
 	state = static_cast<PlayerState>(static_cast<int>(state) | static_cast<int>(PlayerState::OnGround));
 	state = state | PlayerState::OnGround;	// 명령어 오버로딩을 해야 가능

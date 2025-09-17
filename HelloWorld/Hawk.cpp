@@ -14,3 +14,9 @@ void Hawk::Move()
 		printf("0.1의 에너지를 소모하여 현재[%.2f]에너지가 남아 있습니다.\n", Energy);
 	}
 }
+
+void Hawk::MakeSound()
+{
+	printf("빼액!\n");
+	Animal::MakeSound();
+}

@@ -15,6 +15,6 @@ void Monkey::Move()
 
 void Monkey::MakeSound()
 {
-	printf("[%s]가 기교를 부립니다.\n", Name.c_str());
+	printf("우끼끼!\n");
 	Animal::MakeSound();
 }

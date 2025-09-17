@@ -15,6 +15,6 @@ void Shark::Move()
 
 void Shark::MakeSound()
 {
-	printf("[%s]가 입을 벌려 소리를 지릅니다.\n", Name.c_str());
+	printf("와아앙!\n");
 	Animal::MakeSound();
 }

@@ -64,29 +64,24 @@ void Day0917::TestPractice1()
 	// 여러 종류의 동물을 넣기
 	// 배열에 들어있는 모든 동물의 MakeSound 실행하기
 
-	Eagle* pEagle = new Eagle("독수리");
-	Shark* pShark = new Shark("상어");
-	Monkey* pMonkey = new Monkey("원숭이");
+	const int Size = 5;
+	Animal* Zoo[Size];
+	Zoo[0] = new Eagle("독수리");
+	Zoo[1] = new Shark("상어");
+	Zoo[2] = new Monkey("원숭이");
+	Zoo[3] = new Lion("사자");
+	Zoo[4] = new Hawk("매");
 
-	Animal* pAnimal1 = pEagle;
-	
-	pAnimal1->Move();
-	pAnimal1->MakeSound();
-	pAnimal1 = pShark;
-	pAnimal1->Move();
-	pAnimal1->MakeSound();
-	pAnimal1 = pMonkey;
-	pAnimal1->Move();
-	pAnimal1->MakeSound();
+	for (int i = 0; i < Size; i++)
+	{
+		Zoo[i]->MakeSound();
+		//Zoo[i]->Move();
+	}
 
-
-
-
-	delete pMonkey;
-	pMonkey = nullptr;
-	delete pShark;
-	pShark = nullptr;
-	delete pEagle;
-	pEagle = nullptr;
+	for (int i = 0; i < Size; i++)
+	{
+		delete Zoo[i];
+		Zoo[i] = nullptr;
+	}
 }
 

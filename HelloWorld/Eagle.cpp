@@ -15,6 +15,6 @@ void Eagle::Move()
 
 void Eagle::MakeSound()
 {
-	printf("[%s]가 부리를 조아립니다.\n", Name.c_str());
+	printf("크아악!\n");
 	Animal::MakeSound();
 }

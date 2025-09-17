@@ -16,6 +16,6 @@ void Lion::Move()
 
 void Lion::MakeSound()
 {
-	printf("[%s]가 포효를 지릅니다.\n", Name.c_str());
+	printf("으르렁!\n");
 	Animal::MakeSound();
 }

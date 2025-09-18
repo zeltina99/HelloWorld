@@ -134,11 +134,13 @@
     <ClCompile Include="Day0915.cpp" />
     <ClCompile Include="Day0916.cpp" />
     <ClCompile Include="Day0917.cpp" />
+    <ClCompile Include="Day0918.cpp" />
     <ClCompile Include="DayOfWeek.cpp" />
     <ClCompile Include="dwe.cpp" />
     <ClCompile Include="Eagle.cpp" />
     <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="Hawk.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Lion.cpp" />
     <ClCompile Include="Monkey.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -164,6 +166,7 @@
     <ClInclude Include="Day0915.h" />
     <ClInclude Include="Day0916.h" />
     <ClInclude Include="Day0917.h" />
+    <ClInclude Include="Day0918.h" />
     <ClInclude Include="DayOfWeek.h" />
     <ClInclude Include="dwe.h" />
     <ClInclude Include="Eagle.h" />
@@ -171,6 +174,7 @@
     <ClInclude Include="Hawk.h" />
     <ClInclude Include="ICanBattle.h" />
     <ClInclude Include="IFlyable.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Lion.h" />
     <ClInclude Include="Monkey.h" />
     <ClInclude Include="Monster.h" />

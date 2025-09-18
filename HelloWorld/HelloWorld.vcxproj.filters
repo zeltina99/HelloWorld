@@ -22,6 +22,9 @@
     <Filter Include="모양">
       <UniqueIdentifier>{05cf97a1-20f1-4cd0-9430-7be68b51b05e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="자료구조">
+      <UniqueIdentifier>{61099fb6-7797-4ab5-97dc-6c93a9697b65}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dwe.cpp">
@@ -107,6 +110,12 @@
     </ClCompile>
     <ClCompile Include="Shape.cpp">
       <Filter>모양</Filter>
+    </ClCompile>
+    <ClCompile Include="Day0918.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>자료구조</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +208,15 @@
     </ClInclude>
     <ClInclude Include="IFlyable.h">
       <Filter>동물시리즈</Filter>
+    </ClInclude>
+    <ClInclude Include="ICanBattle.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0918.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>자료구조</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

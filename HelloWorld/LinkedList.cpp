@@ -125,6 +125,43 @@ void LinkedList::Remove(int32 InData)
 
 void LinkedList::RemoveAt(uint32 InPosition)
 {
+    if (InPosition >= Size)
+    {
+        printf("오류 %u위치는 범위를 벗어났습니다.(현재 크기: %u)\n", InPosition, Size);
+        return;
+    }
+
+    ListNode* NodeToDelete = nullptr;   // 삭제할 노드의 주소가 저장될 변수
+    if (InPosition == 0)
+    {
+        // 헤드를 삭제하는 경우
+        NodeToDelete = Head;
+        Head = Head->Next;
+        if (IsEmpty())
+        {
+            Tail = nullptr; // 리스트가 비게 되면 Tail도 nullptr로 설정
+        }
+    }
+    else
+    {
+        // 헤드가 아닌 경우
+        ListNode* Prev = Head;
+        const uint32 TargetIndex = InPosition - 1;
+        for (uint32 i = 0; i < TargetIndex; i++)
+        {
+            Prev = Prev->Next;  // 헤드부터 시작해서 삭제할 노드의 앞 노드 찾기
+        }
+        NodeToDelete = Prev->Next;          // 삭제할 노드는, 앞노드의 다음 노드   
+        Prev->Next = NodeToDelete->Next;    // 앞노드의 다음 노드는, 삭제할 노드의 다음 노드
+        if (NodeToDelete == Tail)
+        {
+            Tail = Prev;    // 삭제할 노드가 Tail이면, 이전 노드가 새 Tail
+        }
+    }
+
+    delete NodeToDelete;    // 실제 삭제하고
+    NodeToDelete = nullptr; // 무조건 하는 습관 들이기(좋은 습관)
+    Size--;                 // 사이즈 줄이기
 }
 
 ListNode* LinkedList::Search(int32 InData) const

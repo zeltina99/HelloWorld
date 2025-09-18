@@ -17,7 +17,7 @@ void DoublyLinkedList::AddToBack(int32 InData)
 {
     DoublyListNode* NewNode = new DoublyListNode(InData);
 
-    if (Tail == nullptr) // 노드 뒤에다 붙이는 거니까 Tail을 기준으로 확인, 리스트가 비어 있을 경우
+    if (Tail == nullptr) // Head == nullptr로 해도 동작하는데는 문제가 없어 보이는데, 그래도 노드 뒤에다가 붙인다고 했으니까, Tail이 가독성이 좋아보여서 Tail을 기준으로 판단함
     {
         Tail = NewNode;
         Head = NewNode;

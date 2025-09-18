@@ -92,23 +92,24 @@ void LinkedList::Remove(int32 InData)
     }
     else
     {
-        PreviousNode = Head;
-        while ((PreviousNode->Next != nullptr) && (PreviousNode->Next->Data != InData)) // 삭제할 노드의 앞 노드 ->Next니까 삭제할 노드가 안 비었거나, 그 값이 파라메터가 아니면 계속 다음을 선택
+        PreviousNode = Head;    //PreviousNode는 첫 번째 노드라고 설정, 즉 PreviousNode에서 부터 계속 다음을 넘겨가면 NodeToDelete를 찾을 거임
+        while ((PreviousNode->Next != nullptr) && (PreviousNode->Next->Data != InData)) // PreviousNode의 다음 주소의 값이 안 비었으면, 그 값이 파라메터가 아니면
         {
-            PreviousNode = PreviousNode->Next;
+            PreviousNode = PreviousNode->Next;  // 계속 다음으로 간다.
         }
 
-        if (PreviousNode->Next != nullptr)  // 위에 반복에서 결국 둘 중 하나가 걸렸기에 이게 돌아가겠지, 삭제할 노드의 데이터가 파라메터와 같을경우
+        if (PreviousNode->Next != nullptr)  // 위에 반복에서 결국 둘 중 하나 이상의 조건이 걸렸기에, 삭제할 노드가 안 비었으면
         {
-            NodeToDelete = PreviousNode->Next;          // 삭제할 노드의 그 앞에 노드로 연결
-            PreviousNode->Next = NodeToDelete->Next;    // 다시 그 앞에 노드의 다음 연결을 삭제할 노드의 그 다음에 연결
+            /*예를 들어 PreviousNode가 20을 가리키고, PreviousNode->Next가 30을 가리킨다면*/
+            NodeToDelete = PreviousNode->Next;          // NodeToDelete가 30을 가리키게 됐고,
+            PreviousNode->Next = NodeToDelete->Next;    // PreviousNode->Next는 원래 30을 가리켰었는데, NodeToDelete->Next를 가리키게 되었으니까 자연스럽게 NodeToDelete가 끊김
             if (NodeToDelete == Tail)
             {
                 Tail = PreviousNode;    //삭제할 노드가 마지막 노드면 그 앞에 노드로 새로운 마지막 노드라고 선언 (자연스럽게 마지막 부분을 지운거임)
             }
         }
     }
-    if (NodeToDelete != nullptr)
+    if (NodeToDelete != nullptr)    // 삭제 할 노드의 값을 결국에 찾았으면 밑에 과정으로 삭제함
     {
         delete NodeToDelete;
         NodeToDelete = nullptr;

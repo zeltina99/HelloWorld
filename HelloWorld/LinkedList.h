@@ -41,6 +41,8 @@ public:
 
 
 private:
+	inline bool IsEmpty() const { return Head == nullptr; }
+
 	// 리스트의 첫번째 노드
 	ListNode* Head = nullptr;
 

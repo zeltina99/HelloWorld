@@ -1,5 +1,6 @@
 #include "Day0918.h"
 #include "LinkedList.h"
+#include <stdio.h>
 
 
 void Day0918::TestSingleLinkedList()
@@ -56,3 +57,4 @@ void Day0918::TestSingleLinkedList()
 
 
 }
+

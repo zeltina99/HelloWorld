@@ -1513,7 +1513,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	/*Day0916 day0916;
 	day0916.ClassInstance();*/
 
-	Practice0916_01 day0916;
+	//Practice0916_01 day0916;
 	//day0916.ClassAnimalInstace();
 	//day0916.TestLion();
 	//day0916.TestEagle();
@@ -1528,7 +1528,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	/*
 		9월 17일
 	*/
-	Day0917 day0917;
+	//Day0917 day0917;
 	//day0917.TestPolymorphism();
 	//day0917.TestVirtualFuction();
 	//day0917.TestPractice1();
@@ -1541,6 +1541,9 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 
 	Day0918 day0918;
 	day0918.TestSingleLinkedList();
-
+	//day0918.TestAddLinkedList();
+	
+		
+		
 	return 0;
 }

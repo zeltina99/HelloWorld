@@ -3,6 +3,7 @@
 
 using int32 = int32_t;
 using uint32 = uint32_t;
+
 struct ListNode
 {
 	int32 Data = 0;				// 일단 데이터는 int로 확정

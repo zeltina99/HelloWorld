@@ -1541,7 +1541,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 
 	Day0918 day0918;
 	day0918.TestSingleLinkedList();
-	//day0918.TestAddLinkedList();
+	day0918.TestDoublyLinkedList();
 	
 		
 		

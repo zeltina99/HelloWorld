@@ -55,13 +55,17 @@ void LinkedList::InsertAt(int32 InData, uint32 InPosition)
     else
     {   // 중간 삽입
         ListNode* Current = Head;
-        for (uint32 i = 0; i < InPosition - 1; i++)
+        uint32 Index = 0;
+        const uint32 TargetIndex = InPosition - 1;  // 상수화 시켜서 매직넘버 없앰
+
+        while (Index < TargetIndex) // 입력 받은 위치가 예를 들어 5면 Index는 0번이 첫번째니까 4번이 되면 5번째가 될거고 그래서 -1을 해서 위치를 맞춰주고 그 위치가 될 때 까지 계속 넘어감
         {
             Current = Current->Next;
+            Index++;
         }
 
-        NewNode->Next = Current->Next;
-        Current->Next = NewNode;
+        NewNode->Next = Current->Next;  // 새 노드의 다음 주소를, 이전 노드의 다음 주소로 바뀜 (이전 노드의 다음 주소가 바뀐 건 아님)
+        Current->Next = NewNode;        // 이전 노드의 다음 주소가 새 노드로 바뀜
     }
 
     Size++;

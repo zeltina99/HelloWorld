@@ -1589,7 +1589,9 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 		9월 19일
 	*/
 	Day0919 day0919;
-	day0919.TestStack();
+	//day0919.TestStack();
+	//day0919.TestQueue();
+	day0919.TestQueue2();
 
 		
 		

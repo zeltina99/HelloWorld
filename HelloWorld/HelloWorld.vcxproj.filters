@@ -129,6 +129,9 @@
     <ClCompile Include="CircularQueue.cpp">
       <Filter>자료구조</Filter>
     </ClCompile>
+    <ClCompile Include="CircularQueue2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestMath.h">
@@ -241,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="CircularQueue.h">
       <Filter>자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularQueue2.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

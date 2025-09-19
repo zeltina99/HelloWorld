@@ -31,7 +31,7 @@ public:
 		return TopIndex + 1;
 	}
 
-	// Stack의 내용을 출력하는 함수
+	// Stack의 내용을 출력
 	void PrintStack() const;
 
 

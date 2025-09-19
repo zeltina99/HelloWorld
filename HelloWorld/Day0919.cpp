@@ -1,6 +1,10 @@
 #include "Day0919.h"
 #include "FixedStack.h"
+#include "CircularQueue.h"
+#include "CircularQueue2.h"
 #include <stdio.h>
+#include <iostream>
+#include <fstream>
 
 
 void Day0919::TestStack()
@@ -48,15 +52,124 @@ void Day0919::TestStack()
 	{
 		Stack.Pop();
 	}
-
+	
 
 }
 
 void Day0919::TestQueue()
 {
-	// 메뉴 만들기
-	// ① Enqueue
-	// ② Dequeue
-	// ③ Peek
-	// ④ TestPrintQueue
+	// ① 메뉴 만들기 
+	CircularQueue Queue;
+	const int ExitNumber = 5;
+	int InputNumber = 0;
+	int InputData = 0;
+	//		1. Enqueue
+	//		2. Dequeue
+	//		3. Peek
+	//		4. TestPrintQueue
+	//		5. 종료
+
+	printf("\n=====================메뉴 만들기  테스트======================\n");
+	while (InputNumber != ExitNumber)
+	{
+		printf("① Enqueue, ② Dequeue, ③ Peek, ④ TestPrintQueue, ⑤ 종료 ");
+		std::cin >> InputNumber;
+		printf("\n");
+		switch (InputNumber)
+		{
+		case 1:
+		{
+			printf("Enqueue할 값을 입력해주세요. : ");
+			std::cin >> InputData;
+			Queue.Enqueue(InputData);
+		}
+		break;
+		case 2:
+		{
+			
+			Queue.Dequeue();
+		}
+		break;
+		case 3:
+		{
+			printf("큐의 Front에 있는 값 [%d]", Queue.Peek());
+		}
+		break;
+		case 4:
+		{
+			Queue.TestPrintQueue();
+		}
+		break;
+		case 5:
+		{
+			return;
+		}
+		break;
+		default:
+			//ERROR!!
+			break;
+		}
+		printf("\n");
+	}
+	
 }
+
+void Day0919::TestQueue2()
+{
+	// ② Circular Queue2 만들기
+	//		생성자에서 파라메터를 받아 크기를 조절 가능하게 만들기
+
+	int Index = 0;
+
+	printf("\n=====================Circular Queue2 만들기======================\n");
+	printf("큐의 크기를 입력해주세요. : ");
+	std::cin >> Index;
+	CircularQueue2 Queue(Index);
+	const int ExitNumber = 5;
+	int InputNumber = 0;
+	int InputData = 0;
+
+	while (InputNumber != ExitNumber)
+	{
+		printf("① Enqueue, ② Dequeue, ③ Peek, ④ TestPrintQueue, ⑤ 종료 ");
+		std::cin >> InputNumber;
+		printf("\n");
+		switch (InputNumber)
+		{
+		case 1:
+		{
+			printf("Enqueue할 값을 입력해주세요. : ");
+			std::cin >> InputData;
+			Queue.Enqueue(InputData);
+		}
+		break;
+		case 2:
+		{
+			
+			Queue.Dequeue();
+		}
+		break;
+		case 3:
+		{
+			printf("큐의 Front에 있는 값 [%d]", Queue.Peek());
+		}
+		break;
+		case 4:
+		{
+			Queue.TestPrintQueue();
+		}
+		break;
+		case 5:
+		{
+			return;
+		}
+		break;
+		default:
+			//ERROR!!
+			break;
+		}
+		printf("\n");
+	}
+
+}
+

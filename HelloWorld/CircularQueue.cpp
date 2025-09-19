@@ -44,20 +44,15 @@ int CircularQueue::Dequeue()
 void CircularQueue::TestPrintQueue()
 {
 	// Front부터 Rear까지 출력하기
-	// 큐의 크기도 출력
 
-	if (IsEmpty())
+	printf("Queue : ");
+	for (int i = 0; i < GetSize(); i++)
 	{
-		printf("현재 큐가 비어있습니다!\n");
-		return;
+		printf("[%d] ", Data[(i + Front) % MaxSize]);
 	}
-	printf("현재 큐의 크기 [%d]\n", GetSize());
-	printf("Front부터 Rear까지의 값 : ");
-	int Index = Front;
-	while (Index != Rear)
-	{
-		printf("[%d] ", Data[Index]);
-		Index = (Index + 1) % MaxSize;
-	}
-	printf("[%d]\n", Data[Index]);
+	printf("\n");
+
+	// 큐의 크기도 출력
+	printf("Queue Size : %d\n", GetSize());
+	
 }

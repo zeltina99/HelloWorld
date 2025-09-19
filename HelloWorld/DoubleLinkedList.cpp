@@ -76,25 +76,33 @@ void DoublyLinkedList::DoublyInsertAt(int32 InData, uint32 InPosition)
 
     else
     {   // 중간 삽입
-        DoublyListNode* Current = Head;
-        uint32 Index = 0;
+        DoublyListNode* ForwardNode = Head;
+        DoublyListNode* BackwardNode = Tail;
+        uint32 Index = Size / 2;
         const uint32 TargetIndex = InPosition - 1;  // 상수화 시켜서 매직넘버 없앰
 
-        while (Index < TargetIndex) // 입력 받은 위치가 예를 들어 5면 Index는 0번이 첫번째니까 4번이 되면 5번째가 될거고 그래서 -1을 해서 위치를 맞춰주고 그 위치가 될 때 까지 계속 넘어감
+        if (Index < TargetIndex)
         {
-            Current = Current->Next;
-            Index++;
+            for (int i = Index; Index < TargetIndex; i++)
+            {
+                BackwardNode = BackwardNode->Prev;
+            }
+        }
+        else if(Index > TargetIndex)
+        {
+            for(int i = Index; Index > TargetIndex; i--)
+            {
+                ForwardNode = ForwardNode->Next;
+            }
         }
 
-        /*밑에 과정을 한줄로 요약하면 [ Currnet , (Prev)NewNode(Next) , (Prev)Current->Next ] 이런 느낌임*/
+        NewNode->Next = ForwardNode->Next;  
+        NewNode->Prev = ForwardNode;        
 
-        NewNode->Next = Current->Next;  // NewNode의 다음 주소를 Current의 다음 주소로 설정
-        NewNode->Prev = Current;        // NewNode의 앞의 주소를 Current로 설정
-
-        if (Current->Next != nullptr)   // 그 위치를 찾은 노드의 다음 주소가 nullptr이 아니면, 즉 데이터가 있으면
+        if (ForwardNode->Next != nullptr)   
         {
-            Current->Next->Prev = NewNode;  // Current->Next의 앞의 주소를 NewNode로 설정
-            Current->Next = NewNode;        // Current의 다음 주소를 NewNode로 설정
+            ForwardNode->Next->Prev = NewNode;  
+            ForwardNode->Next = NewNode;       
         }
         
     }

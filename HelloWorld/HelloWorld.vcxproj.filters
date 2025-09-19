@@ -120,6 +120,15 @@
     <ClCompile Include="DoubleLinkedList.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="FixedStack.cpp">
+      <Filter>자료구조</Filter>
+    </ClCompile>
+    <ClCompile Include="Day0919.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CircularQueue.cpp">
+      <Filter>자료구조</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestMath.h">
@@ -223,6 +232,15 @@
     </ClInclude>
     <ClInclude Include="DoubleLinkedList.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedStack.h">
+      <Filter>자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0919.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CircularQueue.h">
+      <Filter>자료구조</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

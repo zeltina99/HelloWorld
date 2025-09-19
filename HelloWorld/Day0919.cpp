@@ -173,3 +173,40 @@ void Day0919::TestQueue2()
 
 }
 
+void Day0919::TestSwallowCopy()
+{
+	// 얕은 복사 : 복사를 할 때 완전한 사본을 만드는 것이 아니라 주소만 복사하는 복사
+	CircularQueue2 a(5);
+	a.Enqueue(10);
+	a.Enqueue(20);
+
+
+	//CircularQueue2 b(a);		// 복사 생성자로 a의 사본을 만든 것
+	//CircularQueue2 c = a;		// 대입 연산자로 a의 사본을 만든 것
+
+	//a.Enqueue(30);
+
+	//printf("a\n");
+	//a.TestPrintQueue();
+	//printf("\nb\n");
+	//b.TestPrintQueue();
+	//printf("\nc\n");
+	//c.TestPrintQueue();
+
+	//TestSwallowCopy(a);
+	TestSwallowCopy(a);		// 참조 넘기기
+	TestSwallowCopy(&a);	// 주소 넘기기
+
+}
+
+void Day0919::TestSwallowCopy(CircularQueue2* temp)
+{
+	temp->TestPrintQueue();
+}
+
+void Day0919::TestSwallowCopy(CircularQueue2& temp)
+{
+	temp.TestPrintQueue();
+}
+
+

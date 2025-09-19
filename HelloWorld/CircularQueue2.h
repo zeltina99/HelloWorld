@@ -4,14 +4,29 @@
 class CircularQueue2
 {
 public:
-	CircularQueue2() = default;
-	CircularQueue2(unsigned int InSize)
-		: MaxSize(InSize) 
+	CircularQueue2(unsigned int InSize = 5)
+		: MaxSize(InSize == 0 ? MinSize : InSize) 
 	{
+		if (InSize == 0)
+		{
+			printf("요청한 크기 0은 유효하지 않으므로 최소크기인 %u로 설정했습니다.", MinSize);
+		}
+		Data = new int[MaxSize];
 	}
 
 	// 동적할당으로 만들어진 큐를 초기화 해줄 함수
-	~CircularQueue2();
+	~CircularQueue2()
+	{
+		if (Data != nullptr)
+		{
+			delete[] Data;
+			Data = nullptr;
+		}
+	}
+	
+	// 복사 방지
+	CircularQueue2(const CircularQueue2&) = delete;	// 복사 생성자는 없음
+	CircularQueue2& operator=(const CircularQueue2&) = delete;	// 대입 연산자가 없음
 
 public:
 	
@@ -56,11 +71,13 @@ public:
 
 private:
 	static constexpr int Empty = -1;
-	unsigned int MaxSize = 0;
+	static constexpr unsigned int MinSize = 1;
+
+	unsigned int MaxSize = 1;
 
 	int Front = Empty;
 	int Rear = Empty;
-	int* Data = new int[MaxSize];
+	int* Data = nullptr;
 };
 
 

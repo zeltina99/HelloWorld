@@ -1,10 +1,5 @@
 #include "CircularQueue2.h"
 
-CircularQueue2::~CircularQueue2()
-{
-	delete Data;
-	Data = nullptr;
-}
 
 void CircularQueue2::Enqueue(int InValue)
 {

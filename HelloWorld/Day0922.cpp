@@ -1,6 +1,7 @@
 #include "Day0922.h"
 #include "Map.h"
 #include "BattleShip.h"
+#include "BinarySearchTree.h"
 #include <random>
 
 void Day0922::TestBattleShip()
@@ -11,4 +12,15 @@ void Day0922::TestBattleShip()
 
 	BattleShip Game;
 	Game.Play();
+}
+
+void Day0922::TestTree()
+{
+	BinarySearchTree bst;
+	bst.Insert(30);
+	bst.Insert(50);
+	bst.Insert(10);
+	bst.PrintPreOrder();
+	bst.PrintInOrder();
+	bst.PrintPostOrder();
 }

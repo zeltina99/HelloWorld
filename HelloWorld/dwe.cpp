@@ -1632,7 +1632,7 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	*/
 	Day0922 day0922;
 	//day0922.TestBattleShip();
-		
+	day0922.TestTree();
 		
 	return 0;
 }

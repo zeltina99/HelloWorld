@@ -25,6 +25,9 @@
     <Filter Include="자료구조">
       <UniqueIdentifier>{61099fb6-7797-4ab5-97dc-6c93a9697b65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BattleShip">
+      <UniqueIdentifier>{e7a95754-64ea-4716-a043-fee1d3eac151}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dwe.cpp">
@@ -130,6 +133,27 @@
       <Filter>자료구조</Filter>
     </ClCompile>
     <ClCompile Include="CircularQueue2.cpp">
+      <Filter>자료구조</Filter>
+    </ClCompile>
+    <ClCompile Include="Day0922.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="HiddenMap.cpp">
+      <Filter>BattleShip</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMap.cpp">
+      <Filter>BattleShip</Filter>
+    </ClCompile>
+    <ClCompile Include="Ship.cpp">
+      <Filter>BattleShip</Filter>
+    </ClCompile>
+    <ClCompile Include="ShipManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BattleShip.cpp">
+      <Filter>BattleShip</Filter>
+    </ClCompile>
+    <ClCompile Include="BinarySearchTree.cpp">
       <Filter>자료구조</Filter>
     </ClCompile>
   </ItemGroup>
@@ -246,6 +270,30 @@
       <Filter>자료구조</Filter>
     </ClInclude>
     <ClInclude Include="CircularQueue2.h">
+      <Filter>자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0922.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>BattleShip</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMap.h">
+      <Filter>BattleShip</Filter>
+    </ClInclude>
+    <ClInclude Include="HiddenMap.h">
+      <Filter>BattleShip</Filter>
+    </ClInclude>
+    <ClInclude Include="Ship.h">
+      <Filter>BattleShip</Filter>
+    </ClInclude>
+    <ClInclude Include="ShipManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleShip.h">
+      <Filter>BattleShip</Filter>
+    </ClInclude>
+    <ClInclude Include="BinarySearchTree.h">
       <Filter>자료구조</Filter>
     </ClInclude>
   </ItemGroup>

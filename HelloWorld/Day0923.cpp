@@ -246,13 +246,63 @@ void Day0923::TestVectorPractice()
 
 	
 	// ⑥ 벡터 두개 합치기
+	printf("\n==============⑥ 벡터 두개 합치기==============\n");
 	std::vector<int> FirstNumbers = { 5,6,7,8 };
 	std::vector<int> SecondNumbers = { 1,2,3,4 };
 
+	printf("첫 번째 벡터에 있는 원소 : ");
+	for (int i = 0; i < FirstNumbers.size(); i++)
+	{
+		printf("%d ", FirstNumbers[i]);
+	}
+	printf("\n");
+	printf("두 번째 벡터에 있는 원소 : ");
+	for (int i = 0; i < SecondNumbers.size(); i++)
+	{
+		printf("%d ", SecondNumbers[i]);
+	}
+	printf("\n");
 
+	for (int i = 0; i < SecondNumbers.size(); i++)
+	{
+		FirstNumbers.push_back(SecondNumbers[i]);
+	}
+	printf("두 벡터를 합친 원소 : ");
+	for (int i = 0; i < FirstNumbers.size(); i++)
+	{
+		printf("%d ", FirstNumbers[i]);
+	}
+	printf("\n");
+	
 	
 	// ⑦ 문자열 뒤집기
-	
+	printf("\n==============⑦ 문자열 뒤집기==============\n");
+	std::vector<std::string> Hello(1, "Hello");
+	printf("[%s]\n", Hello[0].c_str());
+
+	std::string& Str = Hello[0];      // 벡터 안의 문자열 참조
+	std::string Reversed = "";        // 뒤집은 문자열 저장용
+
+	// 뒤에서부터 문자 하나씩 추가
+	for (int i = Str.size() - 1; i >= 0; i--)
+	{
+		Reversed += Str[i];
+	}
+	printf("[%s]\n", Reversed.c_str());
 	
 	// ⑧ 모든 요소 더하기
+	printf("\n==============⑧ 모든 요소 더하기==============\n");
+	std::vector<int> AllAddNumbers = { 10,20,30,40,50,60,70,80,90,100 };
+	printf("현재 벡터의 요소 : ");
+	for (int i = 0; i < AllAddNumbers.size(); i++)
+	{
+		printf("%d ", AllAddNumbers[i]);
+	}
+	int Sum = 0;
+	for (auto iter = AllAddNumbers.begin(); iter != AllAddNumbers.end(); iter++)
+	{
+		Sum += *iter;
+	}
+	printf("\n");
+	printf("모든 요소를 더한 값 : [%d]", Sum);
 }

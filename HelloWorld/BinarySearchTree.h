@@ -25,6 +25,7 @@ public:
 	void PrintInOrder();		// 중위 순회
 	void PrintPostOrder();	// 후위 순회
 
+
 	inline bool IsEmpty() const { return Root == nullptr; }
 
 private:

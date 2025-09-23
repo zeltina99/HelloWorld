@@ -28,10 +28,10 @@ struct Position
 };
 
 // 이항연산자는 구조체 밖에 쓰는 것이 일반적이다.
-//Position operator+(const Position& a, const Position& b);
-//Position operator-(const Position& a, const Position& b);
+Position operator+(const Position& a, const Position& b);
+Position operator-(const Position& a, const Position& b);
 bool operator==(const Position& a, const Position& b);
-//bool operator!=(const Position& a, const Position& b);
+bool operator!=(const Position& a, const Position& b);
 
 
 

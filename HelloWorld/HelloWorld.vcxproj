@@ -102,6 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,6 +142,7 @@
     <ClCompile Include="Day0918.cpp" />
     <ClCompile Include="Day0919.cpp" />
     <ClCompile Include="Day0922.cpp" />
+    <ClCompile Include="Day0923.cpp" />
     <ClCompile Include="DayOfWeek.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="dwe.cpp" />
@@ -174,6 +176,7 @@
     <ClInclude Include="Car.h" />
     <ClInclude Include="CircularQueue.h" />
     <ClInclude Include="CircularQueue2.h" />
+    <ClInclude Include="Coordinate.h" />
     <ClInclude Include="Day0908.h" />
     <ClInclude Include="Day0909.h" />
     <ClInclude Include="Day0910.h" />
@@ -185,6 +188,7 @@
     <ClInclude Include="Day0918.h" />
     <ClInclude Include="Day0919.h" />
     <ClInclude Include="Day0922.h" />
+    <ClInclude Include="Day0923.h" />
     <ClInclude Include="DayOfWeek.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="dwe.h" />

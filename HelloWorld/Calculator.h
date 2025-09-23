@@ -16,7 +16,11 @@ public:
 
 	void PrintCalculator() const;
 
-	
+	void Add();
+	void Sub();
+	void Multiply();
+	void Divide();
+	void Equal();
 
 protected:
 	T x;

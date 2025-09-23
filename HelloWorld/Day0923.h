@@ -7,5 +7,6 @@ public:
 	void TestTemplateClass();
 	void TestCalculator();
 	void TestVector();
+	void TestVectorPractice();
 };
 

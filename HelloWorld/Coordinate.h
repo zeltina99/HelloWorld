@@ -69,6 +69,18 @@ Coordinate<T> operator-(const Coordinate<T>& a, const Coordinate<T>& b)
 }
 
 template <typename T>
+Coordinate<T> operator*(const Coordinate<T>& a, const Coordinate<T>& b)
+{
+	return Coordinate<T>(a.x * b.x, a.y * b.y);
+}
+
+template <typename T>
+Coordinate<T> operator/(const Coordinate<T>& a, const Coordinate<T>& b)
+{
+	return Coordinate<T>(a.x / b.x, a.y / b.y);
+}
+
+template <typename T>
 bool operator==(const Coordinate<T>& a, const Coordinate<T>& b)
 {
 	return a.x == b.x && a.y == b.y;

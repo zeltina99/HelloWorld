@@ -1,96 +1,66 @@
 #pragma once
 #include <iostream>
 #include <type_traits>
+#include <limits>
 
-template <typename T>
+// 간단 실습
+// 계산기 클래스 만들기
+// 멤버 함수 : Add, Sub, Multiply, Divide, Equal
+// 실수형에 대해 Equal 함수를 특수화 처리
+
 class Calculator
 {
 public:
-	Calculator() : x{}, y{}
+	template <typename T>
+	T Add(const T& a, const T& b)
 	{
-	}
-	Calculator(T InX, T InY)
-		: x(InX), y(InY)
-	{
+		return T(a + b);	// + 연산자가 정의되어 있는 타입만 가능하다.
 	}
 
-	void PrintCalculator() const;
+	template <typename T>
+	T Sub(const T& a, const T& b)
+	{
+		return T(a - b);	// - 연산자가 정의되어 있는 타입만 가능하다.
+	}
 
-	void Add() ;
-	void Sub() ;
-	void Multiply() ;
-	void Divide() ;
-	void Equal() ;
+	template <typename T>
+	T Multiply(const T& a, const T& b)
+	{
+		return T(a * b);	// * 연산자가 정의되어 있는 타입만 가능하다.
+	}
+
+	template <typename T>
+	T Divide(const T& a, const T& b)
+	{
+		return T(a / b);	// / 연산자가 정의되어 있는 타입만 가능하다.
+	}
+
+	template<typename T>
+	bool Equal(const T& a, const T& b)
+	{
+		return (a == b);
+	}
+
+	template<>
+	bool Equal(const float& a, const float& b)
+	{
+		float abs = (a - b) < 0 ? -(a - b) : (a - b);
+		return abs < FLT_EPSILON;
+	}
+
+	template<>
+	bool Equal(const double& a, const double& b)
+	{
+		double abs = (a - b) < 0 ? -(a - b) : (a - b);
+		return abs < DBL_EPSILON;
+	}
+
 
 protected:
-	T x;
-	T y;
 
 	
 
 
 };
 
-template <typename T>
-T Abs(T InValue)
-{
-	return (InValue < 0) ? -InValue : InValue;
-}
 
-template<typename T>
-inline void Calculator<T>::PrintCalculator() const
-{
-	if constexpr (std::is_same_v<T, int>)
-	{
-		printf("(%d, %d)\n", x, y);
-	}
-	else if constexpr (std::is_same_v<T, float>)
-	{
-		printf("(%f, %f)\n", x, y);
-	}
-	else
-	{
-		std::cout << "(" << x << ", " << y << ")" << std::endl;
-	}
-}
-
-template<typename T>
-inline void Calculator<T>::Add() 
-{
-	Calculator<T> operator+(const Calculator<T>&a, const Calculator<T>&b)
-	{
-		return Calculator<T>(a.x + b.x, a.y + b.y);
-	}
-}
-
-template<typename T>
-inline void Calculator<T>::Sub() 
-{
-	Calculator<T> operator-(const Calculator<T>&a, const Calculator<T>&b)
-	{
-		return Calculator<T>(a.x - b.x, a.y - b.y);
-	}
-}
-
-template<typename T>
-inline void Calculator<T>::Multiply() 
-{
-	Calculator<T> operator*(const Calculator<T>&a, const Calculator<T>&b)
-	{
-		return Calculator<T>(a.x * b.x, a.y * b.y);
-	}
-}
-
-template<typename T>
-inline void Calculator<T>::Divide() 
-{
-	Calculator<T> operator/(const Calculator<T>&a, const Calculator<T>&b)
-	{
-		return Calculator<T>(a.x / b.x, a.y / b.y);
-	}
-}
-
-template<typename T>
-inline void Calculator<T>::Equal() 
-{
-}

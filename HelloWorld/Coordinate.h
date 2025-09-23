@@ -49,7 +49,13 @@ struct Coordinate
 	//}
 };
 
-template <typename T> 
+template <typename T>
+T Abs(T InValue)
+{
+	return (InValue < 0) ? -InValue : InValue;
+}
+
+template <typename T>
 Coordinate<T> operator+(const Coordinate<T>& a, const Coordinate<T>& b)
 {
 	return Coordinate<T>(a.x + b.x, a.y + b.y);
@@ -64,11 +70,23 @@ Coordinate<T> operator-(const Coordinate<T>& a, const Coordinate<T>& b)
 template <typename T>
 bool operator==(const Coordinate<T>& a, const Coordinate<T>& b)
 {
-	return Coordinate<T>(a.x == b.x, a.y == b.y);
+	return a.x == b.x && a.y == b.y;
+}
+
+// 앞에 template<>를 붙이고 T자리에 특수화하고 싶은 타입을 적는다.
+template <>
+bool operator==(const Coordinate<float>& a, const Coordinate<float>& b)
+{
+	return Abs(a.x - b.x) <= FLT_EPSILON && Abs(a.y - b.y) <= FLT_EPSILON;
+}
+template <>
+bool operator==(const Coordinate<double>& a, const Coordinate<double>& b)
+{
+	return Abs(a.x - b.x) <= DBL_EPSILON && Abs(a.y - b.y) <= DBL_EPSILON;
 }
 
 template <typename T>
 bool operator!=(const Coordinate<T>& a, const Coordinate<T>& b)
 {
-	return Coordinate<T>(a.x != b.x, a.y != b.y);
+	return !(a == b);
 }

@@ -3,6 +3,7 @@
 #include "Calculator.h"
 #include <cstdio>
 #include <vector>
+#include <algorithm>
 
 void Day0923::TestTemplateClass()
 {
@@ -136,11 +137,122 @@ void Day0923::TestVectorPractice()
 {
 	// std::vector 연습하기
 	// ① 정수 입력받고 출력하기
+	printf("==============① 정수 입력받고 출력하기==============\n");
+	std::vector<int> IntNumbers;
+	IntNumbers.reserve(5);
+	printf("정수 하나를 입력해주세요. : ");
+	int InputNumber = 0;
+	std::cin >> InputNumber;
+	IntNumbers.push_back(InputNumber);
+	printf("[%d]를 입력 받았습니다.\n", IntNumbers[0]);
+
 	// ② 최대, 최소 구하기
+	printf("\n==============② 최대, 최소 구하기==============\n");
+	std::vector<int> Numbers = { 20,10,30,50,40 };
+	printf("현재 모든 원소 : ");
+	for (int i = 0; i < Numbers.size(); i++)
+	{
+		printf("%d ", Numbers[i]);
+	}
+	printf("\n");
+	
+	int Maxnumber = Numbers[0];
+	int Minnumber = Numbers[0];
+	for (int i = 0; i < Numbers.size(); i++)
+	{
+		if (Maxnumber < Numbers[i])
+		{
+			Maxnumber = Numbers[i];
+		}
+		if (Minnumber > Numbers[i])
+		{
+			Minnumber = Numbers[i];
+		}
+		
+	}
+	printf("최댓값 : [%d], 최솟값 : [%d]\n", Maxnumber, Minnumber);
+	
 	// ③ 정렬하기 (std::sort)
+	printf("\n==============③ 정렬하기 (std::sort)==============\n");
+	std::sort(Numbers.begin(), Numbers.end());
+	printf("오름차순 정렬 : ");
+	for (int i = 0; i < Numbers.size(); i++)
+	{
+		printf("%d ", Numbers[i]);
+	}
+	printf("\n");
+	std::sort(Numbers.begin(), Numbers.end(), std::greater<int>());
+	printf("내림차순 정렬 : ");
+	for (int i = 0; i < Numbers.size(); i++)
+	{
+		printf("%d ", Numbers[i]);
+	}
+	printf("\n");
 	// ④ 특정 값 찾기 (std::find없이)
+	printf("\n==============④ 특정 값 찾기 (std::find없이)==============\n");
+	std::vector<int> Vectornumbers = { 10,20,50,10,30,40,60,90,80,70 };
+	printf("찾을 값을 입력 하세요. : ");
+	int Index = 0;
+	int Temp = 0;
+	std::cin >> Index;
+	for (int i =0; i < Vectornumbers.size(); i++)
+	{
+		if (Index == Vectornumbers[i])
+		{
+			printf("[%d]를 찾았습니다.\n", Index);
+			break;
+		}
+		Temp = i + 1;
+		if (Temp >= Vectornumbers.size())
+		{
+			printf("[%d]를 못 찾았습니다.\n", Index);
+		}
+	}
+	printf("\n");
+
+	
 	// ⑤ 중복 제거하기
+	printf("\n==============⑤ 중복 제거하기==============\n");
+	std::vector<int> UniqueNumbers;
+	UniqueNumbers.reserve(10);
+	
+	for (size_t i = 0; i < Vectornumbers.size(); i++)
+	{
+		bool isDuplicate = false;
+
+		// 이미 UniqueNumbers에 있는지 확인
+		for (size_t j = 0; j < UniqueNumbers.size(); j++)
+		{
+			if (Vectornumbers[i] == UniqueNumbers[j])
+			{
+				isDuplicate = true;
+				break;
+			}
+		}
+
+		// 없으면 추가
+		if (!isDuplicate)
+		{
+			UniqueNumbers.push_back(Vectornumbers[i]);
+		}
+	}
+
+	printf("중복 제거 후 : ");
+	for (auto iter = UniqueNumbers.begin(); iter != UniqueNumbers.end(); iter++)
+	{
+		printf("%d ", *iter);
+	}
+	printf("\n");
+
+	
 	// ⑥ 벡터 두개 합치기
+	std::vector<int> FirstNumbers = { 5,6,7,8 };
+	std::vector<int> SecondNumbers = { 1,2,3,4 };
+
+
+	
 	// ⑦ 문자열 뒤집기
+	
+	
 	// ⑧ 모든 요소 더하기
 }

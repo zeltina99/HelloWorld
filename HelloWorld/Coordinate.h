@@ -49,8 +49,26 @@ struct Coordinate
 	//}
 };
 
-//// 이항연산자는 구조체 밖에 쓰는 것이 일반적이다.
-//Coordinate operator+(const Coordinate& a, const Coordinate& b);
-//Coordinate operator-(const Coordinate& a, const Coordinate& b);
-//bool operator==(const Coordinate& a, const Coordinate& b);
-//bool operator!=(const Coordinate& a, const Coordinate& b);
+template <typename T> 
+Coordinate<T> operator+(const Coordinate<T>& a, const Coordinate<T>& b)
+{
+	return Coordinate<T>(a.x + b.x, a.y + b.y);
+}
+
+template <typename T>
+Coordinate<T> operator-(const Coordinate<T>& a, const Coordinate<T>& b)
+{
+	return Coordinate<T>(a.x - b.x, a.y - b.y);
+}
+
+template <typename T>
+bool operator==(const Coordinate<T>& a, const Coordinate<T>& b)
+{
+	return Coordinate<T>(a.x == b.x, a.y == b.y);
+}
+
+template <typename T>
+bool operator!=(const Coordinate<T>& a, const Coordinate<T>& b)
+{
+	return Coordinate<T>(a.x != b.x, a.y != b.y);
+}

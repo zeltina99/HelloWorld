@@ -16,22 +16,7 @@ public:
 
 	void PrintCalculator() const;
 
-	Calculator<T> operator+(const Calculator<T>& a, const Calculator<T>& b)
-	{
-		return Calculator<T>(a.x + b.x, a.y + b.y);
-	}
-	Calculator<T> operator-(const Calculator<T>& a, const Calculator<T>& b)
-	{
-		return Calculator<T>(a.x - b.x, a.y - b.y);
-	}
-	bool operator==(const Calculator<T>& a, const Calculator<T>& b)
-	{
-		return Calculator<T>(a.x == b.x, a.y == b.y);
-	}
-	bool operator!=(const Calculator<T>& a, const Calculator<T>& b)
-	{
-		return Calculator<T>(a.x != b.x, a.y != b.y);
-	}
+	
 
 protected:
 	T x;
@@ -41,6 +26,12 @@ protected:
 
 
 };
+
+template <typename T>
+T Abs(T InValue)
+{
+	return (InValue < 0) ? -InValue : InValue;
+}
 
 template<typename T>
 inline void Calculator<T>::PrintCalculator() const
@@ -57,4 +48,45 @@ inline void Calculator<T>::PrintCalculator() const
 	{
 		std::cout << "(" << x << ", " << y << ")" << std::endl;
 	}
+}
+
+template<typename T>
+inline void Calculator<T>::Add()
+{
+	Calculator<T> operator+(const Calculator<T>&a, const Calculator<T>&b)
+	{
+		return Calculator<T>(a.x + b.x, a.y + b.y);
+	}
+}
+
+template<typename T>
+inline void Calculator<T>::Sub()
+{
+	Calculator<T> operator-(const Calculator<T>&a, const Calculator<T>&b)
+	{
+		return Calculator<T>(a.x - b.x, a.y - b.y);
+	}
+}
+
+template<typename T>
+inline void Calculator<T>::Multiply()
+{
+	Calculator<T> operator*(const Calculator<T>&a, const Calculator<T>&b)
+	{
+		return Calculator<T>(a.x * b.x, a.y * b.y);
+	}
+}
+
+template<typename T>
+inline void Calculator<T>::Divide()
+{
+	Calculator<T> operator/(const Calculator<T>&a, const Calculator<T>&b)
+	{
+		return Calculator<T>(a.x / b.x, a.y / b.y);
+	}
+}
+
+template<typename T>
+inline void Calculator<T>::Equal()
+{
 }

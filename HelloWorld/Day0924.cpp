@@ -88,4 +88,13 @@ void Day0924::TestLambdaPractice()
 	// std::find_if(컨테이너의 begin(), 컨테이너의 end(), 람다식);
 	// [](int n)
 	// {return 참/거짓;}
+	
+	std::find_if(numbers.begin(), numbers.end(),
+		[](int n)
+		{
+			
+		}
+	);
+
+
 }

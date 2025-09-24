@@ -5,6 +5,8 @@ public:
 	void TestLambda();
 	void TestLambda2();
 	void TestLambdaPractice();
+	void TestSet();
+	void TestSetPractice();
 };
 
 struct SortTest

@@ -673,6 +673,17 @@ std::string : 스트링. 문자열을 쉽게 다룰 수 있는 자료형.
 		- 값 캡쳐는 불필요한 사본을 만들지 않게 해라.
 */
 
+/*
+	std::set
+	 - 특징
+		- 데이터를 중복 없이 정렬된 상태로 저장하고 싶을 때 사용.
+		- 탐색 속도도 빠르다.( 레드-블랙 트리 알고리즘 사용. O(log N) )
+		- 노드가 키값만 가지고 있음.(우리가 만든 BST랑 유사)
+	 - 사용처
+		- 데이터의 유일성, 정렬, 빠른 검색이 필요한 경우에 유용하다.
+*/
+
+
 
 #define _CRTDBG_MAP_ALLOC
 #define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
@@ -1719,7 +1730,8 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	Day0924 day0924;
 	//day0924.TestLambda();
 	//day0924.TestLambda2();
-	day0924.TestLambdaPractice();
+	//day0924.TestLambdaPractice();
+	day0924.TestSet();
 
 
 

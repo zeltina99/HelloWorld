@@ -1731,8 +1731,8 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//day0924.TestLambda();
 	//day0924.TestLambda2();
 	//day0924.TestLambdaPractice();
-	day0924.TestSet();
-
+	//day0924.TestSet();
+	day0924.TestSetPractice();
 
 
 	return 0;

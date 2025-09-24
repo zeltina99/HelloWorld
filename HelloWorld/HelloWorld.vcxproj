@@ -144,6 +144,7 @@
     <ClCompile Include="Day0919.cpp" />
     <ClCompile Include="Day0922.cpp" />
     <ClCompile Include="Day0923.cpp" />
+    <ClCompile Include="Day0924.cpp" />
     <ClCompile Include="DayOfWeek.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="dwe.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="Day0919.h" />
     <ClInclude Include="Day0922.h" />
     <ClInclude Include="Day0923.h" />
+    <ClInclude Include="Day0924.h" />
     <ClInclude Include="DayOfWeek.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="dwe.h" />

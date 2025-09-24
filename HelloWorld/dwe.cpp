@@ -1686,7 +1686,13 @@ int main() // 엔트리 포인트(코드가 시작되는 곳)
 	//day0923.TestTemplateClass();
 	//day0923.TestCalculator();
 	//day0923.TestVector();
-	day0923.TestVectorPractice();
+	//day0923.TestVectorPractice();
+
+	/*
+		9월 24일
+	*/
+
+
 
 
 	return 0;

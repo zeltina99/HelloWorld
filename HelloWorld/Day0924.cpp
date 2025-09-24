@@ -2,6 +2,10 @@
 #include <vector>
 #include <algorithm>
 #include <set>
+#include <map>
+#include <unordered_map>
+#include <cstdio>
+#include <iostream>
 
 bool operator<(const SortTest& Left, const SortTest& Right)
 {
@@ -178,23 +182,215 @@ void Day0924::TestSetPractice()
 {
 	// ① 중복 없는 정수 입력 및 출력
 	//	- 사용자가 여러 개의 정수를 입력하면 중복 없이 저장하고 출력하는 프로그램을 만들어보세요.
+	/*printf("\n① 중복 없는 정수 입력 및 출력\n");
+	std::set<int> TestSet1;
+	int InputNumber = 0;
+	while (InputNumber != -1)
+	{
+		printf("정수를 입력하세요 (-1: 종료) : ");
+		std::cin >> InputNumber;
+		if (InputNumber != -1)
+		{
+			TestSet1.insert(InputNumber);
+		}
+	}
+	PrintSet(TestSet1);*/
 
 	// ② 집합 연산(합집합, 교집합, 차집합)
 	//	- 두 개의 set을 만들어서 합집합, 교집합, 차집합을 구하는 실습을 해보세요.
+	printf("\n② 집합 연산(합집합, 교집합, 차집합)\n");
+	std::set<int> TestSet2_1 = { 1,2,3,4,5 };
+	std::set<int> TestSet2_2 = { 3,4,5,6,7 };
+	std::set<int> TestSet2_Result;
+
+	printf("집합연산\n");
+	PrintSet(TestSet2_1);
+	PrintSet(TestSet2_2);
+
+	printf("합집합 = ");
+	// 합집합
+	TestSet2_Result = TestSet2_1;
+	for (int n : TestSet2_2)
+	{
+		TestSet2_Result.insert(n);
+	}
+	PrintSet(TestSet2_Result);
+
+	printf("교집합 = ");
+	TestSet2_Result.clear();
+	for (int n : TestSet2_2)
+	{
+		if (TestSet2_1.contains(n))
+		{
+			TestSet2_Result.insert(n);
+		}
+	}
+	PrintSet(TestSet2_Result);
+
+	printf("차집합 = ");
+	TestSet2_Result = TestSet2_1;
+	for (int n : TestSet2_2)
+	{
+		if (TestSet2_1.contains(n))
+		{
+			TestSet2_Result.erase(n);
+		}
+	}
+	PrintSet(TestSet2_Result);
 
 	// ③ 특정 값의 존재 여부 확인
 	//	- set에 특정 값이 들어있는지 검사하는 프로그램을 만들어보세요.
 	
+
+
 	// ④ 오름차순/내림차순 출력
 	//	- set의 원소를 오름차순 또는 내림차순으로 출력하는 실습을 해보세요.(반복자의 종류)
+	printf("\n④ 오름차순/내림차순 출력\n");
+	std::set<int> TestSet4 = { 5,7,3,1,6,8,2,4,9 };
+	PrintSet(TestSet4);
+
+	printf("Set Reverse : ");
+	for (auto iter = TestSet4.rbegin(); iter != TestSet4.rend(); iter++)
+	{
+		printf("%d ", *iter);
+	}
+	printf("\n");
+
 
 	// ⑤ 문자열 중복제거
 	//	- 여러 개의 문자열을 입력받아 중복 없이 저장하고 출력하는 실습을 해보세요.
+	printf("\n⑤ 문자열에서 중복되는 글자 제거\n");
+	std::string TestString = "Hello World!";	// "Helo Wrd!"
+	std::set<char> TestSet5;
+	std::string TestResult5;
+	for (char c : TestString)
+		// for(auto iter = TestString.begin() ;  iter != TestString.end() ; iter++
+		// for(int i = 0; i < TestString.size(); i++)
+	{
+		if(!TestSet5.contains(c))
+		{
+			TestSet5.insert(c);
+			TestResult5 += c;
+		}
+	}
+	printf("Result = %s\n", TestResult5.c_str());
+	
 
-	// ⑥ 최댓값, 최솟값 찾기
+
+	// ⑥ 최대값, 최솟값 찾기
 	//	- set에서 가장 큰 값과 작은 값을 찾아 출력하는 실습을 해보세요.(반복자를 활용하기)
+	printf("\n⑥ 최대값, 최솟값 찾기\n");
+	std::set<int> TestSet6 = {5,3,76,132,42,7896,52,1,23,4 };
+	PrintSet(TestSet6);
+	if (!TestSet6.empty())
+	{
+		printf("최대값 = %d, 최솟값 = %d\n",  *TestSet6.rbegin(), * TestSet6.begin());
+	}
 
 	// ⑦ set을 vector로 변환
 	//	- set에 저장된 값을 vector로 옮겨서 활용하는 프로그램을 만들어보세요.
+	printf("\n⑦ set을 vector로 변환\n");
+	std::set<int> TestSet7 = { 1,5,74,6,3,1,5,7,6,5 };
+	PrintSet(TestSet7);
+	std::vector<int> TestVector7_1(TestSet7.begin(), TestSet7.end());
+	PrintVector(TestVector7_1);
+	std::vector<int> TestVector7_2;
+	TestVector7_2.reserve(TestSet7.size());
+	for (int n : TestSet7)
+	{
+		TestVector7_2.push_back(n);
+	}
+	PrintVector(TestVector7_2);
+
+
+
+}
+std::string ToString(CharacterType InType)
+{
+	switch (InType)
+	{
+	case CharacterType::Warrior:
+		return "전사";
+	case CharacterType::Mage:
+		return "마법사";
+	case CharacterType::Archer:
+		return "궁수";
+	case CharacterType::Thief:
+		return "도적";
+	default:
+		break;
+	}
+	return "알 수 없음";
+}
+void PrintStatus(const CharacterStatus& InStatus)
+{
+	printf(" | 레벨 : %2d | 체력 : %3d | 공격력 : %2d |\n", InStatus.Level, InStatus.Health, InStatus.Attack);
+}
+
+void Day0924::TestMap()
+{
+	std::map<CharacterType, CharacterStatus> Characters;
+
+	Characters[CharacterType::Warrior] = { 10, 200, 15 };
+	Characters[CharacterType::Mage] = { 8, 100, 5 };
+	Characters[CharacterType::Archer] = { 12, 150, 20 };
+
+	if (Characters.contains(CharacterType::Mage))	// 없는 키에 접근하는 것을 방지하기 위해 반드시 체크해야 한다.
+	{
+		// 있다.
+		CharacterStatus& MageStatus = Characters[CharacterType::Mage];	// []연산자로 Value에 접근
+		printf("\n[] 접근법 : %s", ToString(CharacterType::Mage).c_str());
+		PrintStatus(MageStatus);
+	}
+	else
+	{
+		// 없다.
+	}
+
+	// 없는 항목에 접근하면 새 항목이 생긴다.
+	CharacterStatus& ThiefStatus = Characters[CharacterType::Thief];	
+	printf("[] 없는 키 접근 : %s", ToString(CharacterType::Thief).c_str());
+	PrintStatus(ThiefStatus);
+
+	printf("\n전체 캐릭터 출력\n");
+	//for(const std::pair<CharacterType, CharacterStatus>& pair : Characters)
+	for (const auto& pair : Characters)
+	{
+		printf("캐릭터 타입 : %6s", ToString(pair.first).c_str());
+		PrintStatus(pair.second);	// first = 키, second = value
+	}
+	printf("\n도적 삭제\n");
+	Characters.erase(CharacterType::Thief);
+	printf("\n전체 캐릭터 출력\n");
+	
+	for (const auto& pair : Characters)
+	{
+		printf("캐릭터 타입 : %6s", ToString(pair.first).c_str());
+		PrintStatus(pair.second);	// first = 키, second = value
+	}
+
+	printf("\n전체 삭제\n");
+	Characters.clear();
+	printf("\n전체 캐릭터 출력\n");
+	for (const auto& pair : Characters)
+	{
+		printf("캐릭터 타입 : %6s", ToString(pair.first).c_str());
+		PrintStatus(pair.second);	// first = 키, second = value
+	}
+
+	int i = 0;
+
+
+}
+
+void Day0924::TestUnorderedMap()
+{
+	std::unordered_map<SortTest, std::string> TestMap;
+	SortTest Test1 = { 1, 2.5f };
+	SortTest Test2 = { 3, 1.5f };
+	TestMap[Test1] = "Hello";
+	TestMap[Test2] = "World";
+	// 키값은 Hash 함수가 있어야 한다.
+	// 키값이 같은지 비교할 수 있도록 == 연산자가 있어야 한다.
 
 }
